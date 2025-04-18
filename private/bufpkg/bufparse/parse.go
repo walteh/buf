@@ -20,7 +20,7 @@ import (
 )
 
 func parseFullNameComponents(path string) (registry string, owner string, name string, err error) {
-	slashSplit := strings.Split(path, "/")
+	slashSplit := strings.SplitN(path, "/", 3)
 	if len(slashSplit) != 3 {
 		return "", "", "", newInvalidFullNameStringError(path)
 	}

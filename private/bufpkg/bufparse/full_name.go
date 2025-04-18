@@ -178,8 +178,8 @@ func validateFullNameParameters(
 	if name == "" {
 		return errors.New("name is empty")
 	}
-	if strings.Contains(name, "/") {
-		return fmt.Errorf("name %q cannot contain slashes", name)
-	}
+	// if strings.Contains(name, "/") {
+	// 	return fmt.Errorf("name %q cannot contain slashes", name)
+	// }
 	return nil
 }

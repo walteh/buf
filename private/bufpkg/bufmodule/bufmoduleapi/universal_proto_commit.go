@@ -147,6 +147,7 @@ func getUniversalProtoCommitsForRegistryAndModuleRefs(
 	}
 }
 
+//go:mark
 func getV1ProtoCommitsForRegistryAndResourceRefs(
 	ctx context.Context,
 	moduleClientProvider bufregistryapimodule.V1CommitServiceClientProvider,
