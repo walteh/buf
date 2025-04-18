@@ -17,8 +17,8 @@ package bufcheckserverhandle
 import (
 	"strings"
 
-	"github.com/bufbuild/buf/private/bufpkg/bufprotosource"
-	"github.com/bufbuild/buf/private/pkg/stringutil"
+	"github.com/walteh/buf/private/bufpkg/bufprotosource"
+	"github.com/walteh/buf/private/pkg/stringutil"
 )
 
 func fieldToLowerSnakeCase(s string) string {

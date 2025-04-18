@@ -17,8 +17,8 @@ package bufmodule
 import (
 	"sync"
 
-	"github.com/bufbuild/buf/private/pkg/slicesext"
-	"github.com/bufbuild/buf/private/pkg/storage"
+	"github.com/walteh/buf/private/pkg/slicesext"
+	"github.com/walteh/buf/private/pkg/storage"
 )
 
 // FileInfo is the file info for a Module file.

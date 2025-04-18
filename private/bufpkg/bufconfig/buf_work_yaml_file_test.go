@@ -19,8 +19,8 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/bufbuild/buf/private/pkg/storage/storagemem"
 	"github.com/stretchr/testify/require"
+	"github.com/walteh/buf/private/pkg/storage/storagemem"
 )
 
 func TestPutAndGetBufWorkYAMLFileForPrefix(t *testing.T) {

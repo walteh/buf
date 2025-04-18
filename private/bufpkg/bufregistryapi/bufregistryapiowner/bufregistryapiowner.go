@@ -16,7 +16,7 @@ package bufregistryapiowner
 
 import (
 	"buf.build/gen/go/bufbuild/registry/connectrpc/go/buf/registry/owner/v1/ownerv1connect"
-	"github.com/bufbuild/buf/private/pkg/connectclient"
+	"github.com/walteh/buf/private/pkg/connectclient"
 )
 
 var (

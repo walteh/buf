@@ -21,7 +21,7 @@
 package registryv1alpha1
 
 import (
-	v1 "github.com/bufbuild/buf/private/gen/proto/go/buf/alpha/image/v1"
+	v1 "github.com/walteh/buf/private/gen/proto/go/buf/alpha/image/v1"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
@@ -4899,8 +4899,8 @@ const file_buf_alpha_registry_v1alpha1_plugin_curation_proto_rawDesc = "" +
 	"\x16GetLatestCuratedPlugin\x12:.buf.alpha.registry.v1alpha1.GetLatestCuratedPluginRequest\x1a;.buf.alpha.registry.v1alpha1.GetLatestCuratedPluginResponse\"\x03\x90\x02\x01\x12\x8d\x01\n" +
 	"\x13DeleteCuratedPlugin\x127.buf.alpha.registry.v1alpha1.DeleteCuratedPluginRequest\x1a8.buf.alpha.registry.v1alpha1.DeleteCuratedPluginResponse\"\x03\x90\x02\x022\x8c\x01\n" +
 	"\x15CodeGenerationService\x12s\n" +
-	"\fGenerateCode\x120.buf.alpha.registry.v1alpha1.GenerateCodeRequest\x1a1.buf.alpha.registry.v1alpha1.GenerateCodeResponseB\xa0\x02\n" +
-	"\x1fcom.buf.alpha.registry.v1alpha1B\x13PluginCurationProtoP\x01ZYgithub.com/bufbuild/buf/private/gen/proto/go/buf/alpha/registry/v1alpha1;registryv1alpha1\xa2\x02\x03BAR\xaa\x02\x1bBuf.Alpha.Registry.V1alpha1\xca\x02\x1bBuf\\Alpha\\Registry\\V1alpha1\xe2\x02'Buf\\Alpha\\Registry\\V1alpha1\\GPBMetadata\xea\x02\x1eBuf::Alpha::Registry::V1alpha1b\x06proto3"
+	"\fGenerateCode\x120.buf.alpha.registry.v1alpha1.GenerateCodeRequest\x1a1.buf.alpha.registry.v1alpha1.GenerateCodeResponseB\x9e\x02\n" +
+	"\x1fcom.buf.alpha.registry.v1alpha1B\x13PluginCurationProtoP\x01ZWgithub.com/walteh/buf/private/gen/proto/go/buf/alpha/registry/v1alpha1;registryv1alpha1\xa2\x02\x03BAR\xaa\x02\x1bBuf.Alpha.Registry.V1alpha1\xca\x02\x1bBuf\\Alpha\\Registry\\V1alpha1\xe2\x02'Buf\\Alpha\\Registry\\V1alpha1\\GPBMetadata\xea\x02\x1eBuf::Alpha::Registry::V1alpha1b\x06proto3"
 
 var file_buf_alpha_registry_v1alpha1_plugin_curation_proto_enumTypes = make([]protoimpl.EnumInfo, 7)
 var file_buf_alpha_registry_v1alpha1_plugin_curation_proto_msgTypes = make([]protoimpl.MessageInfo, 37)

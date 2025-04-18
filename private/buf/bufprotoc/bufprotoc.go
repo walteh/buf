@@ -21,12 +21,12 @@ import (
 	"log/slog"
 	"sort"
 
-	"github.com/bufbuild/buf/private/bufpkg/bufmodule"
-	"github.com/bufbuild/buf/private/pkg/normalpath"
-	"github.com/bufbuild/buf/private/pkg/slicesext"
-	"github.com/bufbuild/buf/private/pkg/storage"
-	"github.com/bufbuild/buf/private/pkg/storage/storageos"
-	"github.com/bufbuild/buf/private/pkg/stringutil"
+	"github.com/walteh/buf/private/bufpkg/bufmodule"
+	"github.com/walteh/buf/private/pkg/normalpath"
+	"github.com/walteh/buf/private/pkg/slicesext"
+	"github.com/walteh/buf/private/pkg/storage"
+	"github.com/walteh/buf/private/pkg/storage/storageos"
+	"github.com/walteh/buf/private/pkg/stringutil"
 )
 
 // NewModuleSetForProtoc returns a new ModuleSet for protoc -I dirPaths and filePaths.
@@ -61,7 +61,7 @@ func NewModuleSetForProtoc(
 			return nil, err
 		}
 		// need to do match extension here
-		// https://github.com/bufbuild/buf/issues/113
+		// https://github.com/walteh/buf/issues/113
 		rootBuckets = append(rootBuckets, storage.FilterReadBucket(rootBucket, storage.MatchPathExt(".proto")))
 	}
 	targetPaths, err := slicesext.MapError(

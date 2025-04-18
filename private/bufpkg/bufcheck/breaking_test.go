@@ -23,19 +23,19 @@ import (
 	"testing"
 	"time"
 
-	"github.com/bufbuild/buf/private/buf/buftarget"
-	"github.com/bufbuild/buf/private/buf/bufworkspace"
-	"github.com/bufbuild/buf/private/bufpkg/bufanalysis"
-	"github.com/bufbuild/buf/private/bufpkg/bufanalysis/bufanalysistesting"
-	"github.com/bufbuild/buf/private/bufpkg/bufcheck"
-	"github.com/bufbuild/buf/private/bufpkg/bufimage"
-	"github.com/bufbuild/buf/private/bufpkg/bufmodule"
-	"github.com/bufbuild/buf/private/bufpkg/bufplugin"
-	"github.com/bufbuild/buf/private/pkg/slogtestext"
-	"github.com/bufbuild/buf/private/pkg/storage/storageos"
-	"github.com/bufbuild/buf/private/pkg/wasm"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	"github.com/walteh/buf/private/buf/buftarget"
+	"github.com/walteh/buf/private/buf/bufworkspace"
+	"github.com/walteh/buf/private/bufpkg/bufanalysis"
+	"github.com/walteh/buf/private/bufpkg/bufanalysis/bufanalysistesting"
+	"github.com/walteh/buf/private/bufpkg/bufcheck"
+	"github.com/walteh/buf/private/bufpkg/bufimage"
+	"github.com/walteh/buf/private/bufpkg/bufmodule"
+	"github.com/walteh/buf/private/bufpkg/bufplugin"
+	"github.com/walteh/buf/private/pkg/slogtestext"
+	"github.com/walteh/buf/private/pkg/storage/storageos"
+	"github.com/walteh/buf/private/pkg/wasm"
 )
 
 func TestRunBreakingEnumNoDelete(t *testing.T) {
@@ -865,7 +865,7 @@ func TestRunBreakingFileNoDelete(t *testing.T) {
 
 func TestRunBreakingFileNoDeleteUnstable(t *testing.T) {
 	t.Parallel()
-	// https://github.com/bufbuild/buf/issues/211
+	// https://github.com/walteh/buf/issues/211
 	testBreaking(
 		t,
 		"breaking_file_no_delete_unstable",

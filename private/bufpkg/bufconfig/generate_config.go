@@ -17,7 +17,7 @@ package bufconfig
 import (
 	"errors"
 
-	"github.com/bufbuild/buf/private/pkg/slicesext"
+	"github.com/walteh/buf/private/pkg/slicesext"
 )
 
 // GenerateConfig is a generation configuration.

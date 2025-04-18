@@ -19,7 +19,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/bufbuild/buf/private/pkg/netext"
+	"github.com/walteh/buf/private/pkg/netext"
 )
 
 // ModuleOwner represents a module owner, consisting of a registry and owner.

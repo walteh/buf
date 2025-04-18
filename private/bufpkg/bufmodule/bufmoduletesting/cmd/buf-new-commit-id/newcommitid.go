@@ -18,11 +18,11 @@ import (
 	"context"
 	"time"
 
-	"github.com/bufbuild/buf/private/pkg/app/appcmd"
-	"github.com/bufbuild/buf/private/pkg/app/appext"
-	"github.com/bufbuild/buf/private/pkg/slogapp"
-	"github.com/bufbuild/buf/private/pkg/uuidutil"
 	"github.com/spf13/pflag"
+	"github.com/walteh/buf/private/pkg/app/appcmd"
+	"github.com/walteh/buf/private/pkg/app/appext"
+	"github.com/walteh/buf/private/pkg/slogapp"
+	"github.com/walteh/buf/private/pkg/uuidutil"
 )
 
 const (

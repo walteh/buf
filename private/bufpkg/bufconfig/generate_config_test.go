@@ -17,8 +17,8 @@ package bufconfig
 import (
 	"testing"
 
-	"github.com/bufbuild/buf/private/pkg/slicesext"
 	"github.com/stretchr/testify/require"
+	"github.com/walteh/buf/private/pkg/slicesext"
 	"google.golang.org/protobuf/proto"
 	"google.golang.org/protobuf/types/descriptorpb"
 )

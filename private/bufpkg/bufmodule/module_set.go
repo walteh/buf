@@ -20,13 +20,13 @@ import (
 	"io/fs"
 	"sort"
 
-	"github.com/bufbuild/buf/private/bufpkg/bufparse"
-	"github.com/bufbuild/buf/private/pkg/cache"
-	"github.com/bufbuild/buf/private/pkg/dag"
-	"github.com/bufbuild/buf/private/pkg/slicesext"
-	"github.com/bufbuild/buf/private/pkg/syserror"
-	"github.com/bufbuild/buf/private/pkg/uuidutil"
 	"github.com/google/uuid"
+	"github.com/walteh/buf/private/bufpkg/bufparse"
+	"github.com/walteh/buf/private/pkg/cache"
+	"github.com/walteh/buf/private/pkg/dag"
+	"github.com/walteh/buf/private/pkg/slicesext"
+	"github.com/walteh/buf/private/pkg/syserror"
+	"github.com/walteh/buf/private/pkg/uuidutil"
 )
 
 // ModuleSet is a set of Modules constructed by a ModuleBuilder.

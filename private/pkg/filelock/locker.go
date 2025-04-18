@@ -21,7 +21,7 @@ import (
 	"slices"
 	"time"
 
-	"github.com/bufbuild/buf/private/pkg/normalpath"
+	"github.com/walteh/buf/private/pkg/normalpath"
 )
 
 type locker struct {

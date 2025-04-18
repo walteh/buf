@@ -21,7 +21,7 @@ import (
 )
 
 func TestNormalizeAndCheckPathsRelSuccess1(t *testing.T) {
-	// https://github.com/bufbuild/buf/issues/56
+	// https://github.com/walteh/buf/issues/56
 	t.Parallel()
 	testNormalizeAndCheckPathsRelSuccess(
 		t,

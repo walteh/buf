@@ -23,8 +23,8 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/bufbuild/buf/private/pkg/app"
 	"github.com/stretchr/testify/require"
+	"github.com/walteh/buf/private/pkg/app"
 )
 
 func TestRoundTrip1(t *testing.T) {

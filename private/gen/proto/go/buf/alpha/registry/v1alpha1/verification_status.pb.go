@@ -91,8 +91,8 @@ const file_buf_alpha_registry_v1alpha1_verification_status_proto_rawDesc = "" +
 	"\x12VerificationStatus\x12#\n" +
 	"\x1fVERIFICATION_STATUS_UNSPECIFIED\x10\x00\x12 \n" +
 	"\x1cVERIFICATION_STATUS_OFFICIAL\x10\x01\x12*\n" +
-	"&VERIFICATION_STATUS_VERIFIED_PUBLISHER\x10\x02B\xa4\x02\n" +
-	"\x1fcom.buf.alpha.registry.v1alpha1B\x17VerificationStatusProtoP\x01ZYgithub.com/bufbuild/buf/private/gen/proto/go/buf/alpha/registry/v1alpha1;registryv1alpha1\xa2\x02\x03BAR\xaa\x02\x1bBuf.Alpha.Registry.V1alpha1\xca\x02\x1bBuf\\Alpha\\Registry\\V1alpha1\xe2\x02'Buf\\Alpha\\Registry\\V1alpha1\\GPBMetadata\xea\x02\x1eBuf::Alpha::Registry::V1alpha1b\x06proto3"
+	"&VERIFICATION_STATUS_VERIFIED_PUBLISHER\x10\x02B\xa2\x02\n" +
+	"\x1fcom.buf.alpha.registry.v1alpha1B\x17VerificationStatusProtoP\x01ZWgithub.com/walteh/buf/private/gen/proto/go/buf/alpha/registry/v1alpha1;registryv1alpha1\xa2\x02\x03BAR\xaa\x02\x1bBuf.Alpha.Registry.V1alpha1\xca\x02\x1bBuf\\Alpha\\Registry\\V1alpha1\xe2\x02'Buf\\Alpha\\Registry\\V1alpha1\\GPBMetadata\xea\x02\x1eBuf::Alpha::Registry::V1alpha1b\x06proto3"
 
 var file_buf_alpha_registry_v1alpha1_verification_status_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_buf_alpha_registry_v1alpha1_verification_status_proto_goTypes = []any{

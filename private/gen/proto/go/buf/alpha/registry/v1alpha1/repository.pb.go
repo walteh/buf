@@ -3755,8 +3755,8 @@ const file_buf_alpha_registry_v1alpha1_repository_proto_rawDesc = "" +
 	"\x15GetRepositorySettings\x129.buf.alpha.registry.v1alpha1.GetRepositorySettingsRequest\x1a:.buf.alpha.registry.v1alpha1.GetRepositorySettingsResponse\"\x03\x90\x02\x01\x12\xa9\x01\n" +
 	"\x1eUpdateRepositorySettingsByName\x12B.buf.alpha.registry.v1alpha1.UpdateRepositorySettingsByNameRequest\x1aC.buf.alpha.registry.v1alpha1.UpdateRepositorySettingsByNameResponse\x12\x99\x01\n" +
 	"\x17GetRepositoriesMetadata\x12;.buf.alpha.registry.v1alpha1.GetRepositoriesMetadataRequest\x1a<.buf.alpha.registry.v1alpha1.GetRepositoriesMetadataResponse\"\x03\x90\x02\x01\x12\xb4\x01\n" +
-	" GetRepositoryDependencyDOTString\x12D.buf.alpha.registry.v1alpha1.GetRepositoryDependencyDOTStringRequest\x1aE.buf.alpha.registry.v1alpha1.GetRepositoryDependencyDOTStringResponse\"\x03\x90\x02\x01B\x9c\x02\n" +
-	"\x1fcom.buf.alpha.registry.v1alpha1B\x0fRepositoryProtoP\x01ZYgithub.com/bufbuild/buf/private/gen/proto/go/buf/alpha/registry/v1alpha1;registryv1alpha1\xa2\x02\x03BAR\xaa\x02\x1bBuf.Alpha.Registry.V1alpha1\xca\x02\x1bBuf\\Alpha\\Registry\\V1alpha1\xe2\x02'Buf\\Alpha\\Registry\\V1alpha1\\GPBMetadata\xea\x02\x1eBuf::Alpha::Registry::V1alpha1b\x06proto3"
+	" GetRepositoryDependencyDOTString\x12D.buf.alpha.registry.v1alpha1.GetRepositoryDependencyDOTStringRequest\x1aE.buf.alpha.registry.v1alpha1.GetRepositoryDependencyDOTStringResponse\"\x03\x90\x02\x01B\x9a\x02\n" +
+	"\x1fcom.buf.alpha.registry.v1alpha1B\x0fRepositoryProtoP\x01ZWgithub.com/walteh/buf/private/gen/proto/go/buf/alpha/registry/v1alpha1;registryv1alpha1\xa2\x02\x03BAR\xaa\x02\x1bBuf.Alpha.Registry.V1alpha1\xca\x02\x1bBuf\\Alpha\\Registry\\V1alpha1\xe2\x02'Buf\\Alpha\\Registry\\V1alpha1\\GPBMetadata\xea\x02\x1eBuf::Alpha::Registry::V1alpha1b\x06proto3"
 
 var file_buf_alpha_registry_v1alpha1_repository_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_buf_alpha_registry_v1alpha1_repository_proto_msgTypes = make([]protoimpl.MessageInfo, 42)

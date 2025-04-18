@@ -20,16 +20,16 @@ import (
 	"io/fs"
 	"os"
 
-	"github.com/bufbuild/buf/private/buf/bufcli"
-	"github.com/bufbuild/buf/private/buf/bufctl"
-	"github.com/bufbuild/buf/private/bufpkg/bufmodule"
-	"github.com/bufbuild/buf/private/gen/data/datawkt"
-	"github.com/bufbuild/buf/private/pkg/app/appcmd"
-	"github.com/bufbuild/buf/private/pkg/app/appext"
-	"github.com/bufbuild/buf/private/pkg/storage"
-	"github.com/bufbuild/buf/private/pkg/storage/storageos"
-	"github.com/bufbuild/buf/private/pkg/syserror"
 	"github.com/spf13/pflag"
+	"github.com/walteh/buf/private/buf/bufcli"
+	"github.com/walteh/buf/private/buf/bufctl"
+	"github.com/walteh/buf/private/bufpkg/bufmodule"
+	"github.com/walteh/buf/private/gen/data/datawkt"
+	"github.com/walteh/buf/private/pkg/app/appcmd"
+	"github.com/walteh/buf/private/pkg/app/appext"
+	"github.com/walteh/buf/private/pkg/storage"
+	"github.com/walteh/buf/private/pkg/storage/storageos"
+	"github.com/walteh/buf/private/pkg/syserror"
 )
 
 const (
@@ -166,7 +166,7 @@ func run(
 	}
 
 	// In the case where we are excluding imports, we are allowing users to specify an input
-	// that may not have resolved imports (https://github.com/bufbuild/buf/issues/3002).
+	// that may not have resolved imports (https://github.com/walteh/buf/issues/3002).
 	// Thus we do not need to build the image, and instead we can return the non-import files
 	// from the workspace.
 	if flags.ExcludeImports {

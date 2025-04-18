@@ -14,7 +14,7 @@
 
 package protostatos
 
-import "github.com/bufbuild/buf/private/pkg/protostat"
+import "github.com/walteh/buf/private/pkg/protostat"
 
 // NewFileWalker returns a new FileWalker for the given filenames.
 //

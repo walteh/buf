@@ -18,9 +18,9 @@ import (
 	"context"
 	"log/slog"
 
-	"github.com/bufbuild/buf/private/bufpkg/bufmodule"
-	"github.com/bufbuild/buf/private/bufpkg/bufmodule/bufmodulestore"
 	"github.com/google/uuid"
+	"github.com/walteh/buf/private/bufpkg/bufmodule"
+	"github.com/walteh/buf/private/bufpkg/bufmodule/bufmodulestore"
 )
 
 // NewCommitProvider returns a new CommitProvider that caches the results of the delegate.

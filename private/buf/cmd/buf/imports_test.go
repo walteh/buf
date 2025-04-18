@@ -20,13 +20,13 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/bufbuild/buf/private/buf/bufctl"
-	"github.com/bufbuild/buf/private/bufpkg/bufmodule"
-	"github.com/bufbuild/buf/private/bufpkg/bufparse"
-	"github.com/bufbuild/buf/private/pkg/app/appcmd"
-	"github.com/bufbuild/buf/private/pkg/app/appcmd/appcmdtesting"
-	"github.com/bufbuild/buf/private/pkg/uuidutil"
 	"github.com/stretchr/testify/require"
+	"github.com/walteh/buf/private/buf/bufctl"
+	"github.com/walteh/buf/private/bufpkg/bufmodule"
+	"github.com/walteh/buf/private/bufpkg/bufparse"
+	"github.com/walteh/buf/private/pkg/app/appcmd"
+	"github.com/walteh/buf/private/pkg/app/appcmd/appcmdtesting"
+	"github.com/walteh/buf/private/pkg/uuidutil"
 )
 
 func TestValidNoImports(t *testing.T) {

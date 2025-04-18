@@ -21,8 +21,8 @@ import (
 
 	modulev1 "buf.build/gen/go/bufbuild/registry/protocolbuffers/go/buf/registry/module/v1"
 	"connectrpc.com/connect"
-	"github.com/bufbuild/buf/private/bufpkg/bufregistryapi/bufregistryapimodule"
-	"github.com/bufbuild/buf/private/pkg/cache"
+	"github.com/walteh/buf/private/bufpkg/bufregistryapi/bufregistryapimodule"
+	"github.com/walteh/buf/private/pkg/cache"
 )
 
 // v1ProtoModuleProvider provides a per-call provider of proto Modules.

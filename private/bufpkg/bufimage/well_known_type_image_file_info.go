@@ -15,9 +15,9 @@
 package bufimage
 
 import (
-	"github.com/bufbuild/buf/private/bufpkg/bufparse"
-	"github.com/bufbuild/buf/private/pkg/storage"
 	"github.com/google/uuid"
+	"github.com/walteh/buf/private/bufpkg/bufparse"
+	"github.com/walteh/buf/private/pkg/storage"
 )
 
 type wellKnownTypeImageFileInfo struct {

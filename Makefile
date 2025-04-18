@@ -1,7 +1,7 @@
 MAKEGO := make/go
 MAKEGO_REMOTE := https://github.com/bufbuild/makego.git
 PROJECT := buf
-GO_MODULE := github.com/bufbuild/buf
+GO_MODULE := github.com/walteh/buf
 DOCKER_ORG := bufbuild
 DOCKER_PROJECT := buf
 

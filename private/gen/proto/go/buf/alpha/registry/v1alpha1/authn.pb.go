@@ -262,9 +262,9 @@ const file_buf_alpha_registry_v1alpha1_authn_proto_rawDesc = "" +
 	"\asubject\x18\x01 \x01(\tR\asubject2\xa4\x02\n" +
 	"\fAuthnService\x12~\n" +
 	"\x0eGetCurrentUser\x122.buf.alpha.registry.v1alpha1.GetCurrentUserRequest\x1a3.buf.alpha.registry.v1alpha1.GetCurrentUserResponse\"\x03\x90\x02\x01\x12\x93\x01\n" +
-	"\x15GetCurrentUserSubject\x129.buf.alpha.registry.v1alpha1.GetCurrentUserSubjectRequest\x1a:.buf.alpha.registry.v1alpha1.GetCurrentUserSubjectResponse\"\x03\x90\x02\x01B\x97\x02\n" +
+	"\x15GetCurrentUserSubject\x129.buf.alpha.registry.v1alpha1.GetCurrentUserSubjectRequest\x1a:.buf.alpha.registry.v1alpha1.GetCurrentUserSubjectResponse\"\x03\x90\x02\x01B\x95\x02\n" +
 	"\x1fcom.buf.alpha.registry.v1alpha1B\n" +
-	"AuthnProtoP\x01ZYgithub.com/bufbuild/buf/private/gen/proto/go/buf/alpha/registry/v1alpha1;registryv1alpha1\xa2\x02\x03BAR\xaa\x02\x1bBuf.Alpha.Registry.V1alpha1\xca\x02\x1bBuf\\Alpha\\Registry\\V1alpha1\xe2\x02'Buf\\Alpha\\Registry\\V1alpha1\\GPBMetadata\xea\x02\x1eBuf::Alpha::Registry::V1alpha1b\x06proto3"
+	"AuthnProtoP\x01ZWgithub.com/walteh/buf/private/gen/proto/go/buf/alpha/registry/v1alpha1;registryv1alpha1\xa2\x02\x03BAR\xaa\x02\x1bBuf.Alpha.Registry.V1alpha1\xca\x02\x1bBuf\\Alpha\\Registry\\V1alpha1\xe2\x02'Buf\\Alpha\\Registry\\V1alpha1\\GPBMetadata\xea\x02\x1eBuf::Alpha::Registry::V1alpha1b\x06proto3"
 
 var file_buf_alpha_registry_v1alpha1_authn_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_buf_alpha_registry_v1alpha1_authn_proto_goTypes = []any{

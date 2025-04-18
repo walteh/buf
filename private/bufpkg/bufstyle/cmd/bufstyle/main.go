@@ -18,9 +18,9 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/bufbuild/buf/private/bufpkg/bufstyle"
-	"github.com/bufbuild/buf/private/pkg/encoding"
-	"github.com/bufbuild/buf/private/pkg/osext"
+	"github.com/walteh/buf/private/bufpkg/bufstyle"
+	"github.com/walteh/buf/private/pkg/encoding"
+	"github.com/walteh/buf/private/pkg/osext"
 	"golang.org/x/tools/go/analysis/multichecker"
 )
 

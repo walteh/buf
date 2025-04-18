@@ -21,7 +21,7 @@ import (
 	"strings"
 	"unicode"
 
-	"github.com/bufbuild/buf/private/pkg/syserror"
+	"github.com/walteh/buf/private/pkg/syserror"
 )
 
 // Printer prints with potential indents.

@@ -21,7 +21,7 @@ import (
 	"io"
 	"net/http"
 
-	"github.com/bufbuild/buf/private/pkg/protoencoding"
+	"github.com/walteh/buf/private/pkg/protoencoding"
 	"google.golang.org/protobuf/reflect/protoreflect"
 	"google.golang.org/protobuf/reflect/protoregistry"
 )

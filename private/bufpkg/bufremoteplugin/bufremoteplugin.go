@@ -19,10 +19,10 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/bufbuild/buf/private/bufpkg/bufremoteplugin/bufremotepluginconfig"
-	"github.com/bufbuild/buf/private/bufpkg/bufremoteplugin/bufremotepluginref"
-	registryv1alpha1 "github.com/bufbuild/buf/private/gen/proto/go/buf/alpha/registry/v1alpha1"
-	"github.com/bufbuild/buf/private/pkg/slicesext"
+	"github.com/walteh/buf/private/bufpkg/bufremoteplugin/bufremotepluginconfig"
+	"github.com/walteh/buf/private/bufpkg/bufremoteplugin/bufremotepluginref"
+	registryv1alpha1 "github.com/walteh/buf/private/gen/proto/go/buf/alpha/registry/v1alpha1"
+	"github.com/walteh/buf/private/pkg/slicesext"
 	"google.golang.org/protobuf/proto"
 )
 

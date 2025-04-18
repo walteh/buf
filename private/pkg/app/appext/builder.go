@@ -21,10 +21,10 @@ import (
 	"os"
 	"time"
 
-	"github.com/bufbuild/buf/private/pkg/app"
-	"github.com/bufbuild/buf/private/pkg/thread"
 	"github.com/pkg/profile"
 	"github.com/spf13/pflag"
+	"github.com/walteh/buf/private/pkg/app"
+	"github.com/walteh/buf/private/pkg/thread"
 )
 
 type builder struct {

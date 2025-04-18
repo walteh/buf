@@ -20,15 +20,15 @@ import (
 	"os"
 	"strings"
 
-	"github.com/bufbuild/buf/private/buf/bufcli"
-	"github.com/bufbuild/buf/private/bufpkg/bufparse"
-	"github.com/bufbuild/buf/private/bufpkg/bufplugin"
-	"github.com/bufbuild/buf/private/pkg/app/appcmd"
-	"github.com/bufbuild/buf/private/pkg/app/appext"
-	"github.com/bufbuild/buf/private/pkg/slicesext"
-	"github.com/bufbuild/buf/private/pkg/stringutil"
-	"github.com/bufbuild/buf/private/pkg/syserror"
 	"github.com/spf13/pflag"
+	"github.com/walteh/buf/private/buf/bufcli"
+	"github.com/walteh/buf/private/bufpkg/bufparse"
+	"github.com/walteh/buf/private/bufpkg/bufplugin"
+	"github.com/walteh/buf/private/pkg/app/appcmd"
+	"github.com/walteh/buf/private/pkg/app/appext"
+	"github.com/walteh/buf/private/pkg/slicesext"
+	"github.com/walteh/buf/private/pkg/stringutil"
+	"github.com/walteh/buf/private/pkg/syserror"
 )
 
 const (

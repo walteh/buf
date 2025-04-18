@@ -20,8 +20,8 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/bufbuild/buf/private/bufpkg/bufimage"
-	"github.com/bufbuild/buf/private/pkg/syserror"
+	"github.com/walteh/buf/private/bufpkg/bufimage"
+	"github.com/walteh/buf/private/pkg/syserror"
 	"google.golang.org/protobuf/proto"
 	"google.golang.org/protobuf/reflect/protoreflect"
 	"google.golang.org/protobuf/types/descriptorpb"

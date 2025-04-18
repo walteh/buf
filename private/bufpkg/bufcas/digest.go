@@ -23,9 +23,9 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/bufbuild/buf/private/bufpkg/bufparse"
-	"github.com/bufbuild/buf/private/pkg/shake256"
-	"github.com/bufbuild/buf/private/pkg/syserror"
+	"github.com/walteh/buf/private/bufpkg/bufparse"
+	"github.com/walteh/buf/private/pkg/shake256"
+	"github.com/walteh/buf/private/pkg/syserror"
 )
 
 const (

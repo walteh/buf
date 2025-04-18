@@ -17,8 +17,8 @@ package bufimage
 import (
 	"strings"
 
-	imagev1 "github.com/bufbuild/buf/private/gen/proto/go/buf/alpha/image/v1"
-	"github.com/bufbuild/buf/private/pkg/protoencoding"
+	imagev1 "github.com/walteh/buf/private/gen/proto/go/buf/alpha/image/v1"
+	"github.com/walteh/buf/private/pkg/protoencoding"
 	"google.golang.org/protobuf/proto"
 	"google.golang.org/protobuf/reflect/protoreflect"
 	"google.golang.org/protobuf/types/descriptorpb"

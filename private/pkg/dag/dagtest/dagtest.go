@@ -20,9 +20,9 @@ import (
 	"sort"
 	"testing"
 
-	"github.com/bufbuild/buf/private/pkg/dag"
-	"github.com/bufbuild/buf/private/pkg/slicesext"
 	"github.com/stretchr/testify/require"
+	"github.com/walteh/buf/private/pkg/dag"
+	"github.com/walteh/buf/private/pkg/slicesext"
 )
 
 type ExpectedNode[Key cmp.Ordered] struct {

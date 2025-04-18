@@ -20,14 +20,14 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/bufbuild/buf/private/buf/buffetch/internal"
-	"github.com/bufbuild/buf/private/bufpkg/bufparse"
-	"github.com/bufbuild/buf/private/pkg/app"
-	"github.com/bufbuild/buf/private/pkg/git"
-	"github.com/bufbuild/buf/private/pkg/normalpath"
-	"github.com/bufbuild/buf/private/pkg/slogtestext"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	"github.com/walteh/buf/private/buf/buffetch/internal"
+	"github.com/walteh/buf/private/bufpkg/bufparse"
+	"github.com/walteh/buf/private/pkg/app"
+	"github.com/walteh/buf/private/pkg/git"
+	"github.com/walteh/buf/private/pkg/normalpath"
+	"github.com/walteh/buf/private/pkg/slogtestext"
 )
 
 // TODO FUTURE: test ref from input config as well.

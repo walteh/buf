@@ -22,20 +22,20 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/bufbuild/buf/private/buf/buftesting"
-	"github.com/bufbuild/buf/private/pkg/app"
-	"github.com/bufbuild/buf/private/pkg/app/appcmd"
-	"github.com/bufbuild/buf/private/pkg/app/appcmd/appcmdtesting"
-	"github.com/bufbuild/buf/private/pkg/app/appext"
-	"github.com/bufbuild/buf/private/pkg/protoencoding"
-	"github.com/bufbuild/buf/private/pkg/prototesting"
-	"github.com/bufbuild/buf/private/pkg/storage"
-	"github.com/bufbuild/buf/private/pkg/storage/storagearchive"
-	"github.com/bufbuild/buf/private/pkg/storage/storagemem"
-	"github.com/bufbuild/buf/private/pkg/storage/storageos"
-	"github.com/bufbuild/buf/private/pkg/testingext"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	"github.com/walteh/buf/private/buf/buftesting"
+	"github.com/walteh/buf/private/pkg/app"
+	"github.com/walteh/buf/private/pkg/app/appcmd"
+	"github.com/walteh/buf/private/pkg/app/appcmd/appcmdtesting"
+	"github.com/walteh/buf/private/pkg/app/appext"
+	"github.com/walteh/buf/private/pkg/protoencoding"
+	"github.com/walteh/buf/private/pkg/prototesting"
+	"github.com/walteh/buf/private/pkg/storage"
+	"github.com/walteh/buf/private/pkg/storage/storagearchive"
+	"github.com/walteh/buf/private/pkg/storage/storagemem"
+	"github.com/walteh/buf/private/pkg/storage/storageos"
+	"github.com/walteh/buf/private/pkg/testingext"
 	"google.golang.org/protobuf/types/descriptorpb"
 )
 
@@ -59,7 +59,7 @@ type testPluginInfo struct {
 
 func TestOverlap(t *testing.T) {
 	t.Parallel()
-	// https://github.com/bufbuild/buf/issues/113
+	// https://github.com/walteh/buf/issues/113
 	appcmdtesting.RunCommandSuccess(
 		t,
 		func(name string) *appcmd.Command {

@@ -18,8 +18,8 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/bufbuild/buf/private/bufpkg/bufremoteplugin/bufremotepluginconfig"
-	"github.com/bufbuild/buf/private/bufpkg/bufremoteplugin/bufremotepluginref"
+	"github.com/walteh/buf/private/bufpkg/bufremoteplugin/bufremotepluginconfig"
+	"github.com/walteh/buf/private/bufpkg/bufremoteplugin/bufremotepluginref"
 	"golang.org/x/mod/semver"
 )
 

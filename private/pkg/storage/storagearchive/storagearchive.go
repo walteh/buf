@@ -24,10 +24,10 @@ import (
 	"io/fs"
 	"strings"
 
-	"github.com/bufbuild/buf/private/pkg/normalpath"
-	"github.com/bufbuild/buf/private/pkg/storage"
-	"github.com/bufbuild/buf/private/pkg/storage/storageutil"
 	"github.com/klauspost/compress/zip"
+	"github.com/walteh/buf/private/pkg/normalpath"
+	"github.com/walteh/buf/private/pkg/storage"
+	"github.com/walteh/buf/private/pkg/storage/storageutil"
 )
 
 var (

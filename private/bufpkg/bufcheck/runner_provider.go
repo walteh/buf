@@ -18,12 +18,12 @@ import (
 	"context"
 	"sync"
 
-	"github.com/bufbuild/buf/private/bufpkg/bufconfig"
-	"github.com/bufbuild/buf/private/bufpkg/bufparse"
-	"github.com/bufbuild/buf/private/bufpkg/bufplugin"
-	"github.com/bufbuild/buf/private/pkg/pluginrpcutil"
-	"github.com/bufbuild/buf/private/pkg/syserror"
-	"github.com/bufbuild/buf/private/pkg/wasm"
+	"github.com/walteh/buf/private/bufpkg/bufconfig"
+	"github.com/walteh/buf/private/bufpkg/bufparse"
+	"github.com/walteh/buf/private/bufpkg/bufplugin"
+	"github.com/walteh/buf/private/pkg/pluginrpcutil"
+	"github.com/walteh/buf/private/pkg/syserror"
+	"github.com/walteh/buf/private/pkg/wasm"
 	"pluginrpc.com/pluginrpc"
 )
 

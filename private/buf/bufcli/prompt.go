@@ -22,8 +22,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/bufbuild/buf/private/pkg/app"
-	"github.com/bufbuild/buf/private/pkg/syserror"
+	"github.com/walteh/buf/private/pkg/app"
+	"github.com/walteh/buf/private/pkg/syserror"
 	"golang.org/x/term"
 )
 

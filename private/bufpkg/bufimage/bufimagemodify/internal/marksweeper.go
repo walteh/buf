@@ -18,7 +18,7 @@ import (
 	"fmt"
 	"slices"
 
-	"github.com/bufbuild/buf/private/bufpkg/bufimage"
+	"github.com/walteh/buf/private/bufpkg/bufimage"
 	"google.golang.org/protobuf/types/descriptorpb"
 )
 

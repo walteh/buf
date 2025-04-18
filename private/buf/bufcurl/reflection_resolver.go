@@ -24,9 +24,9 @@ import (
 	"sync"
 
 	"connectrpc.com/connect"
-	reflectionv1 "github.com/bufbuild/buf/private/gen/proto/go/grpc/reflection/v1"
-	"github.com/bufbuild/buf/private/pkg/protoencoding"
-	"github.com/bufbuild/buf/private/pkg/verbose"
+	reflectionv1 "github.com/walteh/buf/private/gen/proto/go/grpc/reflection/v1"
+	"github.com/walteh/buf/private/pkg/protoencoding"
+	"github.com/walteh/buf/private/pkg/verbose"
 	"google.golang.org/protobuf/proto"
 	"google.golang.org/protobuf/reflect/protodesc"
 	"google.golang.org/protobuf/reflect/protoreflect"

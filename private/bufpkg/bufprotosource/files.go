@@ -18,8 +18,8 @@ import (
 	"context"
 	"sync"
 
-	"github.com/bufbuild/buf/private/pkg/slicesext"
-	"github.com/bufbuild/buf/private/pkg/thread"
+	"github.com/walteh/buf/private/pkg/slicesext"
+	"github.com/walteh/buf/private/pkg/thread"
 	"google.golang.org/protobuf/reflect/protodesc"
 )
 

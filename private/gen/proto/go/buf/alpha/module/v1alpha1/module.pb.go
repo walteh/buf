@@ -21,8 +21,8 @@
 package modulev1alpha1
 
 import (
-	v1 "github.com/bufbuild/buf/private/gen/proto/go/buf/alpha/breaking/v1"
-	v11 "github.com/bufbuild/buf/private/gen/proto/go/buf/alpha/lint/v1"
+	v1 "github.com/walteh/buf/private/gen/proto/go/buf/alpha/breaking/v1"
+	v11 "github.com/walteh/buf/private/gen/proto/go/buf/alpha/lint/v1"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -770,8 +770,8 @@ const file_buf_alpha_module_v1alpha1_module_proto_rawDesc = "" +
 	"\n" +
 	"DigestType\x12\x1b\n" +
 	"\x17DIGEST_TYPE_UNSPECIFIED\x10\x00\x12\x18\n" +
-	"\x14DIGEST_TYPE_SHAKE256\x10\x01B\x8a\x02\n" +
-	"\x1dcom.buf.alpha.module.v1alpha1B\vModuleProtoP\x01ZUgithub.com/bufbuild/buf/private/gen/proto/go/buf/alpha/module/v1alpha1;modulev1alpha1\xa2\x02\x03BAM\xaa\x02\x19Buf.Alpha.Module.V1alpha1\xca\x02\x19Buf\\Alpha\\Module\\V1alpha1\xe2\x02%Buf\\Alpha\\Module\\V1alpha1\\GPBMetadata\xea\x02\x1cBuf::Alpha::Module::V1alpha1b\x06proto3"
+	"\x14DIGEST_TYPE_SHAKE256\x10\x01B\x88\x02\n" +
+	"\x1dcom.buf.alpha.module.v1alpha1B\vModuleProtoP\x01ZSgithub.com/walteh/buf/private/gen/proto/go/buf/alpha/module/v1alpha1;modulev1alpha1\xa2\x02\x03BAM\xaa\x02\x19Buf.Alpha.Module.V1alpha1\xca\x02\x19Buf\\Alpha\\Module\\V1alpha1\xe2\x02%Buf\\Alpha\\Module\\V1alpha1\\GPBMetadata\xea\x02\x1cBuf::Alpha::Module::V1alpha1b\x06proto3"
 
 var file_buf_alpha_module_v1alpha1_module_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_buf_alpha_module_v1alpha1_module_proto_msgTypes = make([]protoimpl.MessageInfo, 6)

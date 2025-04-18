@@ -28,9 +28,9 @@ import (
 	"net/url"
 
 	"connectrpc.com/connect"
-	studiov1alpha1 "github.com/bufbuild/buf/private/gen/proto/go/buf/alpha/studio/v1alpha1"
-	"github.com/bufbuild/buf/private/pkg/protoencoding"
-	"github.com/bufbuild/buf/private/pkg/slogext"
+	studiov1alpha1 "github.com/walteh/buf/private/gen/proto/go/buf/alpha/studio/v1alpha1"
+	"github.com/walteh/buf/private/pkg/protoencoding"
+	"github.com/walteh/buf/private/pkg/slogext"
 	"golang.org/x/net/http2"
 	"google.golang.org/protobuf/proto"
 )

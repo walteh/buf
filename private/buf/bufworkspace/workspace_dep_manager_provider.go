@@ -18,9 +18,9 @@ import (
 	"context"
 	"log/slog"
 
-	"github.com/bufbuild/buf/private/buf/buftarget"
-	"github.com/bufbuild/buf/private/bufpkg/bufconfig"
-	"github.com/bufbuild/buf/private/pkg/storage"
+	"github.com/walteh/buf/private/buf/buftarget"
+	"github.com/walteh/buf/private/bufpkg/bufconfig"
+	"github.com/walteh/buf/private/pkg/storage"
 )
 
 // WorkspaceDepManagerProvider provides WorkspaceDepManagers.

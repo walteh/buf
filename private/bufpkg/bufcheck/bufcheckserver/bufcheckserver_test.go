@@ -19,7 +19,7 @@ import (
 
 	"buf.build/go/bufplugin/check"
 	"buf.build/go/bufplugin/check/checktest"
-	"github.com/bufbuild/buf/private/bufpkg/bufcheck/bufcheckserver"
+	"github.com/walteh/buf/private/bufpkg/bufcheck/bufcheckserver"
 )
 
 // *** DO NOT ADD MORE TESTS ***

@@ -259,8 +259,8 @@ const file_buf_alpha_registry_v1alpha1_role_proto_rawDesc = "" +
 	"\x15REPOSITORY_ROLE_ADMIN\x10\x02\x12\x19\n" +
 	"\x15REPOSITORY_ROLE_WRITE\x10\x03\x12\x18\n" +
 	"\x14REPOSITORY_ROLE_READ\x10\x04\x12!\n" +
-	"\x1dREPOSITORY_ROLE_LIMITED_WRITE\x10\x05B\x96\x02\n" +
-	"\x1fcom.buf.alpha.registry.v1alpha1B\tRoleProtoP\x01ZYgithub.com/bufbuild/buf/private/gen/proto/go/buf/alpha/registry/v1alpha1;registryv1alpha1\xa2\x02\x03BAR\xaa\x02\x1bBuf.Alpha.Registry.V1alpha1\xca\x02\x1bBuf\\Alpha\\Registry\\V1alpha1\xe2\x02'Buf\\Alpha\\Registry\\V1alpha1\\GPBMetadata\xea\x02\x1eBuf::Alpha::Registry::V1alpha1b\x06proto3"
+	"\x1dREPOSITORY_ROLE_LIMITED_WRITE\x10\x05B\x94\x02\n" +
+	"\x1fcom.buf.alpha.registry.v1alpha1B\tRoleProtoP\x01ZWgithub.com/walteh/buf/private/gen/proto/go/buf/alpha/registry/v1alpha1;registryv1alpha1\xa2\x02\x03BAR\xaa\x02\x1bBuf.Alpha.Registry.V1alpha1\xca\x02\x1bBuf\\Alpha\\Registry\\V1alpha1\xe2\x02'Buf\\Alpha\\Registry\\V1alpha1\\GPBMetadata\xea\x02\x1eBuf::Alpha::Registry::V1alpha1b\x06proto3"
 
 var file_buf_alpha_registry_v1alpha1_role_proto_enumTypes = make([]protoimpl.EnumInfo, 4)
 var file_buf_alpha_registry_v1alpha1_role_proto_goTypes = []any{

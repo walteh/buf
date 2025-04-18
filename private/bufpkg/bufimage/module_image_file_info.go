@@ -15,9 +15,9 @@
 package bufimage
 
 import (
-	"github.com/bufbuild/buf/private/bufpkg/bufmodule"
-	"github.com/bufbuild/buf/private/bufpkg/bufparse"
 	"github.com/google/uuid"
+	"github.com/walteh/buf/private/bufpkg/bufmodule"
+	"github.com/walteh/buf/private/bufpkg/bufparse"
 )
 
 type moduleImageFileInfo struct {

@@ -33,7 +33,7 @@ import (
 	"sort"
 	"strconv"
 
-	"github.com/bufbuild/buf/private/pkg/interrupt"
+	"github.com/walteh/buf/private/pkg/interrupt"
 )
 
 // EnvContainer provides environment variables.

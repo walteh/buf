@@ -21,12 +21,12 @@ import (
 	"os"
 	"time"
 
-	"github.com/bufbuild/buf/private/pkg/app/appcmd"
-	"github.com/bufbuild/buf/private/pkg/app/appext"
-	"github.com/bufbuild/buf/private/pkg/bandeps"
-	"github.com/bufbuild/buf/private/pkg/encoding"
-	"github.com/bufbuild/buf/private/pkg/slogapp"
 	"github.com/spf13/pflag"
+	"github.com/walteh/buf/private/pkg/app/appcmd"
+	"github.com/walteh/buf/private/pkg/app/appext"
+	"github.com/walteh/buf/private/pkg/bandeps"
+	"github.com/walteh/buf/private/pkg/encoding"
+	"github.com/walteh/buf/private/pkg/slogapp"
 )
 
 const (

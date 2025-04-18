@@ -19,8 +19,8 @@ import (
 	"log/slog"
 	"sync"
 
-	"github.com/bufbuild/buf/private/pkg/app"
-	"github.com/bufbuild/buf/private/pkg/thread"
+	"github.com/walteh/buf/private/pkg/app"
+	"github.com/walteh/buf/private/pkg/thread"
 )
 
 type checker struct {

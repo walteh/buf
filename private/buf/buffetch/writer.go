@@ -19,8 +19,8 @@ import (
 	"io"
 	"log/slog"
 
-	"github.com/bufbuild/buf/private/buf/buffetch/internal"
-	"github.com/bufbuild/buf/private/pkg/app"
+	"github.com/walteh/buf/private/buf/buffetch/internal"
+	"github.com/walteh/buf/private/pkg/app"
 )
 
 type writer struct {

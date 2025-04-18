@@ -20,12 +20,12 @@ import (
 	"io"
 	"log/slog"
 
-	"github.com/bufbuild/buf/private/bufpkg/bufimage"
-	"github.com/bufbuild/buf/private/pkg/slogext"
 	"github.com/bufbuild/protocompile"
 	"github.com/bufbuild/protocompile/linker"
 	"github.com/bufbuild/protocompile/protoutil"
 	"github.com/google/uuid"
+	"github.com/walteh/buf/private/bufpkg/bufimage"
+	"github.com/walteh/buf/private/pkg/slogext"
 	"go.lsp.dev/protocol"
 	"google.golang.org/protobuf/reflect/protoreflect"
 )

@@ -19,7 +19,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/bufbuild/buf/private/pkg/netext"
+	"github.com/walteh/buf/private/pkg/netext"
 )
 
 // FullName represents the full name of the entity, including its registry, owner, and name.

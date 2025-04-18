@@ -16,9 +16,9 @@ package buflintvalidate
 
 import (
 	"buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go/buf/validate"
-	"github.com/bufbuild/buf/private/bufpkg/bufprotosource"
-	"github.com/bufbuild/buf/private/pkg/protoencoding"
 	"github.com/bufbuild/protovalidate-go/resolve"
+	"github.com/walteh/buf/private/bufpkg/bufprotosource"
+	"github.com/walteh/buf/private/pkg/protoencoding"
 )
 
 // https://buf.build/bufbuild/protovalidate/docs/v0.5.1:buf.validate#buf.validate.MessageConstraints

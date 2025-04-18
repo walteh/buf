@@ -24,12 +24,12 @@ import (
 	"io"
 	"net"
 
-	"github.com/bufbuild/buf/private/buf/bufcli"
-	"github.com/bufbuild/buf/private/buf/buflsp"
-	"github.com/bufbuild/buf/private/pkg/app/appcmd"
-	"github.com/bufbuild/buf/private/pkg/app/appext"
-	"github.com/bufbuild/buf/private/pkg/ioext"
 	"github.com/spf13/pflag"
+	"github.com/walteh/buf/private/buf/bufcli"
+	"github.com/walteh/buf/private/buf/buflsp"
+	"github.com/walteh/buf/private/pkg/app/appcmd"
+	"github.com/walteh/buf/private/pkg/app/appext"
+	"github.com/walteh/buf/private/pkg/ioext"
 	"go.lsp.dev/jsonrpc2"
 )
 

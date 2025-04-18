@@ -21,7 +21,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/bufbuild/buf/private/bufpkg/bufparse"
+	"github.com/walteh/buf/private/bufpkg/bufparse"
 )
 
 // Manifest is a set of FileNodes.

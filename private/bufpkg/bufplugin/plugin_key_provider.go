@@ -19,8 +19,8 @@ import (
 	"fmt"
 	"io/fs"
 
-	"github.com/bufbuild/buf/private/bufpkg/bufparse"
-	"github.com/bufbuild/buf/private/pkg/slicesext"
+	"github.com/walteh/buf/private/bufpkg/bufparse"
+	"github.com/walteh/buf/private/pkg/slicesext"
 )
 
 var (

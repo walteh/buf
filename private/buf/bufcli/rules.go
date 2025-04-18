@@ -19,7 +19,7 @@ import (
 	"io"
 	"strings"
 
-	"github.com/bufbuild/buf/private/bufpkg/bufcheck"
+	"github.com/walteh/buf/private/bufpkg/bufcheck"
 )
 
 // AllRuleFormatStrings is all rule format strings.

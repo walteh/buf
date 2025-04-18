@@ -19,10 +19,10 @@ import (
 	"fmt"
 	"io/fs"
 
-	"github.com/bufbuild/buf/private/bufpkg/bufanalysis"
-	"github.com/bufbuild/buf/private/pkg/normalpath"
-	"github.com/bufbuild/buf/private/pkg/slicesext"
 	"github.com/bufbuild/protocompile/reporter"
+	"github.com/walteh/buf/private/bufpkg/bufanalysis"
+	"github.com/walteh/buf/private/pkg/normalpath"
+	"github.com/walteh/buf/private/pkg/slicesext"
 )
 
 // FileAnnotationForErrorWithPos returns a new FileAnnotation for the ErrorWithPos.

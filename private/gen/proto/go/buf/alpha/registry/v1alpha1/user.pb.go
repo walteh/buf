@@ -1864,8 +1864,8 @@ const file_buf_alpha_registry_v1alpha1_user_proto_rawDesc = "" +
 	"\x14UpdateUserServerRole\x128.buf.alpha.registry.v1alpha1.UpdateUserServerRoleRequest\x1a9.buf.alpha.registry.v1alpha1.UpdateUserServerRoleResponse\x12r\n" +
 	"\n" +
 	"CountUsers\x12..buf.alpha.registry.v1alpha1.CountUsersRequest\x1a/.buf.alpha.registry.v1alpha1.CountUsersResponse\"\x03\x90\x02\x01\x12\x85\x01\n" +
-	"\x12UpdateUserSettings\x126.buf.alpha.registry.v1alpha1.UpdateUserSettingsRequest\x1a7.buf.alpha.registry.v1alpha1.UpdateUserSettingsResponseB\x96\x02\n" +
-	"\x1fcom.buf.alpha.registry.v1alpha1B\tUserProtoP\x01ZYgithub.com/bufbuild/buf/private/gen/proto/go/buf/alpha/registry/v1alpha1;registryv1alpha1\xa2\x02\x03BAR\xaa\x02\x1bBuf.Alpha.Registry.V1alpha1\xca\x02\x1bBuf\\Alpha\\Registry\\V1alpha1\xe2\x02'Buf\\Alpha\\Registry\\V1alpha1\\GPBMetadata\xea\x02\x1eBuf::Alpha::Registry::V1alpha1b\x06proto3"
+	"\x12UpdateUserSettings\x126.buf.alpha.registry.v1alpha1.UpdateUserSettingsRequest\x1a7.buf.alpha.registry.v1alpha1.UpdateUserSettingsResponseB\x94\x02\n" +
+	"\x1fcom.buf.alpha.registry.v1alpha1B\tUserProtoP\x01ZWgithub.com/walteh/buf/private/gen/proto/go/buf/alpha/registry/v1alpha1;registryv1alpha1\xa2\x02\x03BAR\xaa\x02\x1bBuf.Alpha.Registry.V1alpha1\xca\x02\x1bBuf\\Alpha\\Registry\\V1alpha1\xe2\x02'Buf\\Alpha\\Registry\\V1alpha1\\GPBMetadata\xea\x02\x1eBuf::Alpha::Registry::V1alpha1b\x06proto3"
 
 var file_buf_alpha_registry_v1alpha1_user_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
 var file_buf_alpha_registry_v1alpha1_user_proto_msgTypes = make([]protoimpl.MessageInfo, 22)

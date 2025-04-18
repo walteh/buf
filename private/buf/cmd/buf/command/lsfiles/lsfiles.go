@@ -21,18 +21,18 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/bufbuild/buf/private/buf/bufcli"
-	"github.com/bufbuild/buf/private/buf/bufctl"
-	"github.com/bufbuild/buf/private/bufpkg/bufanalysis"
-	"github.com/bufbuild/buf/private/bufpkg/bufimage"
-	"github.com/bufbuild/buf/private/gen/data/datawkt"
-	"github.com/bufbuild/buf/private/pkg/app/appcmd"
-	"github.com/bufbuild/buf/private/pkg/app/appext"
-	"github.com/bufbuild/buf/private/pkg/slicesext"
-	"github.com/bufbuild/buf/private/pkg/stringutil"
-	"github.com/bufbuild/buf/private/pkg/uuidutil"
 	"github.com/google/uuid"
 	"github.com/spf13/pflag"
+	"github.com/walteh/buf/private/buf/bufcli"
+	"github.com/walteh/buf/private/buf/bufctl"
+	"github.com/walteh/buf/private/bufpkg/bufanalysis"
+	"github.com/walteh/buf/private/bufpkg/bufimage"
+	"github.com/walteh/buf/private/gen/data/datawkt"
+	"github.com/walteh/buf/private/pkg/app/appcmd"
+	"github.com/walteh/buf/private/pkg/app/appext"
+	"github.com/walteh/buf/private/pkg/slicesext"
+	"github.com/walteh/buf/private/pkg/stringutil"
+	"github.com/walteh/buf/private/pkg/uuidutil"
 )
 
 const (

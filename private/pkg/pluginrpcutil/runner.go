@@ -21,7 +21,7 @@ import (
 	"os/exec"
 	"slices"
 
-	"github.com/bufbuild/buf/private/pkg/execext"
+	"github.com/walteh/buf/private/pkg/execext"
 	"pluginrpc.com/pluginrpc"
 )
 

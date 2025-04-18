@@ -20,10 +20,10 @@ import (
 	"io/fs"
 	"log/slog"
 
-	"github.com/bufbuild/buf/private/bufpkg/bufplugin"
-	"github.com/bufbuild/buf/private/pkg/normalpath"
-	"github.com/bufbuild/buf/private/pkg/storage"
-	"github.com/bufbuild/buf/private/pkg/uuidutil"
+	"github.com/walteh/buf/private/bufpkg/bufplugin"
+	"github.com/walteh/buf/private/pkg/normalpath"
+	"github.com/walteh/buf/private/pkg/storage"
+	"github.com/walteh/buf/private/pkg/uuidutil"
 )
 
 // PluginDataStore reads and writes PluginsDatas.

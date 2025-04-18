@@ -18,7 +18,7 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/bufbuild/buf/private/pkg/netext"
+	"github.com/walteh/buf/private/pkg/netext"
 )
 
 type pluginIdentity struct {

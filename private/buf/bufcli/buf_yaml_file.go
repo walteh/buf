@@ -19,9 +19,9 @@ import (
 	"errors"
 	"io/fs"
 
-	"github.com/bufbuild/buf/private/bufpkg/bufconfig"
-	"github.com/bufbuild/buf/private/pkg/storage"
-	"github.com/bufbuild/buf/private/pkg/storage/storageos"
+	"github.com/walteh/buf/private/bufpkg/bufconfig"
+	"github.com/walteh/buf/private/pkg/storage"
+	"github.com/walteh/buf/private/pkg/storage/storageos"
 )
 
 // GetBufYAMLFileForDirPathOrOverride get the buf.yaml file for either the usually-flag-based

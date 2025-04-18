@@ -18,9 +18,9 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/bufbuild/buf/private/pkg/protoencoding"
-	"github.com/bufbuild/buf/private/pkg/uuidutil"
 	"github.com/google/uuid"
+	"github.com/walteh/buf/private/pkg/protoencoding"
+	"github.com/walteh/buf/private/pkg/uuidutil"
 	"google.golang.org/protobuf/types/descriptorpb"
 )
 

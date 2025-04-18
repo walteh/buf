@@ -16,7 +16,7 @@ package bufcheck
 
 import (
 	"buf.build/go/bufplugin/check"
-	"github.com/bufbuild/buf/private/pkg/slicesext"
+	"github.com/walteh/buf/private/pkg/slicesext"
 )
 
 var _ check.Rule = &rule{}

@@ -20,11 +20,11 @@ import (
 	"io/fs"
 	"path/filepath"
 
-	"github.com/bufbuild/buf/private/pkg/filepathext"
-	"github.com/bufbuild/buf/private/pkg/normalpath"
-	"github.com/bufbuild/buf/private/pkg/osext"
-	"github.com/bufbuild/buf/private/pkg/storage/storageos"
-	"github.com/bufbuild/buf/private/pkg/syserror"
+	"github.com/walteh/buf/private/pkg/filepathext"
+	"github.com/walteh/buf/private/pkg/normalpath"
+	"github.com/walteh/buf/private/pkg/osext"
+	"github.com/walteh/buf/private/pkg/storage/storageos"
+	"github.com/walteh/buf/private/pkg/syserror"
 )
 
 type cleaner struct {

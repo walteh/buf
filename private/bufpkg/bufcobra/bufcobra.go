@@ -18,9 +18,9 @@ import (
 	"fmt"
 	"regexp"
 
-	"github.com/bufbuild/buf/private/pkg/slicesext"
 	"github.com/spf13/cobra"
 	"github.com/spf13/pflag"
+	"github.com/walteh/buf/private/pkg/slicesext"
 )
 
 const (

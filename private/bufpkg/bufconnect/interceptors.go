@@ -24,7 +24,7 @@ import (
 	"time"
 
 	"connectrpc.com/connect"
-	"github.com/bufbuild/buf/private/pkg/app/appext"
+	"github.com/walteh/buf/private/pkg/app/appext"
 	"google.golang.org/protobuf/proto"
 )
 

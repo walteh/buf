@@ -23,9 +23,9 @@ import (
 	"log/slog"
 	"os"
 
-	"github.com/bufbuild/buf/private/pkg/app"
-	"github.com/bufbuild/buf/private/pkg/ioext"
 	"github.com/klauspost/compress/zstd"
+	"github.com/walteh/buf/private/pkg/app"
+	"github.com/walteh/buf/private/pkg/ioext"
 )
 
 type writer struct {

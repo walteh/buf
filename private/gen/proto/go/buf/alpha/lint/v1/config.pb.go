@@ -349,8 +349,8 @@ const file_buf_alpha_lint_v1_config_proto_rawDesc = "" +
 	"\x15allow_comment_ignores\x18\v \x01(\bR\x13allowCommentIgnores\"/\n" +
 	"\aIDPaths\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x14\n" +
-	"\x05paths\x18\x02 \x03(\tR\x05pathsB\xd2\x01\n" +
-	"\x15com.buf.alpha.lint.v1B\vConfigProtoP\x01ZEgithub.com/bufbuild/buf/private/gen/proto/go/buf/alpha/lint/v1;lintv1\xa2\x02\x03BAL\xaa\x02\x11Buf.Alpha.Lint.V1\xca\x02\x11Buf\\Alpha\\Lint\\V1\xe2\x02\x1dBuf\\Alpha\\Lint\\V1\\GPBMetadata\xea\x02\x14Buf::Alpha::Lint::V1b\x06proto3"
+	"\x05paths\x18\x02 \x03(\tR\x05pathsB\xd0\x01\n" +
+	"\x15com.buf.alpha.lint.v1B\vConfigProtoP\x01ZCgithub.com/walteh/buf/private/gen/proto/go/buf/alpha/lint/v1;lintv1\xa2\x02\x03BAL\xaa\x02\x11Buf.Alpha.Lint.V1\xca\x02\x11Buf\\Alpha\\Lint\\V1\xe2\x02\x1dBuf\\Alpha\\Lint\\V1\\GPBMetadata\xea\x02\x14Buf::Alpha::Lint::V1b\x06proto3"
 
 var file_buf_alpha_lint_v1_config_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_buf_alpha_lint_v1_config_proto_goTypes = []any{

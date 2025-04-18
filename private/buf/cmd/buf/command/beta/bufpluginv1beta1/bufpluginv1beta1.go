@@ -15,10 +15,10 @@
 package bufpluginv1beta1
 
 import (
-	"github.com/bufbuild/buf/private/buf/cmd/buf/command/beta/internal"
-	"github.com/bufbuild/buf/private/bufpkg/bufcheck/bufcheckserver"
-	"github.com/bufbuild/buf/private/pkg/app/appcmd"
-	"github.com/bufbuild/buf/private/pkg/app/appext"
+	"github.com/walteh/buf/private/buf/cmd/buf/command/beta/internal"
+	"github.com/walteh/buf/private/bufpkg/bufcheck/bufcheckserver"
+	"github.com/walteh/buf/private/pkg/app/appcmd"
+	"github.com/walteh/buf/private/pkg/app/appext"
 )
 
 // NewCommand returns a new Command.

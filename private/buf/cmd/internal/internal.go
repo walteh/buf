@@ -20,12 +20,12 @@ import (
 	"fmt"
 	"io/fs"
 
-	"github.com/bufbuild/buf/private/buf/bufcli"
-	"github.com/bufbuild/buf/private/bufpkg/bufconfig"
-	"github.com/bufbuild/buf/private/pkg/app"
-	"github.com/bufbuild/buf/private/pkg/app/appext"
-	"github.com/bufbuild/buf/private/pkg/slogapp"
 	"github.com/bufbuild/protoplugin"
+	"github.com/walteh/buf/private/buf/bufcli"
+	"github.com/walteh/buf/private/bufpkg/bufconfig"
+	"github.com/walteh/buf/private/pkg/app"
+	"github.com/walteh/buf/private/pkg/app/appext"
+	"github.com/walteh/buf/private/pkg/slogapp"
 )
 
 // GetModuleConfigForProtocPlugin gets ModuleConfigs for the protoc plugin implementations.

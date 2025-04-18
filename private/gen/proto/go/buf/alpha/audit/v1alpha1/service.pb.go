@@ -251,8 +251,8 @@ const file_buf_alpha_audit_v1alpha1_service_proto_rawDesc = "" +
 	"\x06events\x18\x01 \x03(\v2\x1f.buf.alpha.audit.v1alpha1.EventR\x06events\x12&\n" +
 	"\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken2\x92\x01\n" +
 	"\fAuditService\x12\x81\x01\n" +
-	"\x11ListAuditedEvents\x122.buf.alpha.audit.v1alpha1.ListAuditedEventsRequest\x1a3.buf.alpha.audit.v1alpha1.ListAuditedEventsResponse\"\x03\x90\x02\x01B\x84\x02\n" +
-	"\x1ccom.buf.alpha.audit.v1alpha1B\fServiceProtoP\x01ZSgithub.com/bufbuild/buf/private/gen/proto/go/buf/alpha/audit/v1alpha1;auditv1alpha1\xa2\x02\x03BAA\xaa\x02\x18Buf.Alpha.Audit.V1alpha1\xca\x02\x18Buf\\Alpha\\Audit\\V1alpha1\xe2\x02$Buf\\Alpha\\Audit\\V1alpha1\\GPBMetadata\xea\x02\x1bBuf::Alpha::Audit::V1alpha1b\x06proto3"
+	"\x11ListAuditedEvents\x122.buf.alpha.audit.v1alpha1.ListAuditedEventsRequest\x1a3.buf.alpha.audit.v1alpha1.ListAuditedEventsResponse\"\x03\x90\x02\x01B\x82\x02\n" +
+	"\x1ccom.buf.alpha.audit.v1alpha1B\fServiceProtoP\x01ZQgithub.com/walteh/buf/private/gen/proto/go/buf/alpha/audit/v1alpha1;auditv1alpha1\xa2\x02\x03BAA\xaa\x02\x18Buf.Alpha.Audit.V1alpha1\xca\x02\x18Buf\\Alpha\\Audit\\V1alpha1\xe2\x02$Buf\\Alpha\\Audit\\V1alpha1\\GPBMetadata\xea\x02\x1bBuf::Alpha::Audit::V1alpha1b\x06proto3"
 
 var file_buf_alpha_audit_v1alpha1_service_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_buf_alpha_audit_v1alpha1_service_proto_goTypes = []any{

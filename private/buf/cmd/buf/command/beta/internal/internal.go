@@ -18,10 +18,10 @@ import (
 	"context"
 
 	"buf.build/go/bufplugin/check"
-	"github.com/bufbuild/buf/private/pkg/app"
-	"github.com/bufbuild/buf/private/pkg/app/appcmd"
-	"github.com/bufbuild/buf/private/pkg/app/appext"
 	"github.com/spf13/pflag"
+	"github.com/walteh/buf/private/pkg/app"
+	"github.com/walteh/buf/private/pkg/app/appcmd"
+	"github.com/walteh/buf/private/pkg/app/appext"
 	"pluginrpc.com/pluginrpc"
 )
 

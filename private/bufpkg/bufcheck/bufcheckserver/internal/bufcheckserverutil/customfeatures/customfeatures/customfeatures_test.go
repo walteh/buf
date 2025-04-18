@@ -17,8 +17,8 @@ package customfeatures
 import (
 	"testing"
 
-	"github.com/bufbuild/buf/private/gen/proto/go/google/protobuf"
 	"github.com/stretchr/testify/require"
+	"github.com/walteh/buf/private/gen/proto/go/google/protobuf"
 	"google.golang.org/protobuf/reflect/protoreflect"
 	"google.golang.org/protobuf/types/descriptorpb"
 )

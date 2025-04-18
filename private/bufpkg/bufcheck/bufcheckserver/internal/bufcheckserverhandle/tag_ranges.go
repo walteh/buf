@@ -19,8 +19,8 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/bufbuild/buf/private/bufpkg/bufcheck/bufcheckserver/internal/bufcheckserverutil"
-	"github.com/bufbuild/buf/private/bufpkg/bufprotosource"
+	"github.com/walteh/buf/private/bufpkg/bufcheck/bufcheckserver/internal/bufcheckserverutil"
+	"github.com/walteh/buf/private/bufpkg/bufprotosource"
 )
 
 type tagRange interface {

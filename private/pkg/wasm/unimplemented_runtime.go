@@ -17,7 +17,7 @@ package wasm
 import (
 	"context"
 
-	"github.com/bufbuild/buf/private/pkg/syserror"
+	"github.com/walteh/buf/private/pkg/syserror"
 )
 
 type unimplementedRuntime struct{}

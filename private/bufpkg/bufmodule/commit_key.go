@@ -19,10 +19,10 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/bufbuild/buf/private/pkg/slicesext"
-	"github.com/bufbuild/buf/private/pkg/syserror"
-	"github.com/bufbuild/buf/private/pkg/uuidutil"
 	"github.com/google/uuid"
+	"github.com/walteh/buf/private/pkg/slicesext"
+	"github.com/walteh/buf/private/pkg/syserror"
+	"github.com/walteh/buf/private/pkg/uuidutil"
 )
 
 // CommitKey provides identifying information for a Commit when calling the CommitProvider.

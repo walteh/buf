@@ -21,7 +21,7 @@ import (
 	"context"
 	"log/slog"
 
-	"github.com/bufbuild/buf/private/pkg/slogext"
+	"github.com/walteh/buf/private/pkg/slogext"
 	"go.lsp.dev/jsonrpc2"
 )
 

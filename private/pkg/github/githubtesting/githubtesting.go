@@ -20,7 +20,7 @@ import (
 	"log/slog"
 	"net/http"
 
-	"github.com/bufbuild/buf/private/pkg/storage/storageos"
+	"github.com/walteh/buf/private/pkg/storage/storageos"
 )
 
 // ArchiveReader reads GitHub archives.

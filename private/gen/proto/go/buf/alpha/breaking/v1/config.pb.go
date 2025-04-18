@@ -270,8 +270,8 @@ const file_buf_alpha_breaking_v1_config_proto_rawDesc = "" +
 	"\x18ignore_unstable_packages\x18\x06 \x01(\bR\x16ignoreUnstablePackages\"/\n" +
 	"\aIDPaths\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x14\n" +
-	"\x05paths\x18\x02 \x03(\tR\x05pathsB\xee\x01\n" +
-	"\x19com.buf.alpha.breaking.v1B\vConfigProtoP\x01ZMgithub.com/bufbuild/buf/private/gen/proto/go/buf/alpha/breaking/v1;breakingv1\xa2\x02\x03BAB\xaa\x02\x15Buf.Alpha.Breaking.V1\xca\x02\x15Buf\\Alpha\\Breaking\\V1\xe2\x02!Buf\\Alpha\\Breaking\\V1\\GPBMetadata\xea\x02\x18Buf::Alpha::Breaking::V1b\x06proto3"
+	"\x05paths\x18\x02 \x03(\tR\x05pathsB\xec\x01\n" +
+	"\x19com.buf.alpha.breaking.v1B\vConfigProtoP\x01ZKgithub.com/walteh/buf/private/gen/proto/go/buf/alpha/breaking/v1;breakingv1\xa2\x02\x03BAB\xaa\x02\x15Buf.Alpha.Breaking.V1\xca\x02\x15Buf\\Alpha\\Breaking\\V1\xe2\x02!Buf\\Alpha\\Breaking\\V1\\GPBMetadata\xea\x02\x18Buf::Alpha::Breaking::V1b\x06proto3"
 
 var file_buf_alpha_breaking_v1_config_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_buf_alpha_breaking_v1_config_proto_goTypes = []any{

@@ -20,13 +20,13 @@ import (
 	"log/slog"
 	"net/http"
 
-	"github.com/bufbuild/buf/private/buf/buffetch/internal"
-	"github.com/bufbuild/buf/private/buf/buftarget"
-	"github.com/bufbuild/buf/private/bufpkg/bufmodule"
-	"github.com/bufbuild/buf/private/pkg/app"
-	"github.com/bufbuild/buf/private/pkg/git"
-	"github.com/bufbuild/buf/private/pkg/httpauth"
-	"github.com/bufbuild/buf/private/pkg/storage/storageos"
+	"github.com/walteh/buf/private/buf/buffetch/internal"
+	"github.com/walteh/buf/private/buf/buftarget"
+	"github.com/walteh/buf/private/bufpkg/bufmodule"
+	"github.com/walteh/buf/private/pkg/app"
+	"github.com/walteh/buf/private/pkg/git"
+	"github.com/walteh/buf/private/pkg/httpauth"
+	"github.com/walteh/buf/private/pkg/storage/storageos"
 )
 
 type reader struct {

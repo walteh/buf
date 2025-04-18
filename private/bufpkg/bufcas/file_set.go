@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"sort"
 
-	"github.com/bufbuild/buf/private/pkg/storage"
+	"github.com/walteh/buf/private/pkg/storage"
 )
 
 // FileSet is a pair of a Manifest and its associated BlobSet.

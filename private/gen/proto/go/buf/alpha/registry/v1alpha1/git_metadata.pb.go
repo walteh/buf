@@ -262,8 +262,8 @@ const file_buf_alpha_registry_v1alpha1_git_metadata_proto_rawDesc = "" +
 	"\x14GitCommitInformation\x12\x12\n" +
 	"\x04hash\x18\x01 \x01(\tR\x04hash\x12@\n" +
 	"\x06author\x18\x02 \x01(\v2(.buf.alpha.registry.v1alpha1.GitIdentityR\x06author\x12F\n" +
-	"\tcommitter\x18\x03 \x01(\v2(.buf.alpha.registry.v1alpha1.GitIdentityR\tcommitterB\x9d\x02\n" +
-	"\x1fcom.buf.alpha.registry.v1alpha1B\x10GitMetadataProtoP\x01ZYgithub.com/bufbuild/buf/private/gen/proto/go/buf/alpha/registry/v1alpha1;registryv1alpha1\xa2\x02\x03BAR\xaa\x02\x1bBuf.Alpha.Registry.V1alpha1\xca\x02\x1bBuf\\Alpha\\Registry\\V1alpha1\xe2\x02'Buf\\Alpha\\Registry\\V1alpha1\\GPBMetadata\xea\x02\x1eBuf::Alpha::Registry::V1alpha1b\x06proto3"
+	"\tcommitter\x18\x03 \x01(\v2(.buf.alpha.registry.v1alpha1.GitIdentityR\tcommitterB\x9b\x02\n" +
+	"\x1fcom.buf.alpha.registry.v1alpha1B\x10GitMetadataProtoP\x01ZWgithub.com/walteh/buf/private/gen/proto/go/buf/alpha/registry/v1alpha1;registryv1alpha1\xa2\x02\x03BAR\xaa\x02\x1bBuf.Alpha.Registry.V1alpha1\xca\x02\x1bBuf\\Alpha\\Registry\\V1alpha1\xe2\x02'Buf\\Alpha\\Registry\\V1alpha1\\GPBMetadata\xea\x02\x1eBuf::Alpha::Registry::V1alpha1b\x06proto3"
 
 var file_buf_alpha_registry_v1alpha1_git_metadata_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_buf_alpha_registry_v1alpha1_git_metadata_proto_goTypes = []any{

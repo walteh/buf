@@ -23,9 +23,9 @@ import (
 	"sync"
 
 	"buf.build/go/bufplugin/check"
-	"github.com/bufbuild/buf/private/pkg/slicesext"
-	"github.com/bufbuild/buf/private/pkg/slogext"
-	"github.com/bufbuild/buf/private/pkg/thread"
+	"github.com/walteh/buf/private/pkg/slicesext"
+	"github.com/walteh/buf/private/pkg/slogext"
+	"github.com/walteh/buf/private/pkg/thread"
 )
 
 type multiClient struct {

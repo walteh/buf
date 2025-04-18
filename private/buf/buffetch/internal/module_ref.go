@@ -17,9 +17,9 @@ package internal
 import (
 	"strings"
 
-	"github.com/bufbuild/buf/private/bufpkg/bufparse"
-	"github.com/bufbuild/buf/private/bufpkg/bufregistryapi/bufregistryapimodule"
-	"github.com/bufbuild/buf/private/pkg/app"
+	"github.com/walteh/buf/private/bufpkg/bufparse"
+	"github.com/walteh/buf/private/bufpkg/bufregistryapi/bufregistryapimodule"
+	"github.com/walteh/buf/private/pkg/app"
 )
 
 var (

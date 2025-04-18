@@ -33,7 +33,7 @@ import (
 	"path/filepath"
 	"runtime"
 
-	"github.com/bufbuild/buf/private/pkg/execext"
+	"github.com/walteh/buf/private/pkg/execext"
 )
 
 // Diff does a diff.

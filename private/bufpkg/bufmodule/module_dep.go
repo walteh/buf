@@ -21,10 +21,10 @@ import (
 	"io/fs"
 	"sort"
 
-	"github.com/bufbuild/buf/private/bufpkg/bufanalysis"
-	"github.com/bufbuild/buf/private/gen/data/datawkt"
-	"github.com/bufbuild/buf/private/pkg/slicesext"
-	"github.com/bufbuild/buf/private/pkg/syserror"
+	"github.com/walteh/buf/private/bufpkg/bufanalysis"
+	"github.com/walteh/buf/private/gen/data/datawkt"
+	"github.com/walteh/buf/private/pkg/slicesext"
+	"github.com/walteh/buf/private/pkg/syserror"
 )
 
 // ModuleDep is the dependency of a Module.

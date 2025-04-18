@@ -20,12 +20,12 @@ import (
 	"fmt"
 	"io/fs"
 
-	"github.com/bufbuild/buf/private/buf/bufcli"
-	"github.com/bufbuild/buf/private/bufpkg/bufconfig"
-	"github.com/bufbuild/buf/private/pkg/app/appcmd"
-	"github.com/bufbuild/buf/private/pkg/app/appext"
-	"github.com/bufbuild/buf/private/pkg/syserror"
 	"github.com/pkg/browser"
+	"github.com/walteh/buf/private/buf/bufcli"
+	"github.com/walteh/buf/private/bufpkg/bufconfig"
+	"github.com/walteh/buf/private/pkg/app/appcmd"
+	"github.com/walteh/buf/private/pkg/app/appext"
+	"github.com/walteh/buf/private/pkg/syserror"
 )
 
 const deprecationMessage = "this command is not supported for v2 buf.yaml files as v2 buf.yaml files contain multiple modules. However, this command will continue to work for v1 buf.yaml files."

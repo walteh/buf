@@ -349,9 +349,9 @@ const file_buf_alpha_registry_v1alpha1_owner_proto_rawDesc = "" +
 	"\x16GetOwnerByNameResponse\x128\n" +
 	"\x05owner\x18\x01 \x01(\v2\".buf.alpha.registry.v1alpha1.OwnerR\x05owner2\x8e\x01\n" +
 	"\fOwnerService\x12~\n" +
-	"\x0eGetOwnerByName\x122.buf.alpha.registry.v1alpha1.GetOwnerByNameRequest\x1a3.buf.alpha.registry.v1alpha1.GetOwnerByNameResponse\"\x03\x90\x02\x01B\x97\x02\n" +
+	"\x0eGetOwnerByName\x122.buf.alpha.registry.v1alpha1.GetOwnerByNameRequest\x1a3.buf.alpha.registry.v1alpha1.GetOwnerByNameResponse\"\x03\x90\x02\x01B\x95\x02\n" +
 	"\x1fcom.buf.alpha.registry.v1alpha1B\n" +
-	"OwnerProtoP\x01ZYgithub.com/bufbuild/buf/private/gen/proto/go/buf/alpha/registry/v1alpha1;registryv1alpha1\xa2\x02\x03BAR\xaa\x02\x1bBuf.Alpha.Registry.V1alpha1\xca\x02\x1bBuf\\Alpha\\Registry\\V1alpha1\xe2\x02'Buf\\Alpha\\Registry\\V1alpha1\\GPBMetadata\xea\x02\x1eBuf::Alpha::Registry::V1alpha1b\x06proto3"
+	"OwnerProtoP\x01ZWgithub.com/walteh/buf/private/gen/proto/go/buf/alpha/registry/v1alpha1;registryv1alpha1\xa2\x02\x03BAR\xaa\x02\x1bBuf.Alpha.Registry.V1alpha1\xca\x02\x1bBuf\\Alpha\\Registry\\V1alpha1\xe2\x02'Buf\\Alpha\\Registry\\V1alpha1\\GPBMetadata\xea\x02\x1eBuf::Alpha::Registry::V1alpha1b\x06proto3"
 
 var file_buf_alpha_registry_v1alpha1_owner_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
 var file_buf_alpha_registry_v1alpha1_owner_proto_goTypes = []any{

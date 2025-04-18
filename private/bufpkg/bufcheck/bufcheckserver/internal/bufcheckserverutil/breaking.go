@@ -19,7 +19,7 @@ import (
 	"fmt"
 
 	"buf.build/go/bufplugin/check"
-	"github.com/bufbuild/buf/private/bufpkg/bufprotosource"
+	"github.com/walteh/buf/private/bufpkg/bufprotosource"
 )
 
 // NewBreakingFilePairRuleHandler returns a new check.RuleHandler for the given function.

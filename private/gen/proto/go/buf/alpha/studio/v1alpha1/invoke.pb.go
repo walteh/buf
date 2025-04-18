@@ -341,8 +341,8 @@ const file_buf_alpha_studio_v1alpha1_invoke_proto_rawDesc = "" +
 	"\x0eInvokeResponse\x12<\n" +
 	"\aheaders\x18\x01 \x03(\v2\".buf.alpha.studio.v1alpha1.HeadersR\aheaders\x12\x12\n" +
 	"\x04body\x18\x02 \x01(\fR\x04body\x12>\n" +
-	"\btrailers\x18\x03 \x03(\v2\".buf.alpha.studio.v1alpha1.HeadersR\btrailersB\x8a\x02\n" +
-	"\x1dcom.buf.alpha.studio.v1alpha1B\vInvokeProtoP\x01ZUgithub.com/bufbuild/buf/private/gen/proto/go/buf/alpha/studio/v1alpha1;studiov1alpha1\xa2\x02\x03BAS\xaa\x02\x19Buf.Alpha.Studio.V1alpha1\xca\x02\x19Buf\\Alpha\\Studio\\V1alpha1\xe2\x02%Buf\\Alpha\\Studio\\V1alpha1\\GPBMetadata\xea\x02\x1cBuf::Alpha::Studio::V1alpha1b\x06proto3"
+	"\btrailers\x18\x03 \x03(\v2\".buf.alpha.studio.v1alpha1.HeadersR\btrailersB\x88\x02\n" +
+	"\x1dcom.buf.alpha.studio.v1alpha1B\vInvokeProtoP\x01ZSgithub.com/walteh/buf/private/gen/proto/go/buf/alpha/studio/v1alpha1;studiov1alpha1\xa2\x02\x03BAS\xaa\x02\x19Buf.Alpha.Studio.V1alpha1\xca\x02\x19Buf\\Alpha\\Studio\\V1alpha1\xe2\x02%Buf\\Alpha\\Studio\\V1alpha1\\GPBMetadata\xea\x02\x1cBuf::Alpha::Studio::V1alpha1b\x06proto3"
 
 var file_buf_alpha_studio_v1alpha1_invoke_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
 var file_buf_alpha_studio_v1alpha1_invoke_proto_goTypes = []any{

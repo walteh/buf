@@ -23,18 +23,18 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/bufbuild/buf/private/buf/buftesting"
-	"github.com/bufbuild/buf/private/bufpkg/bufanalysis"
-	"github.com/bufbuild/buf/private/bufpkg/bufimage"
-	"github.com/bufbuild/buf/private/bufpkg/bufmodule"
-	"github.com/bufbuild/buf/private/bufpkg/bufmodule/bufmoduletesting"
-	"github.com/bufbuild/buf/private/bufpkg/bufprotosource"
-	"github.com/bufbuild/buf/private/pkg/normalpath"
-	"github.com/bufbuild/buf/private/pkg/prototesting"
-	"github.com/bufbuild/buf/private/pkg/slogtestext"
-	"github.com/bufbuild/buf/private/pkg/testingext"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	"github.com/walteh/buf/private/buf/buftesting"
+	"github.com/walteh/buf/private/bufpkg/bufanalysis"
+	"github.com/walteh/buf/private/bufpkg/bufimage"
+	"github.com/walteh/buf/private/bufpkg/bufmodule"
+	"github.com/walteh/buf/private/bufpkg/bufmodule/bufmoduletesting"
+	"github.com/walteh/buf/private/bufpkg/bufprotosource"
+	"github.com/walteh/buf/private/pkg/normalpath"
+	"github.com/walteh/buf/private/pkg/prototesting"
+	"github.com/walteh/buf/private/pkg/slogtestext"
+	"github.com/walteh/buf/private/pkg/testingext"
 )
 
 var buftestingDirPath = filepath.Join(
@@ -278,7 +278,7 @@ func TestCyclicImport(t *testing.T) {
 }
 
 func TestDuplicateSyntheticOneofs(t *testing.T) {
-	// https://github.com/bufbuild/buf/issues/1071
+	// https://github.com/walteh/buf/issues/1071
 	t.Parallel()
 	testFileAnnotations(
 		t,

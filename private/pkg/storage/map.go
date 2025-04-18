@@ -21,8 +21,8 @@ import (
 	"io"
 	"io/fs"
 
-	"github.com/bufbuild/buf/private/pkg/normalpath"
-	"github.com/bufbuild/buf/private/pkg/storage/storageutil"
+	"github.com/walteh/buf/private/pkg/normalpath"
+	"github.com/walteh/buf/private/pkg/storage/storageutil"
 )
 
 // MapReadBucket maps the ReadBucket.

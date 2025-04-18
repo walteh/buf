@@ -21,8 +21,8 @@ import (
 
 	ownerv1 "buf.build/gen/go/bufbuild/registry/protocolbuffers/go/buf/registry/owner/v1"
 	"connectrpc.com/connect"
-	"github.com/bufbuild/buf/private/bufpkg/bufregistryapi/bufregistryapiowner"
-	"github.com/bufbuild/buf/private/pkg/cache"
+	"github.com/walteh/buf/private/bufpkg/bufregistryapi/bufregistryapiowner"
+	"github.com/walteh/buf/private/pkg/cache"
 )
 
 // v1ProtoOwnerProvider provides a per-call provider of proto Modules.

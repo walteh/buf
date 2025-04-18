@@ -21,7 +21,7 @@
 package webhookv1alpha1
 
 import (
-	v1alpha1 "github.com/bufbuild/buf/private/gen/proto/go/buf/alpha/registry/v1alpha1"
+	v1alpha1 "github.com/walteh/buf/private/gen/proto/go/buf/alpha/registry/v1alpha1"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
@@ -438,9 +438,9 @@ const file_buf_alpha_webhook_v1alpha1_event_proto_rawDesc = "" +
 	"repository\x18\x03 \x01(\v2'.buf.alpha.registry.v1alpha1.RepositoryR\n" +
 	"repository2l\n" +
 	"\fEventService\x12\\\n" +
-	"\x05Event\x12(.buf.alpha.webhook.v1alpha1.EventRequest\x1a).buf.alpha.webhook.v1alpha1.EventResponseB\x90\x02\n" +
+	"\x05Event\x12(.buf.alpha.webhook.v1alpha1.EventRequest\x1a).buf.alpha.webhook.v1alpha1.EventResponseB\x8e\x02\n" +
 	"\x1ecom.buf.alpha.webhook.v1alpha1B\n" +
-	"EventProtoP\x01ZWgithub.com/bufbuild/buf/private/gen/proto/go/buf/alpha/webhook/v1alpha1;webhookv1alpha1\xa2\x02\x03BAW\xaa\x02\x1aBuf.Alpha.Webhook.V1alpha1\xca\x02\x1aBuf\\Alpha\\Webhook\\V1alpha1\xe2\x02&Buf\\Alpha\\Webhook\\V1alpha1\\GPBMetadata\xea\x02\x1dBuf::Alpha::Webhook::V1alpha1b\x06proto3"
+	"EventProtoP\x01ZUgithub.com/walteh/buf/private/gen/proto/go/buf/alpha/webhook/v1alpha1;webhookv1alpha1\xa2\x02\x03BAW\xaa\x02\x1aBuf.Alpha.Webhook.V1alpha1\xca\x02\x1aBuf\\Alpha\\Webhook\\V1alpha1\xe2\x02&Buf\\Alpha\\Webhook\\V1alpha1\\GPBMetadata\xea\x02\x1dBuf::Alpha::Webhook::V1alpha1b\x06proto3"
 
 var file_buf_alpha_webhook_v1alpha1_event_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_buf_alpha_webhook_v1alpha1_event_proto_goTypes = []any{

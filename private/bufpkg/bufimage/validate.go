@@ -18,7 +18,7 @@ import (
 	"errors"
 	"fmt"
 
-	imagev1 "github.com/bufbuild/buf/private/gen/proto/go/buf/alpha/image/v1"
+	imagev1 "github.com/walteh/buf/private/gen/proto/go/buf/alpha/image/v1"
 )
 
 // we validate the actual fields of the FileDescriptorProtos as part of newImageFile

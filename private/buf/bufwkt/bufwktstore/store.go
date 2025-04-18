@@ -18,8 +18,8 @@ import (
 	"context"
 	"log/slog"
 
-	"github.com/bufbuild/buf/private/gen/data/datawkt"
-	"github.com/bufbuild/buf/private/pkg/storage"
+	"github.com/walteh/buf/private/gen/data/datawkt"
+	"github.com/walteh/buf/private/pkg/storage"
 )
 
 type store struct {

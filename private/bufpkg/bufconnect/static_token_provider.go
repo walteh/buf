@@ -19,7 +19,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/bufbuild/buf/private/pkg/app"
+	"github.com/walteh/buf/private/pkg/app"
 )
 
 // NewTokenProviderFromContainer creates a singleTokenProvider from the BUF_TOKEN environment variable

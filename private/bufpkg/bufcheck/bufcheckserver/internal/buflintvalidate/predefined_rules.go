@@ -18,11 +18,11 @@ import (
 	"strings"
 
 	"buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go/buf/validate"
-	"github.com/bufbuild/buf/private/bufpkg/bufprotosource"
-	"github.com/bufbuild/buf/private/pkg/protoencoding"
-	"github.com/bufbuild/buf/private/pkg/syserror"
 	celpv "github.com/bufbuild/protovalidate-go/cel"
 	"github.com/google/cel-go/cel"
+	"github.com/walteh/buf/private/bufpkg/bufprotosource"
+	"github.com/walteh/buf/private/pkg/protoencoding"
+	"github.com/walteh/buf/private/pkg/syserror"
 )
 
 const (

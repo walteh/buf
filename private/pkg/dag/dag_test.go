@@ -35,9 +35,9 @@ package dag_test
 import (
 	"testing"
 
-	"github.com/bufbuild/buf/private/pkg/dag"
-	"github.com/bufbuild/buf/private/pkg/dag/dagtest"
 	"github.com/stretchr/testify/require"
+	"github.com/walteh/buf/private/pkg/dag"
+	"github.com/walteh/buf/private/pkg/dag/dagtest"
 )
 
 func TestTopoSort(t *testing.T) {

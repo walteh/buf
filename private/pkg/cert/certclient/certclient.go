@@ -20,7 +20,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/bufbuild/buf/private/pkg/app/appext"
+	"github.com/walteh/buf/private/pkg/app/appext"
 )
 
 // ExternalClientTLSConfig allows users to configure TLS on the client side.

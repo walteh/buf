@@ -748,8 +748,8 @@ const file_buf_alpha_registry_v1alpha1_webhook_proto_rawDesc = "" +
 	"\x0eWebhookService\x12{\n" +
 	"\rCreateWebhook\x121.buf.alpha.registry.v1alpha1.CreateWebhookRequest\x1a2.buf.alpha.registry.v1alpha1.CreateWebhookResponse\"\x03\x90\x02\x02\x12{\n" +
 	"\rDeleteWebhook\x121.buf.alpha.registry.v1alpha1.DeleteWebhookRequest\x1a2.buf.alpha.registry.v1alpha1.DeleteWebhookResponse\"\x03\x90\x02\x02\x12x\n" +
-	"\fListWebhooks\x120.buf.alpha.registry.v1alpha1.ListWebhooksRequest\x1a1.buf.alpha.registry.v1alpha1.ListWebhooksResponse\"\x03\x90\x02\x01B\x99\x02\n" +
-	"\x1fcom.buf.alpha.registry.v1alpha1B\fWebhookProtoP\x01ZYgithub.com/bufbuild/buf/private/gen/proto/go/buf/alpha/registry/v1alpha1;registryv1alpha1\xa2\x02\x03BAR\xaa\x02\x1bBuf.Alpha.Registry.V1alpha1\xca\x02\x1bBuf\\Alpha\\Registry\\V1alpha1\xe2\x02'Buf\\Alpha\\Registry\\V1alpha1\\GPBMetadata\xea\x02\x1eBuf::Alpha::Registry::V1alpha1b\x06proto3"
+	"\fListWebhooks\x120.buf.alpha.registry.v1alpha1.ListWebhooksRequest\x1a1.buf.alpha.registry.v1alpha1.ListWebhooksResponse\"\x03\x90\x02\x01B\x97\x02\n" +
+	"\x1fcom.buf.alpha.registry.v1alpha1B\fWebhookProtoP\x01ZWgithub.com/walteh/buf/private/gen/proto/go/buf/alpha/registry/v1alpha1;registryv1alpha1\xa2\x02\x03BAR\xaa\x02\x1bBuf.Alpha.Registry.V1alpha1\xca\x02\x1bBuf\\Alpha\\Registry\\V1alpha1\xe2\x02'Buf\\Alpha\\Registry\\V1alpha1\\GPBMetadata\xea\x02\x1eBuf::Alpha::Registry::V1alpha1b\x06proto3"
 
 var file_buf_alpha_registry_v1alpha1_webhook_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_buf_alpha_registry_v1alpha1_webhook_proto_msgTypes = make([]protoimpl.MessageInfo, 7)

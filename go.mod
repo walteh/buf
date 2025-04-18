@@ -1,4 +1,4 @@
-module github.com/bufbuild/buf
+module github.com/walteh/buf
 
 go 1.23.4
 

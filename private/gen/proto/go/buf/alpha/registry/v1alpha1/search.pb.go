@@ -3176,8 +3176,8 @@ const file_buf_alpha_registry_v1alpha1_search_proto_rawDesc = "" +
 	"\x06Search\x12*.buf.alpha.registry.v1alpha1.SearchRequest\x1a+.buf.alpha.registry.v1alpha1.SearchResponse\"\x03\x90\x02\x01\x12o\n" +
 	"\tSearchTag\x12-.buf.alpha.registry.v1alpha1.SearchTagRequest\x1a..buf.alpha.registry.v1alpha1.SearchTagResponse\"\x03\x90\x02\x01\x12u\n" +
 	"\vSearchDraft\x12/.buf.alpha.registry.v1alpha1.SearchDraftRequest\x1a0.buf.alpha.registry.v1alpha1.SearchDraftResponse\"\x03\x90\x02\x01\x12\x8d\x01\n" +
-	"\x13SearchModuleContent\x127.buf.alpha.registry.v1alpha1.SearchModuleContentRequest\x1a8.buf.alpha.registry.v1alpha1.SearchModuleContentResponse\"\x03\x90\x02\x01B\x98\x02\n" +
-	"\x1fcom.buf.alpha.registry.v1alpha1B\vSearchProtoP\x01ZYgithub.com/bufbuild/buf/private/gen/proto/go/buf/alpha/registry/v1alpha1;registryv1alpha1\xa2\x02\x03BAR\xaa\x02\x1bBuf.Alpha.Registry.V1alpha1\xca\x02\x1bBuf\\Alpha\\Registry\\V1alpha1\xe2\x02'Buf\\Alpha\\Registry\\V1alpha1\\GPBMetadata\xea\x02\x1eBuf::Alpha::Registry::V1alpha1b\x06proto3"
+	"\x13SearchModuleContent\x127.buf.alpha.registry.v1alpha1.SearchModuleContentRequest\x1a8.buf.alpha.registry.v1alpha1.SearchModuleContentResponse\"\x03\x90\x02\x01B\x96\x02\n" +
+	"\x1fcom.buf.alpha.registry.v1alpha1B\vSearchProtoP\x01ZWgithub.com/walteh/buf/private/gen/proto/go/buf/alpha/registry/v1alpha1;registryv1alpha1\xa2\x02\x03BAR\xaa\x02\x1bBuf.Alpha.Registry.V1alpha1\xca\x02\x1bBuf\\Alpha\\Registry\\V1alpha1\xe2\x02'Buf\\Alpha\\Registry\\V1alpha1\\GPBMetadata\xea\x02\x1eBuf::Alpha::Registry::V1alpha1b\x06proto3"
 
 var file_buf_alpha_registry_v1alpha1_search_proto_enumTypes = make([]protoimpl.EnumInfo, 4)
 var file_buf_alpha_registry_v1alpha1_search_proto_msgTypes = make([]protoimpl.MessageInfo, 19)

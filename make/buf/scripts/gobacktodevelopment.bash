@@ -19,12 +19,12 @@ NEXT_VERSION="${NEXT_VERSION}-dev"
 make updateversion VERSION=${NEXT_VERSION}
 
 if [[ "${OSTYPE}" == "linux-gnu"* ]]; then
-  SED_BIN=sed
+	SED_BIN=sed
 elif [[ "${OSTYPE}" == "darwin"* ]]; then
-  SED_BIN=gsed
+	SED_BIN=gsed
 else
-  echo "unsupported OSTYPE: ${OSTYPE}"
-  exit 1
+	echo "unsupported OSTYPE: ${OSTYPE}"
+	exit 1
 fi
 
 ${SED_BIN} -i "/^# Changelog/ {
@@ -39,14 +39,14 @@ a\
 ${SED_BIN} -i "/^Initial beta release.$/ {
 N;
 a\
-[Unreleased]: https://github.com/bufbuild/buf/compare/v${RELEASED_VERSION}...HEAD
+[Unreleased]: https://github.com/walteh/buf/compare/v${RELEASED_VERSION}...HEAD
 }" CHANGELOG.md
 
 BRANCH="next/v${RELEASED_VERSION}"
 git switch -C ${BRANCH}
 git add .
 git commit -m "Back to development"
-git push --set-upstream origin --force ${BRANCH} 
+git push --set-upstream origin --force ${BRANCH}
 url=$(gh pr create --title "Return to development" --body "Release complete for v${RELEASED_VERSION}")
 
 jq --null-input "{ text: \"PR back to development: ${url}\" }" | curl -sSL -X POST -H 'Content-Type: application/json' -d@- "${WEBHOOK_URL}"

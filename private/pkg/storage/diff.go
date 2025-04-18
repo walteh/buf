@@ -22,7 +22,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/bufbuild/buf/private/pkg/diff"
+	"github.com/walteh/buf/private/pkg/diff"
 )
 
 // DiffOption is an option for Diff.

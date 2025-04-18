@@ -20,8 +20,8 @@ import (
 	"fmt"
 	"net/url"
 
-	"github.com/bufbuild/buf/private/pkg/slicesext"
-	"github.com/bufbuild/buf/private/pkg/syserror"
+	"github.com/walteh/buf/private/pkg/slicesext"
+	"github.com/walteh/buf/private/pkg/syserror"
 )
 
 var (

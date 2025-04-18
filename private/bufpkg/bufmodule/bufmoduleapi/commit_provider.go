@@ -19,13 +19,13 @@ import (
 	"log/slog"
 	"time"
 
-	"github.com/bufbuild/buf/private/bufpkg/bufmodule"
-	"github.com/bufbuild/buf/private/bufpkg/bufregistryapi/bufregistryapimodule"
-	"github.com/bufbuild/buf/private/bufpkg/bufregistryapi/bufregistryapiowner"
-	"github.com/bufbuild/buf/private/pkg/slicesext"
-	"github.com/bufbuild/buf/private/pkg/syserror"
-	"github.com/bufbuild/buf/private/pkg/uuidutil"
 	"github.com/google/uuid"
+	"github.com/walteh/buf/private/bufpkg/bufmodule"
+	"github.com/walteh/buf/private/bufpkg/bufregistryapi/bufregistryapimodule"
+	"github.com/walteh/buf/private/bufpkg/bufregistryapi/bufregistryapiowner"
+	"github.com/walteh/buf/private/pkg/slicesext"
+	"github.com/walteh/buf/private/pkg/syserror"
+	"github.com/walteh/buf/private/pkg/uuidutil"
 )
 
 // NewCommitProvider returns a new CommitProvider for the given API client.

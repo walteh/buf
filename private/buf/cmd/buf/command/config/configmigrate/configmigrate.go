@@ -17,12 +17,12 @@ package configmigrate
 import (
 	"context"
 
-	"github.com/bufbuild/buf/private/buf/bufcli"
-	"github.com/bufbuild/buf/private/buf/bufmigrate"
-	"github.com/bufbuild/buf/private/pkg/app/appcmd"
-	"github.com/bufbuild/buf/private/pkg/app/appext"
-	"github.com/bufbuild/buf/private/pkg/storage/storageos"
 	"github.com/spf13/pflag"
+	"github.com/walteh/buf/private/buf/bufcli"
+	"github.com/walteh/buf/private/buf/bufmigrate"
+	"github.com/walteh/buf/private/pkg/app/appcmd"
+	"github.com/walteh/buf/private/pkg/app/appext"
+	"github.com/walteh/buf/private/pkg/storage/storageos"
 )
 
 const (

@@ -18,11 +18,11 @@ import (
 	"context"
 	"testing"
 
-	"github.com/bufbuild/buf/private/bufpkg/bufimage"
-	"github.com/bufbuild/buf/private/bufpkg/bufmodule"
-	"github.com/bufbuild/buf/private/bufpkg/bufmodule/bufmoduletesting"
-	"github.com/bufbuild/buf/private/pkg/slogtestext"
 	"github.com/stretchr/testify/require"
+	"github.com/walteh/buf/private/bufpkg/bufimage"
+	"github.com/walteh/buf/private/bufpkg/bufmodule"
+	"github.com/walteh/buf/private/bufpkg/bufmodule/bufmoduletesting"
+	"github.com/walteh/buf/private/pkg/slogtestext"
 )
 
 func TestNewFiles(t *testing.T) {

@@ -19,7 +19,7 @@ import (
 	"fmt"
 
 	"connectrpc.com/connect"
-	"github.com/bufbuild/buf/private/bufpkg/bufparse"
+	"github.com/walteh/buf/private/bufpkg/bufparse"
 )
 
 var (

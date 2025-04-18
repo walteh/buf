@@ -19,7 +19,7 @@ import (
 	"context"
 	"sync"
 
-	"github.com/bufbuild/buf/private/bufpkg/bufcas"
+	"github.com/walteh/buf/private/bufpkg/bufcas"
 )
 
 // PluginData presents the raw Plugin data read by PluginKey.

@@ -23,8 +23,8 @@ import (
 	"runtime/debug"
 	"strings"
 
-	"github.com/bufbuild/buf/private/buf/bufformat"
 	"github.com/bufbuild/protocompile/ast"
+	"github.com/walteh/buf/private/buf/bufformat"
 	"go.lsp.dev/protocol"
 )
 

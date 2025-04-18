@@ -17,8 +17,8 @@ package bufconnect
 import (
 	"testing"
 
-	"github.com/bufbuild/buf/private/pkg/app"
 	"github.com/stretchr/testify/assert"
+	"github.com/walteh/buf/private/pkg/app"
 )
 
 func TestNewTokenProviderFromContainer(t *testing.T) {

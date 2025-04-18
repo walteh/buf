@@ -22,9 +22,9 @@ import (
 	"log/slog"
 	"os"
 
-	"github.com/bufbuild/buf/private/pkg/app"
-	"github.com/bufbuild/buf/private/pkg/ioext"
-	"github.com/bufbuild/buf/private/pkg/normalpath"
+	"github.com/walteh/buf/private/pkg/app"
+	"github.com/walteh/buf/private/pkg/ioext"
+	"github.com/walteh/buf/private/pkg/normalpath"
 )
 
 type protoFileWriter struct {

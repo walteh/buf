@@ -867,8 +867,8 @@ const file_buf_alpha_registry_v1alpha1_reference_proto_rawDesc = "" +
 	"\x1aGetReferenceByNameResponse\x12D\n" +
 	"\treference\x18\x01 \x01(\v2&.buf.alpha.registry.v1alpha1.ReferenceR\treference2\x9f\x01\n" +
 	"\x10ReferenceService\x12\x8a\x01\n" +
-	"\x12GetReferenceByName\x126.buf.alpha.registry.v1alpha1.GetReferenceByNameRequest\x1a7.buf.alpha.registry.v1alpha1.GetReferenceByNameResponse\"\x03\x90\x02\x01B\x9b\x02\n" +
-	"\x1fcom.buf.alpha.registry.v1alpha1B\x0eReferenceProtoP\x01ZYgithub.com/bufbuild/buf/private/gen/proto/go/buf/alpha/registry/v1alpha1;registryv1alpha1\xa2\x02\x03BAR\xaa\x02\x1bBuf.Alpha.Registry.V1alpha1\xca\x02\x1bBuf\\Alpha\\Registry\\V1alpha1\xe2\x02'Buf\\Alpha\\Registry\\V1alpha1\\GPBMetadata\xea\x02\x1eBuf::Alpha::Registry::V1alpha1b\x06proto3"
+	"\x12GetReferenceByName\x126.buf.alpha.registry.v1alpha1.GetReferenceByNameRequest\x1a7.buf.alpha.registry.v1alpha1.GetReferenceByNameResponse\"\x03\x90\x02\x01B\x99\x02\n" +
+	"\x1fcom.buf.alpha.registry.v1alpha1B\x0eReferenceProtoP\x01ZWgithub.com/walteh/buf/private/gen/proto/go/buf/alpha/registry/v1alpha1;registryv1alpha1\xa2\x02\x03BAR\xaa\x02\x1bBuf.Alpha.Registry.V1alpha1\xca\x02\x1bBuf\\Alpha\\Registry\\V1alpha1\xe2\x02'Buf\\Alpha\\Registry\\V1alpha1\\GPBMetadata\xea\x02\x1eBuf::Alpha::Registry::V1alpha1b\x06proto3"
 
 var file_buf_alpha_registry_v1alpha1_reference_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
 var file_buf_alpha_registry_v1alpha1_reference_proto_goTypes = []any{

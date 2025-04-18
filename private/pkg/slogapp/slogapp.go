@@ -19,8 +19,8 @@ import (
 	"io"
 	"log/slog"
 
-	"github.com/bufbuild/buf/private/pkg/app/appext"
-	"github.com/bufbuild/buf/private/pkg/zapapp"
+	"github.com/walteh/buf/private/pkg/app/appext"
+	"github.com/walteh/buf/private/pkg/zapapp"
 	"go.uber.org/zap/exp/zapslog"
 )
 

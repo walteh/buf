@@ -16,7 +16,7 @@ package buflintvalidate
 
 import (
 	"buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go/buf/validate"
-	"github.com/bufbuild/buf/private/bufpkg/bufprotosource"
+	"github.com/walteh/buf/private/bufpkg/bufprotosource"
 	"google.golang.org/protobuf/encoding/protowire"
 )
 

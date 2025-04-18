@@ -2792,8 +2792,8 @@ const file_buf_alpha_registry_v1alpha1_organization_proto_rawDesc = "" +
 	"\x1aUpdateOrganizationSettings\x12>.buf.alpha.registry.v1alpha1.UpdateOrganizationSettingsRequest\x1a?.buf.alpha.registry.v1alpha1.UpdateOrganizationSettingsResponse\x12\x90\x01\n" +
 	"\x14AddOrganizationGroup\x128.buf.alpha.registry.v1alpha1.AddOrganizationGroupRequest\x1a9.buf.alpha.registry.v1alpha1.AddOrganizationGroupResponse\"\x03\x90\x02\x02\x12\x99\x01\n" +
 	"\x17UpdateOrganizationGroup\x12;.buf.alpha.registry.v1alpha1.UpdateOrganizationGroupRequest\x1a<.buf.alpha.registry.v1alpha1.UpdateOrganizationGroupResponse\"\x03\x90\x02\x02\x12\x99\x01\n" +
-	"\x17RemoveOrganizationGroup\x12;.buf.alpha.registry.v1alpha1.RemoveOrganizationGroupRequest\x1a<.buf.alpha.registry.v1alpha1.RemoveOrganizationGroupResponse\"\x03\x90\x02\x02B\x9e\x02\n" +
-	"\x1fcom.buf.alpha.registry.v1alpha1B\x11OrganizationProtoP\x01ZYgithub.com/bufbuild/buf/private/gen/proto/go/buf/alpha/registry/v1alpha1;registryv1alpha1\xa2\x02\x03BAR\xaa\x02\x1bBuf.Alpha.Registry.V1alpha1\xca\x02\x1bBuf\\Alpha\\Registry\\V1alpha1\xe2\x02'Buf\\Alpha\\Registry\\V1alpha1\\GPBMetadata\xea\x02\x1eBuf::Alpha::Registry::V1alpha1b\x06proto3"
+	"\x17RemoveOrganizationGroup\x12;.buf.alpha.registry.v1alpha1.RemoveOrganizationGroupRequest\x1a<.buf.alpha.registry.v1alpha1.RemoveOrganizationGroupResponse\"\x03\x90\x02\x02B\x9c\x02\n" +
+	"\x1fcom.buf.alpha.registry.v1alpha1B\x11OrganizationProtoP\x01ZWgithub.com/walteh/buf/private/gen/proto/go/buf/alpha/registry/v1alpha1;registryv1alpha1\xa2\x02\x03BAR\xaa\x02\x1bBuf.Alpha.Registry.V1alpha1\xca\x02\x1bBuf\\Alpha\\Registry\\V1alpha1\xe2\x02'Buf\\Alpha\\Registry\\V1alpha1\\GPBMetadata\xea\x02\x1eBuf::Alpha::Registry::V1alpha1b\x06proto3"
 
 var file_buf_alpha_registry_v1alpha1_organization_proto_msgTypes = make([]protoimpl.MessageInfo, 37)
 var file_buf_alpha_registry_v1alpha1_organization_proto_goTypes = []any{

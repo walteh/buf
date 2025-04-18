@@ -214,8 +214,8 @@ const file_buf_alpha_registry_v1alpha1_github_proto_rawDesc = "" +
 	"\n" +
 	"app_config\x18\x01 \x01(\v2,.buf.alpha.registry.v1alpha1.GithubAppConfigR\tappConfig2\x9c\x01\n" +
 	"\rGithubService\x12\x8a\x01\n" +
-	"\x12GetGithubAppConfig\x126.buf.alpha.registry.v1alpha1.GetGithubAppConfigRequest\x1a7.buf.alpha.registry.v1alpha1.GetGithubAppConfigResponse\"\x03\x90\x02\x01B\x98\x02\n" +
-	"\x1fcom.buf.alpha.registry.v1alpha1B\vGithubProtoP\x01ZYgithub.com/bufbuild/buf/private/gen/proto/go/buf/alpha/registry/v1alpha1;registryv1alpha1\xa2\x02\x03BAR\xaa\x02\x1bBuf.Alpha.Registry.V1alpha1\xca\x02\x1bBuf\\Alpha\\Registry\\V1alpha1\xe2\x02'Buf\\Alpha\\Registry\\V1alpha1\\GPBMetadata\xea\x02\x1eBuf::Alpha::Registry::V1alpha1b\x06proto3"
+	"\x12GetGithubAppConfig\x126.buf.alpha.registry.v1alpha1.GetGithubAppConfigRequest\x1a7.buf.alpha.registry.v1alpha1.GetGithubAppConfigResponse\"\x03\x90\x02\x01B\x96\x02\n" +
+	"\x1fcom.buf.alpha.registry.v1alpha1B\vGithubProtoP\x01ZWgithub.com/walteh/buf/private/gen/proto/go/buf/alpha/registry/v1alpha1;registryv1alpha1\xa2\x02\x03BAR\xaa\x02\x1bBuf.Alpha.Registry.V1alpha1\xca\x02\x1bBuf\\Alpha\\Registry\\V1alpha1\xe2\x02'Buf\\Alpha\\Registry\\V1alpha1\\GPBMetadata\xea\x02\x1eBuf::Alpha::Registry::V1alpha1b\x06proto3"
 
 var file_buf_alpha_registry_v1alpha1_github_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
 var file_buf_alpha_registry_v1alpha1_github_proto_goTypes = []any{

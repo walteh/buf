@@ -21,8 +21,8 @@ import (
 	"strings"
 
 	"buf.build/go/spdx"
-	"github.com/bufbuild/buf/private/bufpkg/bufremoteplugin/bufremotepluginref"
-	"github.com/bufbuild/buf/private/pkg/slicesext"
+	"github.com/walteh/buf/private/bufpkg/bufremoteplugin/bufremotepluginref"
+	"github.com/walteh/buf/private/pkg/slicesext"
 	"golang.org/x/mod/modfile"
 	"golang.org/x/mod/semver"
 )

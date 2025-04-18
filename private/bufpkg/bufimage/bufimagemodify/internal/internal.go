@@ -14,7 +14,7 @@
 
 package internal
 
-import "github.com/bufbuild/buf/private/bufpkg/bufimage"
+import "github.com/walteh/buf/private/bufpkg/bufimage"
 
 // fileOptionPath is the path prefix used for FileOptions.
 // All file option locations are preceded by a location

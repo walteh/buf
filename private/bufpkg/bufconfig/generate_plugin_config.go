@@ -21,9 +21,9 @@ import (
 	"os/exec"
 	"strings"
 
-	"github.com/bufbuild/buf/private/bufpkg/bufremoteplugin/bufremotepluginref"
-	"github.com/bufbuild/buf/private/pkg/encoding"
-	"github.com/bufbuild/buf/private/pkg/syserror"
+	"github.com/walteh/buf/private/bufpkg/bufremoteplugin/bufremotepluginref"
+	"github.com/walteh/buf/private/pkg/encoding"
+	"github.com/walteh/buf/private/pkg/syserror"
 )
 
 // GenerateStrategy is the generation strategy for a protoc plugin.

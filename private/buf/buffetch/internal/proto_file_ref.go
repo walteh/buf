@@ -14,7 +14,7 @@
 
 package internal
 
-import "github.com/bufbuild/buf/private/pkg/app"
+import "github.com/walteh/buf/private/pkg/app"
 
 var (
 	_ ParsedProtoFileRef = &protoFileRef{}

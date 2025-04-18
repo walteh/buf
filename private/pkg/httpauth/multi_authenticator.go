@@ -17,7 +17,7 @@ package httpauth
 import (
 	"net/http"
 
-	"github.com/bufbuild/buf/private/pkg/app"
+	"github.com/walteh/buf/private/pkg/app"
 )
 
 type multiAuthenticator struct {

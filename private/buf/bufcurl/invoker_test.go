@@ -19,10 +19,10 @@ import (
 	"os"
 	"testing"
 
-	"github.com/bufbuild/buf/private/pkg/protoencoding"
 	"github.com/bufbuild/protocompile"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	"github.com/walteh/buf/private/pkg/protoencoding"
 	"google.golang.org/protobuf/reflect/protoreflect"
 )
 

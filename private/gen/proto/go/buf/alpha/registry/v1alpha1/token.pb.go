@@ -757,9 +757,9 @@ const file_buf_alpha_registry_v1alpha1_token_proto_rawDesc = "" +
 	"\bGetToken\x12,.buf.alpha.registry.v1alpha1.GetTokenRequest\x1a-.buf.alpha.registry.v1alpha1.GetTokenResponse\"\x03\x90\x02\x01\x12r\n" +
 	"\n" +
 	"ListTokens\x12..buf.alpha.registry.v1alpha1.ListTokensRequest\x1a/.buf.alpha.registry.v1alpha1.ListTokensResponse\"\x03\x90\x02\x01\x12u\n" +
-	"\vDeleteToken\x12/.buf.alpha.registry.v1alpha1.DeleteTokenRequest\x1a0.buf.alpha.registry.v1alpha1.DeleteTokenResponse\"\x03\x90\x02\x02B\x97\x02\n" +
+	"\vDeleteToken\x12/.buf.alpha.registry.v1alpha1.DeleteTokenRequest\x1a0.buf.alpha.registry.v1alpha1.DeleteTokenResponse\"\x03\x90\x02\x02B\x95\x02\n" +
 	"\x1fcom.buf.alpha.registry.v1alpha1B\n" +
-	"TokenProtoP\x01ZYgithub.com/bufbuild/buf/private/gen/proto/go/buf/alpha/registry/v1alpha1;registryv1alpha1\xa2\x02\x03BAR\xaa\x02\x1bBuf.Alpha.Registry.V1alpha1\xca\x02\x1bBuf\\Alpha\\Registry\\V1alpha1\xe2\x02'Buf\\Alpha\\Registry\\V1alpha1\\GPBMetadata\xea\x02\x1eBuf::Alpha::Registry::V1alpha1b\x06proto3"
+	"TokenProtoP\x01ZWgithub.com/walteh/buf/private/gen/proto/go/buf/alpha/registry/v1alpha1;registryv1alpha1\xa2\x02\x03BAR\xaa\x02\x1bBuf.Alpha.Registry.V1alpha1\xca\x02\x1bBuf\\Alpha\\Registry\\V1alpha1\xe2\x02'Buf\\Alpha\\Registry\\V1alpha1\\GPBMetadata\xea\x02\x1eBuf::Alpha::Registry::V1alpha1b\x06proto3"
 
 var file_buf_alpha_registry_v1alpha1_token_proto_msgTypes = make([]protoimpl.MessageInfo, 9)
 var file_buf_alpha_registry_v1alpha1_token_proto_goTypes = []any{

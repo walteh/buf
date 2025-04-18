@@ -20,7 +20,7 @@ import (
 	"encoding/hex"
 	"strings"
 
-	"github.com/bufbuild/buf/private/pkg/shake256"
+	"github.com/walteh/buf/private/pkg/shake256"
 )
 
 var (

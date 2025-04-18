@@ -1149,8 +1149,8 @@ const file_grpc_reflection_v1_reflection_proto_rawDesc = "" +
 	"error_code\x18\x01 \x01(\x05R\terrorCode\x12#\n" +
 	"\rerror_message\x18\x02 \x01(\tR\ferrorMessage2\x89\x01\n" +
 	"\x10ServerReflection\x12u\n" +
-	"\x14ServerReflectionInfo\x12+.grpc.reflection.v1.ServerReflectionRequest\x1a,.grpc.reflection.v1.ServerReflectionResponse(\x010\x01B\xe1\x01\n" +
-	"\x16com.grpc.reflection.v1B\x0fReflectionProtoP\x01ZLgithub.com/bufbuild/buf/private/gen/proto/go/grpc/reflection/v1;reflectionv1\xa2\x02\x03GRX\xaa\x02\x12Grpc.Reflection.V1\xca\x02\x12Grpc\\Reflection\\V1\xe2\x02\x1eGrpc\\Reflection\\V1\\GPBMetadata\xea\x02\x14Grpc::Reflection::V1b\x06proto3"
+	"\x14ServerReflectionInfo\x12+.grpc.reflection.v1.ServerReflectionRequest\x1a,.grpc.reflection.v1.ServerReflectionResponse(\x010\x01B\xdf\x01\n" +
+	"\x16com.grpc.reflection.v1B\x0fReflectionProtoP\x01ZJgithub.com/walteh/buf/private/gen/proto/go/grpc/reflection/v1;reflectionv1\xa2\x02\x03GRX\xaa\x02\x12Grpc.Reflection.V1\xca\x02\x12Grpc\\Reflection\\V1\xe2\x02\x1eGrpc\\Reflection\\V1\\GPBMetadata\xea\x02\x14Grpc::Reflection::V1b\x06proto3"
 
 var file_grpc_reflection_v1_reflection_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
 var file_grpc_reflection_v1_reflection_proto_goTypes = []any{

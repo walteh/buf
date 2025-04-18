@@ -1481,9 +1481,9 @@ const file_buf_alpha_registry_v1alpha1_authz_proto_rawDesc = "" +
 	"\x11UserCanDeleteUser\x125.buf.alpha.registry.v1alpha1.UserCanDeleteUserRequest\x1a6.buf.alpha.registry.v1alpha1.UserCanDeleteUserResponse\"\x03\x90\x02\x01\x12\xa2\x01\n" +
 	"\x1aUserCanSeeServerAdminPanel\x12>.buf.alpha.registry.v1alpha1.UserCanSeeServerAdminPanelRequest\x1a?.buf.alpha.registry.v1alpha1.UserCanSeeServerAdminPanelResponse\"\x03\x90\x02\x01\x12\xbd\x01\n" +
 	"#UserCanManageRepositoryContributors\x12G.buf.alpha.registry.v1alpha1.UserCanManageRepositoryContributorsRequest\x1aH.buf.alpha.registry.v1alpha1.UserCanManageRepositoryContributorsResponse\"\x03\x90\x02\x01\x12\x90\x01\n" +
-	"\x14UserCanReviewCommits\x128.buf.alpha.registry.v1alpha1.UserCanReviewCommitsRequest\x1a9.buf.alpha.registry.v1alpha1.UserCanReviewCommitsResponse\"\x03\x90\x02\x01B\x97\x02\n" +
+	"\x14UserCanReviewCommits\x128.buf.alpha.registry.v1alpha1.UserCanReviewCommitsRequest\x1a9.buf.alpha.registry.v1alpha1.UserCanReviewCommitsResponse\"\x03\x90\x02\x01B\x95\x02\n" +
 	"\x1fcom.buf.alpha.registry.v1alpha1B\n" +
-	"AuthzProtoP\x01ZYgithub.com/bufbuild/buf/private/gen/proto/go/buf/alpha/registry/v1alpha1;registryv1alpha1\xa2\x02\x03BAR\xaa\x02\x1bBuf.Alpha.Registry.V1alpha1\xca\x02\x1bBuf\\Alpha\\Registry\\V1alpha1\xe2\x02'Buf\\Alpha\\Registry\\V1alpha1\\GPBMetadata\xea\x02\x1eBuf::Alpha::Registry::V1alpha1b\x06proto3"
+	"AuthzProtoP\x01ZWgithub.com/walteh/buf/private/gen/proto/go/buf/alpha/registry/v1alpha1;registryv1alpha1\xa2\x02\x03BAR\xaa\x02\x1bBuf.Alpha.Registry.V1alpha1\xca\x02\x1bBuf\\Alpha\\Registry\\V1alpha1\xe2\x02'Buf\\Alpha\\Registry\\V1alpha1\\GPBMetadata\xea\x02\x1eBuf::Alpha::Registry::V1alpha1b\x06proto3"
 
 var file_buf_alpha_registry_v1alpha1_authz_proto_msgTypes = make([]protoimpl.MessageInfo, 24)
 var file_buf_alpha_registry_v1alpha1_authz_proto_goTypes = []any{

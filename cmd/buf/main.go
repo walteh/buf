@@ -14,7 +14,7 @@
 
 package main
 
-import "github.com/bufbuild/buf/private/buf/cmd/buf"
+import "github.com/walteh/buf/private/buf/cmd/buf"
 
 func main() {
 	buf.Main("buf")

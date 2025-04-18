@@ -22,18 +22,18 @@ import (
 	"strings"
 	"time"
 
-	"github.com/bufbuild/buf/private/buf/bufcli"
-	"github.com/bufbuild/buf/private/buf/bufctl"
-	"github.com/bufbuild/buf/private/buf/cmd/internal"
-	"github.com/bufbuild/buf/private/bufpkg/bufanalysis"
-	"github.com/bufbuild/buf/private/bufpkg/bufcheck"
-	"github.com/bufbuild/buf/private/bufpkg/bufimage"
-	"github.com/bufbuild/buf/private/bufpkg/bufplugin"
-	"github.com/bufbuild/buf/private/pkg/encoding"
-	"github.com/bufbuild/buf/private/pkg/protodescriptor"
-	"github.com/bufbuild/buf/private/pkg/protoencoding"
-	"github.com/bufbuild/buf/private/pkg/wasm"
 	"github.com/bufbuild/protoplugin"
+	"github.com/walteh/buf/private/buf/bufcli"
+	"github.com/walteh/buf/private/buf/bufctl"
+	"github.com/walteh/buf/private/buf/cmd/internal"
+	"github.com/walteh/buf/private/bufpkg/bufanalysis"
+	"github.com/walteh/buf/private/bufpkg/bufcheck"
+	"github.com/walteh/buf/private/bufpkg/bufimage"
+	"github.com/walteh/buf/private/bufpkg/bufplugin"
+	"github.com/walteh/buf/private/pkg/encoding"
+	"github.com/walteh/buf/private/pkg/protodescriptor"
+	"github.com/walteh/buf/private/pkg/protoencoding"
+	"github.com/walteh/buf/private/pkg/wasm"
 )
 
 const (
@@ -48,7 +48,7 @@ func Main() {
 		// An `EmptyResolver` is passed to protoplugin for unmarshalling instead of defaulting to
 		// protoregistry.GlobalTypes so that extensions are not inadvertently parsed from generated
 		// code linked into the binary. Extensions are later reparsed with the descriptorset itself.
-		// https://github.com/bufbuild/buf/issues/3306
+		// https://github.com/walteh/buf/issues/3306
 		protoplugin.WithExtensionTypeResolver(protoencoding.EmptyResolver),
 	)
 }

@@ -15,7 +15,7 @@
 package bufctl
 
 import (
-	"github.com/bufbuild/buf/private/pkg/app"
+	"github.com/walteh/buf/private/pkg/app"
 )
 
 const (

@@ -27,9 +27,9 @@ import (
 	"slices"
 	"strings"
 
-	"github.com/bufbuild/buf/private/bufpkg/bufmodule"
-	"github.com/bufbuild/buf/private/pkg/slicesext"
 	"github.com/bufbuild/protocompile/ast"
+	"github.com/walteh/buf/private/bufpkg/bufmodule"
+	"github.com/walteh/buf/private/pkg/slicesext"
 	"go.lsp.dev/protocol"
 	"google.golang.org/protobuf/encoding/protowire"
 )

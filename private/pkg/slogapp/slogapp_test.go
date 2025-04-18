@@ -19,9 +19,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/bufbuild/buf/private/pkg/app/appext"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	"github.com/walteh/buf/private/pkg/app/appext"
 )
 
 func TestNoStack(t *testing.T) {

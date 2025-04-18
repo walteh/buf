@@ -22,10 +22,10 @@ import (
 	"io/fs"
 	"sync"
 
-	"github.com/bufbuild/buf/private/bufpkg/bufmodule"
-	"github.com/bufbuild/buf/private/bufpkg/bufparse"
-	"github.com/bufbuild/buf/private/gen/data/datawkt"
 	"github.com/google/uuid"
+	"github.com/walteh/buf/private/bufpkg/bufmodule"
+	"github.com/walteh/buf/private/bufpkg/bufparse"
+	"github.com/walteh/buf/private/gen/data/datawkt"
 )
 
 type parserAccessorHandler struct {

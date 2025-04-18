@@ -14,7 +14,7 @@
 
 package storageos
 
-import "github.com/bufbuild/buf/private/pkg/storage"
+import "github.com/walteh/buf/private/pkg/storage"
 
 type provider struct {
 	symlinks bool

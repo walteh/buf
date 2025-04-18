@@ -29,7 +29,7 @@ import (
 	"path/filepath"
 	"sort"
 
-	"github.com/bufbuild/buf/private/pkg/osext"
+	"github.com/walteh/buf/private/pkg/osext"
 )
 
 // RealClean does filepath.Clean and filepath.FromSlash,

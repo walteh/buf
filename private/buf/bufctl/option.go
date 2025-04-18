@@ -15,7 +15,7 @@
 package bufctl
 
 import (
-	"github.com/bufbuild/buf/private/buf/buffetch"
+	"github.com/walteh/buf/private/buf/buffetch"
 )
 
 type ControllerOption func(*controller)

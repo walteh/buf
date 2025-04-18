@@ -17,13 +17,13 @@ package bufcli
 import (
 	"connectrpc.com/connect"
 	otelconnect "connectrpc.com/otelconnect"
-	"github.com/bufbuild/buf/private/buf/bufapp"
-	"github.com/bufbuild/buf/private/bufpkg/bufconnect"
-	"github.com/bufbuild/buf/private/bufpkg/buftransport"
-	"github.com/bufbuild/buf/private/pkg/app/appext"
-	"github.com/bufbuild/buf/private/pkg/connectclient"
-	"github.com/bufbuild/buf/private/pkg/netrc"
-	"github.com/bufbuild/buf/private/pkg/transport/http/httpclient"
+	"github.com/walteh/buf/private/buf/bufapp"
+	"github.com/walteh/buf/private/bufpkg/bufconnect"
+	"github.com/walteh/buf/private/bufpkg/buftransport"
+	"github.com/walteh/buf/private/pkg/app/appext"
+	"github.com/walteh/buf/private/pkg/connectclient"
+	"github.com/walteh/buf/private/pkg/netrc"
+	"github.com/walteh/buf/private/pkg/transport/http/httpclient"
 )
 
 // NewConnectClientConfig creates a new connect.ClientConfig which uses a token reader to look

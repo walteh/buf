@@ -22,7 +22,7 @@ import (
 	connect "connectrpc.com/connect"
 	context "context"
 	errors "errors"
-	v1alpha1 "github.com/bufbuild/buf/private/gen/proto/go/buf/alpha/registry/v1alpha1"
+	v1alpha1 "github.com/walteh/buf/private/gen/proto/go/buf/alpha/registry/v1alpha1"
 	http "net/http"
 	strings "strings"
 )

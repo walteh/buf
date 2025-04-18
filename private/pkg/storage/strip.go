@@ -17,7 +17,7 @@ package storage
 import (
 	"context"
 
-	"github.com/bufbuild/buf/private/pkg/storage/storageutil"
+	"github.com/walteh/buf/private/pkg/storage/storageutil"
 )
 
 // StripReadBucketExternalPaths strips the differentiated ExternalPaths from objects

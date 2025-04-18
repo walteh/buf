@@ -17,7 +17,7 @@ package bufcli
 import (
 	"context"
 
-	"github.com/bufbuild/buf/private/bufpkg/bufconfig"
+	"github.com/walteh/buf/private/bufpkg/bufconfig"
 )
 
 // GetBufWorkYAMLFileForDirPath gets the buf.work.yaml file for the directory path.

@@ -21,9 +21,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/bufbuild/buf/private/bufpkg/bufparse"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	"github.com/walteh/buf/private/bufpkg/bufparse"
 )
 
 func TestManifest(t *testing.T) {

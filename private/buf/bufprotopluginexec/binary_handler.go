@@ -21,11 +21,11 @@ import (
 	"log/slog"
 	"path/filepath"
 
-	"github.com/bufbuild/buf/private/pkg/execext"
-	"github.com/bufbuild/buf/private/pkg/ioext"
-	"github.com/bufbuild/buf/private/pkg/protoencoding"
-	"github.com/bufbuild/buf/private/pkg/slogext"
 	"github.com/bufbuild/protoplugin"
+	"github.com/walteh/buf/private/pkg/execext"
+	"github.com/walteh/buf/private/pkg/ioext"
+	"github.com/walteh/buf/private/pkg/protoencoding"
+	"github.com/walteh/buf/private/pkg/slogext"
 	"google.golang.org/protobuf/types/pluginpb"
 )
 
@@ -92,7 +92,7 @@ func (h *binaryHandler) Handle(
 func newStderrWriteCloser(delegate io.Writer, pluginPath string) io.WriteCloser {
 	switch filepath.Base(pluginPath) {
 	case "protoc-gen-swift":
-		// https://github.com/bufbuild/buf/issues/1736
+		// https://github.com/walteh/buf/issues/1736
 		// Swallowing specific stderr message for protoc-gen-swift as protoc-gen-swift, see issue.
 		// This is all disgusting code but it's simple and it works.
 		// We did not document if pluginPath is normalized or not, so

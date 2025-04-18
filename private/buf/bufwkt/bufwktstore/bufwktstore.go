@@ -18,7 +18,7 @@ import (
 	"context"
 	"log/slog"
 
-	"github.com/bufbuild/buf/private/pkg/storage"
+	"github.com/walteh/buf/private/pkg/storage"
 )
 
 // Store provides disk-backed WKT buckets.

@@ -17,7 +17,7 @@
 // We expanded this to all unix-like platforms, including those we don't support, as most
 // of this should work without issue, and there are bigger problems with supporting i.e. js,wasm
 // that are outside the scope of these build tags. Being able to build buf on i.e. openbsd
-// was a blocker, see https://github.com/bufbuild/buf/issues/362 and the linked discussions.
+// was a blocker, see https://github.com/walteh/buf/issues/362 and the linked discussions.
 // We still only officially support linux and darwin for buf as a whole.
 
 //go:build aix || darwin || dragonfly || freebsd || (js && wasm) || linux || netbsd || openbsd || solaris

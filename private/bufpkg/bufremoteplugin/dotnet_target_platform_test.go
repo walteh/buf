@@ -19,10 +19,10 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/bufbuild/buf/private/bufpkg/bufremoteplugin/bufremotepluginconfig"
-	registryv1alpha1 "github.com/bufbuild/buf/private/gen/proto/go/buf/alpha/registry/v1alpha1"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	"github.com/walteh/buf/private/bufpkg/bufremoteplugin/bufremotepluginconfig"
+	registryv1alpha1 "github.com/walteh/buf/private/gen/proto/go/buf/alpha/registry/v1alpha1"
 )
 
 func TestDotnetTargetPlatformMapping(t *testing.T) {

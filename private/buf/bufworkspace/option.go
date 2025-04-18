@@ -15,8 +15,8 @@
 package bufworkspace
 
 import (
-	"github.com/bufbuild/buf/private/pkg/normalpath"
-	"github.com/bufbuild/buf/private/pkg/slicesext"
+	"github.com/walteh/buf/private/pkg/normalpath"
+	"github.com/walteh/buf/private/pkg/slicesext"
 )
 
 // WorkspaceBucketOption is an option for a new Workspace created by a Bucket.

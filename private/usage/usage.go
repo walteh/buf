@@ -27,12 +27,12 @@ func check() error {
 	// if !ok || buildInfo.Main.Path == "" {
 	// 	// Detect and allow *.test and __debug_bin* files.
 	// 	if !strings.HasSuffix(os.Args[0], testSuffix) && !strings.HasPrefix(filepath.Base(os.Args[0]), debugBinPrefix) {
-	// 		return errors.New("github.com/bufbuild/buf/private code must only be imported by github.com/bufbuild projects")
+	// 		return errors.New("github.com/walteh/buf/private code must only be imported by github.com/bufbuild projects")
 	// 	}
 	// 	return nil
 	// }
 	// if !strings.HasPrefix(buildInfo.Main.Path, "github.com/bufbuild") {
-	// 	return fmt.Errorf("github.com/bufbuild/buf/private code must only be imported by github.com/bufbuild projects but was used in %s", buildInfo.Main.Path)
+	// 	return fmt.Errorf("github.com/walteh/buf/private code must only be imported by github.com/bufbuild projects but was used in %s", buildInfo.Main.Path)
 	// }
 	return nil
 }

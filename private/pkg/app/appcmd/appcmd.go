@@ -25,10 +25,10 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/bufbuild/buf/private/pkg/app"
 	"github.com/spf13/cobra"
 	"github.com/spf13/cobra/doc"
 	"github.com/spf13/pflag"
+	"github.com/walteh/buf/private/pkg/app"
 )
 
 // Command is a command.

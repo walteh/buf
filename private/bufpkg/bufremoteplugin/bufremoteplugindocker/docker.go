@@ -27,13 +27,13 @@ import (
 	"sync"
 	"time"
 
-	"github.com/bufbuild/buf/private/bufpkg/bufremoteplugin/bufremotepluginconfig"
 	"github.com/docker/docker/api/types"
 	imagetypes "github.com/docker/docker/api/types/image"
 	"github.com/docker/docker/client"
 	imagev1 "github.com/docker/docker/image/v1"
 	"github.com/docker/docker/pkg/jsonmessage"
 	"github.com/docker/docker/pkg/stringid"
+	"github.com/walteh/buf/private/bufpkg/bufremoteplugin/bufremotepluginconfig"
 )
 
 const (

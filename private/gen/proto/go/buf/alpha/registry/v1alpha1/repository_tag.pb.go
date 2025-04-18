@@ -1064,8 +1064,8 @@ const file_buf_alpha_registry_v1alpha1_repository_tag_proto_rawDesc = "" +
 	"\x13CreateRepositoryTag\x127.buf.alpha.registry.v1alpha1.CreateRepositoryTagRequest\x1a8.buf.alpha.registry.v1alpha1.CreateRepositoryTagResponse\"\x03\x90\x02\x02\x12\x8d\x01\n" +
 	"\x13UpdateRepositoryTag\x127.buf.alpha.registry.v1alpha1.UpdateRepositoryTagRequest\x1a8.buf.alpha.registry.v1alpha1.UpdateRepositoryTagResponse\"\x03\x90\x02\x02\x12\x8a\x01\n" +
 	"\x12ListRepositoryTags\x126.buf.alpha.registry.v1alpha1.ListRepositoryTagsRequest\x1a7.buf.alpha.registry.v1alpha1.ListRepositoryTagsResponse\"\x03\x90\x02\x01\x12\xae\x01\n" +
-	"\x1eListRepositoryTagsForReference\x12B.buf.alpha.registry.v1alpha1.ListRepositoryTagsForReferenceRequest\x1aC.buf.alpha.registry.v1alpha1.ListRepositoryTagsForReferenceResponse\"\x03\x90\x02\x01B\x9f\x02\n" +
-	"\x1fcom.buf.alpha.registry.v1alpha1B\x12RepositoryTagProtoP\x01ZYgithub.com/bufbuild/buf/private/gen/proto/go/buf/alpha/registry/v1alpha1;registryv1alpha1\xa2\x02\x03BAR\xaa\x02\x1bBuf.Alpha.Registry.V1alpha1\xca\x02\x1bBuf\\Alpha\\Registry\\V1alpha1\xe2\x02'Buf\\Alpha\\Registry\\V1alpha1\\GPBMetadata\xea\x02\x1eBuf::Alpha::Registry::V1alpha1b\x06proto3"
+	"\x1eListRepositoryTagsForReference\x12B.buf.alpha.registry.v1alpha1.ListRepositoryTagsForReferenceRequest\x1aC.buf.alpha.registry.v1alpha1.ListRepositoryTagsForReferenceResponse\"\x03\x90\x02\x01B\x9d\x02\n" +
+	"\x1fcom.buf.alpha.registry.v1alpha1B\x12RepositoryTagProtoP\x01ZWgithub.com/walteh/buf/private/gen/proto/go/buf/alpha/registry/v1alpha1;registryv1alpha1\xa2\x02\x03BAR\xaa\x02\x1bBuf.Alpha.Registry.V1alpha1\xca\x02\x1bBuf\\Alpha\\Registry\\V1alpha1\xe2\x02'Buf\\Alpha\\Registry\\V1alpha1\\GPBMetadata\xea\x02\x1eBuf::Alpha::Registry::V1alpha1b\x06proto3"
 
 var file_buf_alpha_registry_v1alpha1_repository_tag_proto_msgTypes = make([]protoimpl.MessageInfo, 11)
 var file_buf_alpha_registry_v1alpha1_repository_tag_proto_goTypes = []any{

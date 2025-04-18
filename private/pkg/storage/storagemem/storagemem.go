@@ -19,9 +19,9 @@ import (
 	"context"
 	"errors"
 
-	"github.com/bufbuild/buf/private/pkg/storage"
-	"github.com/bufbuild/buf/private/pkg/storage/storagemem/internal"
-	"github.com/bufbuild/buf/private/pkg/storage/storageutil"
+	"github.com/walteh/buf/private/pkg/storage"
+	"github.com/walteh/buf/private/pkg/storage/storagemem/internal"
+	"github.com/walteh/buf/private/pkg/storage/storageutil"
 )
 
 var errDuplicatePath = errors.New("duplicate path")

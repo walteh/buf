@@ -16,7 +16,7 @@ package bufcheck
 
 import (
 	"buf.build/go/bufplugin/check"
-	"github.com/bufbuild/buf/private/bufpkg/bufconfig"
+	"github.com/walteh/buf/private/bufpkg/bufconfig"
 )
 
 type config struct {

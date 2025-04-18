@@ -20,7 +20,7 @@ import (
 	"io"
 
 	connect "connectrpc.com/connect"
-	"github.com/bufbuild/buf/private/pkg/protoencoding"
+	"github.com/walteh/buf/private/pkg/protoencoding"
 	"google.golang.org/protobuf/proto"
 )
 

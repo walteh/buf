@@ -17,7 +17,7 @@ package app
 import (
 	"io"
 
-	"github.com/bufbuild/buf/private/pkg/ioext"
+	"github.com/walteh/buf/private/pkg/ioext"
 )
 
 type stdoutContainer struct {

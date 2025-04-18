@@ -25,10 +25,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/bufbuild/buf/private/pkg/filelock"
-	"github.com/bufbuild/buf/private/pkg/normalpath"
-	"github.com/bufbuild/buf/private/pkg/storage/storagearchive"
-	"github.com/bufbuild/buf/private/pkg/storage/storageos"
+	"github.com/walteh/buf/private/pkg/filelock"
+	"github.com/walteh/buf/private/pkg/normalpath"
+	"github.com/walteh/buf/private/pkg/storage/storagearchive"
+	"github.com/walteh/buf/private/pkg/storage/storageos"
 )
 
 // since we are in testing, we care less about making sure this times out early

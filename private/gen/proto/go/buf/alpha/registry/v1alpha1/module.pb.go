@@ -244,8 +244,8 @@ const file_buf_alpha_registry_v1alpha1_module_proto_rawDesc = "" +
 	"repository\x12\x16\n" +
 	"\x06commit\x18\x04 \x01(\tR\x06commit\x12'\n" +
 	"\x0fmanifest_digest\x18\x06 \x01(\tR\x0emanifestDigestJ\x04\b\x03\x10\x04J\x04\b\x05\x10\x06J\x04\b\a\x10\bJ\x04\b\b\x10\tR\x06branchR\vcreate_timeR\x06digestR\n" +
-	"draft_nameB\x98\x02\n" +
-	"\x1fcom.buf.alpha.registry.v1alpha1B\vModuleProtoP\x01ZYgithub.com/bufbuild/buf/private/gen/proto/go/buf/alpha/registry/v1alpha1;registryv1alpha1\xa2\x02\x03BAR\xaa\x02\x1bBuf.Alpha.Registry.V1alpha1\xca\x02\x1bBuf\\Alpha\\Registry\\V1alpha1\xe2\x02'Buf\\Alpha\\Registry\\V1alpha1\\GPBMetadata\xea\x02\x1eBuf::Alpha::Registry::V1alpha1b\x06proto3"
+	"draft_nameB\x96\x02\n" +
+	"\x1fcom.buf.alpha.registry.v1alpha1B\vModuleProtoP\x01ZWgithub.com/walteh/buf/private/gen/proto/go/buf/alpha/registry/v1alpha1;registryv1alpha1\xa2\x02\x03BAR\xaa\x02\x1bBuf.Alpha.Registry.V1alpha1\xca\x02\x1bBuf\\Alpha\\Registry\\V1alpha1\xe2\x02'Buf\\Alpha\\Registry\\V1alpha1\\GPBMetadata\xea\x02\x1eBuf::Alpha::Registry::V1alpha1b\x06proto3"
 
 var file_buf_alpha_registry_v1alpha1_module_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_buf_alpha_registry_v1alpha1_module_proto_goTypes = []any{

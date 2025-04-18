@@ -17,7 +17,7 @@ package bufmodule
 import (
 	"sort"
 
-	"github.com/bufbuild/buf/private/pkg/syserror"
+	"github.com/walteh/buf/private/pkg/syserror"
 )
 
 // RemoteDep is a remote dependency of some local Module in a ModuleSet.

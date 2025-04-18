@@ -43,7 +43,7 @@
 - Fix `buf plugin push --label` to allow pushing a plugin with a label.
 - Add `--digest-changes-only` flag to `buf registry {module,plugin} commit list` to filter
   out commits that have no digest changes.
-- Fix `buf plugin push --source-control-url` to allow pushing a plugin with the source 
+- Fix `buf plugin push --source-control-url` to allow pushing a plugin with the source
   control url.
 
 ## [v1.48.0] - 2024-12-19
@@ -52,7 +52,7 @@
 - Breaking analysis support for `buf beta lsp`.
 - Fix bug when using the `--type` flag filter for `buf build` where import ordering is not
   deterministic.
-- Add `buf plugin push` command to push a plugin to the Buf Schema Registry. 
+- Add `buf plugin push` command to push a plugin to the Buf Schema Registry.
   Only WebAssembly check plugins are supported at this time.
 - Add `buf plugin update` and `buf plugin prune` command to manage plugins in the `buf.lock`
   file. Only WebAssembly check plugins are supported at this time.
@@ -136,9 +136,9 @@
 
 - Fix git input handling of relative HEAD refs without branch names.
 - Add `includes` key to module configurations in v2 `buf.yaml`, accepting a list of directories.
-  * If `includes` is specified, a proto file is considered in the module only if it is in one of the
+  - If `includes` is specified, a proto file is considered in the module only if it is in one of the
     directories specified.
-  * If both `includes` and `excludes` keys are specified for a module, a proto file is considered
+  - If both `includes` and `excludes` keys are specified for a module, a proto file is considered
     part of this module if it is contained in any of the include paths and not in any of the exclude
     paths.
 - Allow multiple module configurations in the same v2 `buf.yaml` to have the same directory path.
@@ -287,19 +287,19 @@
 - Update `buf breaking` rules to work with Protobuf Editions. To support Editions, some rules have
   been deprecated and replaced with Editions-aware rules. All deprecated rules continue to work
   for existing users.
-  * `FIELD_SAME_CTYPE` has been replaced with `FIELD_SAME_CPP_STRING_TYPE`, which considers both
+  - `FIELD_SAME_CTYPE` has been replaced with `FIELD_SAME_CPP_STRING_TYPE`, which considers both
     `ctype` field options and new `(pb.cpp).string_type` features when deciding on backwards
     compatibility.
-  * `FIELD_SAME_LABEL` has been replaced with three rules that all check "cardinality". The new
+  - `FIELD_SAME_LABEL` has been replaced with three rules that all check "cardinality". The new
     rules can distinguish between maps and other repeated fields and between implicit and explicit
     field presence. The new rules are:
     1. `FIELD_SAME_CARDINALITY` in the `FILE` and `PACKAGE` categories.
     2. `FIELD_WIRE_COMPATIBLE_CARDINALITY` in the `WIRE` category.
     3. `FIELD_WIRE_JSON_COMPATIBLE_CARDINALITY` in the `WIRE_JSON` category.
-  * `FILE_SAME_JAVA_STRING_CHECK_UTF8` has been replaced with `FIELD_SAME_JAVA_UTF8_VALIDATION`,
+  - `FILE_SAME_JAVA_STRING_CHECK_UTF8` has been replaced with `FIELD_SAME_JAVA_UTF8_VALIDATION`,
     which considers both the `java_string_check_utf8` file option and `(pb.java).utf8_validation`
     features when deciding on backwards compatibility.
-  * Add to the existing `FILE_SAME_SYNTAX` rule with a few related rules that can catch the same
+  - Add to the existing `FILE_SAME_SYNTAX` rule with a few related rules that can catch the same
     sort of compatibility issues, but in an Editions source file that changes feature values:
     1. `MESSAGE_SAME_JSON_FORMAT` and `ENUM_SAME_JSON_FORMAT` catch changes to the `json_format`
        feature, which controls whether support for the JSON format is best-effort or properly
@@ -537,7 +537,7 @@
 
 - Update built-in Well-Known Types to Protobuf v22.0.
 - Fix bug in `buf format` where C-style block comments in which every
-  line includes a prefix (usually "*") would be incorrectly indented.
+  line includes a prefix (usually "\*") would be incorrectly indented.
 - Add `--private-network` flag to `buf beta studio-agent` to support handling CORS requests
   from Studio on private networks that set the `Access-Control-Request-Private-Network` header.
 
@@ -568,6 +568,7 @@
 - Remove `buf beta convert` in favor of the now-stable `buf convert`.
 
 ## [v1.12.0] - 2023-01-12
+
 - Add `buf curl` command to invoke RPCs via [Connect](https://connect-build),
   [gRPC](https://grpc.io/), or [gRPC-Web](https://github.com/grpc/grpc-web.)
 - Introduce `objc_class_prefix` option in managed mode, allowing a `default` value
@@ -579,6 +580,7 @@
   the same effect as having mananged mode enabled in previous versions.
 
 ## [v1.11.0] - 2022-12-19
+
 - `buf generate` now batches remote plugin generation calls for improved performance.
 - Update `optimize_for` option in managed mode, allowing a `default` value for `optimize_for`
   for all files, `except` and `override`, which both behave similarly to other `except`
@@ -601,6 +603,7 @@
 ## [v1.9.0] - 2022-10-19
 
 - New compiler that is faster and uses less memory than the outgoing one.
+
   - When generating source code info, the new compiler is 20% faster, and allocates
     13% less memory.
   - If _not_ generating source code info, the new compiler is 50% faster and
@@ -613,6 +616,7 @@
 
   The new compiler also addresses a few bugs where Buf would accept proto sources
   that protoc would reject:
+
   - In proto3 files, field and enum names undergo a validation that they are
     sufficiently different so that there will be no conflicts in JSON names.
   - Fully-qualified names of elements (like a message, enum, or service) may not
@@ -622,6 +626,7 @@
   - Nesting depth of messages may not be > 32.
   - Field types and method input/output types may not refer to synthetic
     map entry messages.
+
 - Push lint and breaking configuration to the registry.
 - Include `LICENSE` file in the module on `buf push`.
 - Formatter better edits/preserves whitespace around inline comments.
@@ -704,6 +709,7 @@
 - Remove check for proper usage of private packages due to a breaking change made in the Golang standard library in 1.18.
 
 ## [v1.1.0] - 2022-03-01
+
 - Add `--type` flag to the `build` command to create filtered images containing
   only the specified types and their required dependencies.
 - Trim spaces and new lines from user-supplied token for `buf registry login`.
@@ -726,7 +732,7 @@
   a better Protobuf future that provides easier mechanics than our former `protoc`-based
   world. `buf protoc` itself added no benefit over mainline `protoc` beyond being considerably
   faster and allowing parallel compilation. If `protoc` is required, move back to mainline `protoc`
-  until you can upgrade to `buf`. See [#915](https://github.com/bufbuild/buf/pull/915) for more
+  until you can upgrade to `buf`. See [#915](https://github.com/walteh/buf/pull/915) for more
   details.
 - Context modifier no longer overrides an existing token on the context. This allows `buf registry login`
   to properly check the user provided token without the token being overridden by the CLI interceptor.
@@ -771,7 +777,7 @@
 - Fix issue where `buf generate` fails when the same plugin was specified more than once in a single invocation.
 - Update the digest algorithm so that it encodes the `name`, `lint`, and `breaking` configuration encoded in the `buf.yaml`.
   When this change is deployed, users will observe the following:
-  - Users on `v0.43.0` or before will notice mismatched digest errors similar to the one described in https://github.com/bufbuild/buf/issues/661.
+  - Users on `v0.43.0` or before will notice mismatched digest errors similar to the one described in https://github.com/walteh/buf/issues/661.
   - Users on `v0.44.0` or after will have their module cache invalidated, but it will repair itself automatically.
   - The `buf.lock` (across all versions) will reflect the new `b3-` digest values for new commits.
 
@@ -841,49 +847,49 @@ Simply update the command or flag, and you'll be good to go:
 - Removed the `--log-level` global flag.
 - Moved the output of `--version` from stderr to stdout.
 - Moved the output of `--help` and `help` from stderr to stdout.
-- [From v0.55.0](https://github.com/bufbuild/buf/releases/tag/v0.55.0): The version key in all configuration files (`buf.yaml`, `buf.gen.yaml`, `buf.work.yaml`) is now required.
-- [From v0.45.0](https://github.com/bufbuild/buf/releases/tag/v0.45.0): Removed the `buf beta config init` command in favor of `buf config init`.
-- [From v0.45.0](https://github.com/bufbuild/buf/releases/tag/v0.45.0): Removed the `buf beta mod export` command in favor of `buf export`.
-- [From v0.45.0](https://github.com/bufbuild/buf/releases/tag/v0.45.0): Removed the `buf beta mod init` command in favor of `buf config init`.
-- [From v0.45.0](https://github.com/bufbuild/buf/releases/tag/v0.45.0): Removed the `buf beta mod update` command in favor of `buf mod update`.
-- [From v0.45.0](https://github.com/bufbuild/buf/releases/tag/v0.45.0): Removed the `buf beta mod clear-cache` command in favor of `buf mod clear-cache`.
-- [From v0.45.0](https://github.com/bufbuild/buf/releases/tag/v0.45.0): Removed the `buf beta push` command in favor of `buf push`.
-- [From v0.34.0](https://github.com/bufbuild/buf/releases/tag/v0.34.0): Removed the `buf check breaking` command in favor of `buf breaking`.
-- [From v0.34.0](https://github.com/bufbuild/buf/releases/tag/v0.34.0): Removed the `buf check lint` command in favor of `buf lint`.
-- [From v0.34.0](https://github.com/bufbuild/buf/releases/tag/v0.34.0): Removed the `buf check ls-lint-checkers` command in favor of `buf config ls-lint-rules`.
-- [From v0.34.0](https://github.com/bufbuild/buf/releases/tag/v0.34.0): Removed the `buf check ls-breaking-checkers` command in favor of `buf config ls-breaking-rules`.
-- [From v0.31.0](https://github.com/bufbuild/buf/releases/tag/v0.31.0): Removed the `--file` flag on `buf build` in favor of the `--path` flag.
-- [From v0.31.0](https://github.com/bufbuild/buf/releases/tag/v0.31.0): Removed the `--file` flag on `buf lint` in favor of the `--path` flag.
-- [From v0.31.0](https://github.com/bufbuild/buf/releases/tag/v0.31.0): Removed the `--file` flag on `buf breaking` in favor of the `--path` flag.
-- [From v0.31.0](https://github.com/bufbuild/buf/releases/tag/v0.31.0): Removed the `--file` flag on `buf generate` in favor of the `--path` flag.
-- [From v0.31.0](https://github.com/bufbuild/buf/releases/tag/v0.31.0): Removed the `--file` flag on `buf export` in favor of the `--path` flag.
-- [From v0.29.0](https://github.com/bufbuild/buf/releases/tag/v0.29.0): Removed the `--source` flag on `buf build` in favor of the first positional parameter.
-- [From v0.29.0](https://github.com/bufbuild/buf/releases/tag/v0.29.0): Removed the `--source-config` flag on `buf build` in favor of the `--config` flag.
-- [From v0.29.0](https://github.com/bufbuild/buf/releases/tag/v0.29.0): Removed the `--input` flag on `buf lint` in favor of the first positional parameter.
-- [From v0.29.0](https://github.com/bufbuild/buf/releases/tag/v0.29.0): Removed the `--input-config` flag on `buf lint` in favor of the `--config` flag.
-- [From v0.29.0](https://github.com/bufbuild/buf/releases/tag/v0.29.0): Removed the `--input` flag on `buf breaking` in favor of the first positional parameter.
-- [From v0.29.0](https://github.com/bufbuild/buf/releases/tag/v0.29.0): Removed the `--input-config` flag on `buf breaking` in favor of the `--config` flag.
-- [From v0.29.0](https://github.com/bufbuild/buf/releases/tag/v0.29.0): Removed the `--against-input` flag on `buf breaking` in favor of the `--against` flag.
-- [From v0.29.0](https://github.com/bufbuild/buf/releases/tag/v0.29.0): Removed the `--against-input-config` flag on `buf breaking` in favor of the `--against-config` flag.
-- [From v0.29.0](https://github.com/bufbuild/buf/releases/tag/v0.29.0): Removed the `--input` flag on `buf generate` in favor of the first positional parameter.
-- [From v0.29.0](https://github.com/bufbuild/buf/releases/tag/v0.29.0): Removed the `--input-config` flag on `buf generate` in favor of the `--config` flag.
-- [From v0.29.0](https://github.com/bufbuild/buf/releases/tag/v0.29.0): Removed the `--input` flag on `buf ls-files` in favor of the first positional parameter.
-- [From v0.29.0](https://github.com/bufbuild/buf/releases/tag/v0.29.0): Removed the `--input-config` flag on `buf ls-files` in favor of the `--config` flag.
-- [From v0.29.0](https://github.com/bufbuild/buf/releases/tag/v0.29.0): Removed the `buf image build` command in favor of `buf build`.
-- [From v0.29.0](https://github.com/bufbuild/buf/releases/tag/v0.29.0): Removed the `buf image convert` command.
-- [From v0.29.0](https://github.com/bufbuild/buf/releases/tag/v0.29.0): Removed the `buf beta image convert` command.
-- [From v0.23.0](https://github.com/bufbuild/buf/releases/tag/v0.23.0): Removed the `buf experimental image convert` command.
-- [From v0.52.0](https://github.com/bufbuild/buf/releases/tag/v0.52.0) [and v0.34.0](https://github.com/bufbuild/buf/releases/tag/v0.34.0): Complete deletion `protoc-gen-buf-check-breaking` and `protoc-gen-buf-check-lint`, which have been moved to `protoc-gen-buf-breaking` and `protoc-gen-buf-lint`.
+- [From v0.55.0](https://github.com/walteh/buf/releases/tag/v0.55.0): The version key in all configuration files (`buf.yaml`, `buf.gen.yaml`, `buf.work.yaml`) is now required.
+- [From v0.45.0](https://github.com/walteh/buf/releases/tag/v0.45.0): Removed the `buf beta config init` command in favor of `buf config init`.
+- [From v0.45.0](https://github.com/walteh/buf/releases/tag/v0.45.0): Removed the `buf beta mod export` command in favor of `buf export`.
+- [From v0.45.0](https://github.com/walteh/buf/releases/tag/v0.45.0): Removed the `buf beta mod init` command in favor of `buf config init`.
+- [From v0.45.0](https://github.com/walteh/buf/releases/tag/v0.45.0): Removed the `buf beta mod update` command in favor of `buf mod update`.
+- [From v0.45.0](https://github.com/walteh/buf/releases/tag/v0.45.0): Removed the `buf beta mod clear-cache` command in favor of `buf mod clear-cache`.
+- [From v0.45.0](https://github.com/walteh/buf/releases/tag/v0.45.0): Removed the `buf beta push` command in favor of `buf push`.
+- [From v0.34.0](https://github.com/walteh/buf/releases/tag/v0.34.0): Removed the `buf check breaking` command in favor of `buf breaking`.
+- [From v0.34.0](https://github.com/walteh/buf/releases/tag/v0.34.0): Removed the `buf check lint` command in favor of `buf lint`.
+- [From v0.34.0](https://github.com/walteh/buf/releases/tag/v0.34.0): Removed the `buf check ls-lint-checkers` command in favor of `buf config ls-lint-rules`.
+- [From v0.34.0](https://github.com/walteh/buf/releases/tag/v0.34.0): Removed the `buf check ls-breaking-checkers` command in favor of `buf config ls-breaking-rules`.
+- [From v0.31.0](https://github.com/walteh/buf/releases/tag/v0.31.0): Removed the `--file` flag on `buf build` in favor of the `--path` flag.
+- [From v0.31.0](https://github.com/walteh/buf/releases/tag/v0.31.0): Removed the `--file` flag on `buf lint` in favor of the `--path` flag.
+- [From v0.31.0](https://github.com/walteh/buf/releases/tag/v0.31.0): Removed the `--file` flag on `buf breaking` in favor of the `--path` flag.
+- [From v0.31.0](https://github.com/walteh/buf/releases/tag/v0.31.0): Removed the `--file` flag on `buf generate` in favor of the `--path` flag.
+- [From v0.31.0](https://github.com/walteh/buf/releases/tag/v0.31.0): Removed the `--file` flag on `buf export` in favor of the `--path` flag.
+- [From v0.29.0](https://github.com/walteh/buf/releases/tag/v0.29.0): Removed the `--source` flag on `buf build` in favor of the first positional parameter.
+- [From v0.29.0](https://github.com/walteh/buf/releases/tag/v0.29.0): Removed the `--source-config` flag on `buf build` in favor of the `--config` flag.
+- [From v0.29.0](https://github.com/walteh/buf/releases/tag/v0.29.0): Removed the `--input` flag on `buf lint` in favor of the first positional parameter.
+- [From v0.29.0](https://github.com/walteh/buf/releases/tag/v0.29.0): Removed the `--input-config` flag on `buf lint` in favor of the `--config` flag.
+- [From v0.29.0](https://github.com/walteh/buf/releases/tag/v0.29.0): Removed the `--input` flag on `buf breaking` in favor of the first positional parameter.
+- [From v0.29.0](https://github.com/walteh/buf/releases/tag/v0.29.0): Removed the `--input-config` flag on `buf breaking` in favor of the `--config` flag.
+- [From v0.29.0](https://github.com/walteh/buf/releases/tag/v0.29.0): Removed the `--against-input` flag on `buf breaking` in favor of the `--against` flag.
+- [From v0.29.0](https://github.com/walteh/buf/releases/tag/v0.29.0): Removed the `--against-input-config` flag on `buf breaking` in favor of the `--against-config` flag.
+- [From v0.29.0](https://github.com/walteh/buf/releases/tag/v0.29.0): Removed the `--input` flag on `buf generate` in favor of the first positional parameter.
+- [From v0.29.0](https://github.com/walteh/buf/releases/tag/v0.29.0): Removed the `--input-config` flag on `buf generate` in favor of the `--config` flag.
+- [From v0.29.0](https://github.com/walteh/buf/releases/tag/v0.29.0): Removed the `--input` flag on `buf ls-files` in favor of the first positional parameter.
+- [From v0.29.0](https://github.com/walteh/buf/releases/tag/v0.29.0): Removed the `--input-config` flag on `buf ls-files` in favor of the `--config` flag.
+- [From v0.29.0](https://github.com/walteh/buf/releases/tag/v0.29.0): Removed the `buf image build` command in favor of `buf build`.
+- [From v0.29.0](https://github.com/walteh/buf/releases/tag/v0.29.0): Removed the `buf image convert` command.
+- [From v0.29.0](https://github.com/walteh/buf/releases/tag/v0.29.0): Removed the `buf beta image convert` command.
+- [From v0.23.0](https://github.com/walteh/buf/releases/tag/v0.23.0): Removed the `buf experimental image convert` command.
+- [From v0.52.0](https://github.com/walteh/buf/releases/tag/v0.52.0) [and v0.34.0](https://github.com/walteh/buf/releases/tag/v0.34.0): Complete deletion `protoc-gen-buf-check-breaking` and `protoc-gen-buf-check-lint`, which have been moved to `protoc-gen-buf-breaking` and `protoc-gen-buf-lint`.
 
 In January 2021 (v0.34.0), `protoc-gen-buf-check-breaking` and `protoc-gen-buf-check-lint` were deprecated and scheduled for removal for v1.0. In August 2021 (v0.52.0), we began returning error for every invocation of `protoc-gen-buf-check-breaking` and `protoc-gen-buf-check-lint`. This release completes the deletion process.
 
 The only migration necessary is to change your installation and invocation from `protoc-gen-buf-check-breaking` to `protoc-gen-buf-breaking` and `protoc-gen-buf-check-lint` to `protoc-gen-buf-lint`. These can be installed in the exact same manner, whether from GitHub Releases, Homebrew, AUR, or direct Go installation:
 
 ```
-# instead of go get github.com/bufbuild/buf/cmd/protoc-gen-buf-check-breaking
-go get github.com/bufbuild/buf/cmd/protoc-gen-buf-breaking
-# instead of curl -sSL https://github.com/bufbuild/buf/releases/download/v0.57.0/protoc-gen-buf-check-breaking-Linux-x86_64
-curl -sSL https://github.com/bufbuild/buf/releases/download/v0.57.0/protoc-gen-buf-breaking-Linux-x86_64
+# instead of go get github.com/walteh/buf/cmd/protoc-gen-buf-check-breaking
+go get github.com/walteh/buf/cmd/protoc-gen-buf-breaking
+# instead of curl -sSL https://github.com/walteh/buf/releases/download/v0.57.0/protoc-gen-buf-check-breaking-Linux-x86_64
+curl -sSL https://github.com/walteh/buf/releases/download/v0.57.0/protoc-gen-buf-breaking-Linux-x86_64
 ```
 
 ## [v0.56.0] - 2021-09-08
@@ -926,10 +932,10 @@ As one of the few changes buf will ever make, `protoc-gen-buf-check-breaking` an
 The only migration necessary is to change your installation and invocation from `protoc-gen-buf-check-breaking` to `protoc-gen-buf-breaking` and `protoc-gen-buf-check-lint` to `protoc-gen-buf-lint`. These can be installed in the exact same manner, whether from GitHub Releases, Homebrew, AUR, or direct Go installation:
 
 ```
-# instead of go get github.com/bufbuild/buf/cmd/protoc-gen-buf-check-breaking
-go get github.com/bufbuild/buf/cmd/protoc-gen-buf-breaking
-# instead of curl -sSL https://github.com/bufbuild/buf/releases/download/v0.52.0/protoc-gen-buf-check-breaking-Linux-x86_64
-curl -sSL https://github.com/bufbuild/buf/releases/download/v0.52.0/protoc-gen-buf-breaking-Linux-x86_64
+# instead of go get github.com/walteh/buf/cmd/protoc-gen-buf-check-breaking
+go get github.com/walteh/buf/cmd/protoc-gen-buf-breaking
+# instead of curl -sSL https://github.com/walteh/buf/releases/download/v0.52.0/protoc-gen-buf-check-breaking-Linux-x86_64
+curl -sSL https://github.com/walteh/buf/releases/download/v0.52.0/protoc-gen-buf-breaking-Linux-x86_64
 ```
 
 There is no change in functionality.
@@ -950,7 +956,7 @@ There is no change in functionality.
 
 ## [v0.49.0] - 2021-08-10
 
-- Split `FIELD_SAME_TYPE` breaking change rule into `FIELD_SAME_TYPE, FIELD_WIRE_COMPATIBLE_TYPE, FIELD_WIRE_JSON_COMPATIBLE_TYPE` in `v1`. See https://github.com/bufbuild/buf/pull/400 for details.
+- Split `FIELD_SAME_TYPE` breaking change rule into `FIELD_SAME_TYPE, FIELD_WIRE_COMPATIBLE_TYPE, FIELD_WIRE_JSON_COMPATIBLE_TYPE` in `v1`. See https://github.com/walteh/buf/pull/400 for details.
 - Only export imported dependencies from `buf export`.
 
 ## [v0.48.2] - 2021-07-30
@@ -1029,15 +1035,15 @@ There is no change in functionality.
 
 ## [v0.41.0] - 2021-04-01
 
-* Add `MESSAGE_SAME_REQUIRED_FIELDS` breaking change rule. This checks to make sure no `required` fields are added or deleted from existing messages.
-* Support multi-architecture Docker image.
-* Exit with code 100 for `FileAnnotation` errors.
+- Add `MESSAGE_SAME_REQUIRED_FIELDS` breaking change rule. This checks to make sure no `required` fields are added or deleted from existing messages.
+- Support multi-architecture Docker image.
+- Exit with code 100 for `FileAnnotation` errors.
 
 ## [v0.40.0] - 2021-03-15
 
-* Add `buf beta registry tag {create,list}` commands.
-* Add support for creating tags in `push` via `buf beta push -t`.
-* Fix an issue where errors were unnecessarily written in `buf lint` and `buf breaking`.
+- Add `buf beta registry tag {create,list}` commands.
+- Add support for creating tags in `push` via `buf beta push -t`.
+- Fix an issue where errors were unnecessarily written in `buf lint` and `buf breaking`.
 
 ## [v0.39.1] - 2021-03-04
 
@@ -1045,9 +1051,9 @@ There is no change in functionality.
 
 ## [v0.39.0] - 2021-03-04
 
-* `buf beta push` doesn't create a new commit if the content of the push is the same as the latest commit on the branch.
-* Fix an issue where no error was shown when authentication failed.
-* Fix an issue where `buf protoc` would error if a plugin returned an empty error string.
+- `buf beta push` doesn't create a new commit if the content of the push is the same as the latest commit on the branch.
+- Fix an issue where no error was shown when authentication failed.
+- Fix an issue where `buf protoc` would error if a plugin returned an empty error string.
 
 ## [v0.38.0] - 2021-02-25
 
@@ -1068,7 +1074,7 @@ There is no change in functionality.
 
 Allows comment ignores of the form `// buf:lint:ignore ID` to be cascaded upwards for specific rules.
 
-- For  `ENUM_VALUE_PREFIX, ENUM_VALUE_UPPER_SNAKE_CASE`, both the enum value and the enum are checked.
+- For `ENUM_VALUE_PREFIX, ENUM_VALUE_UPPER_SNAKE_CASE`, both the enum value and the enum are checked.
 - For `FIELD_LOWER_SNAKE_CASE, FIELD_NO_DESCRIPTOR`, both the field and message are checked.
 - For `ONEOF_LOWER_SNAKE_CASE`, both the oneof and message are checked.
 - For `RPC_NO_CLIENT_STREAMING, RPC_NO_SERVER_STREAMING, RPC_PASCAL_CASE, RPC_REQUEST_RESPONSE_UNIQUE`, both the method and service are checked.
@@ -1270,9 +1276,9 @@ buf check breaking proto --against .git#branch=master,subdir=proto
 
 ## [v0.17.0] - 2020-06-17
 
-- Add git ref support to allow specifying arbitrary git references as inputs (https://github.com/bufbuild/buf/issues/48). This allows you to do i.e. `buf check lint --input https://github.com/bufbuild/buf.git#ref=fa74aa9c4161304dfa83db4abc4a0effe886d253`.
+- Add git ref support to allow specifying arbitrary git references as inputs (https://github.com/walteh/buf/issues/48). This allows you to do i.e. `buf check lint --input https://github.com/walteh/buf.git#ref=fa74aa9c4161304dfa83db4abc4a0effe886d253`.
 - Add `depth` input option when specifying git inputs with `ref`. This allows the user to configure the depth at which to clone the repository when looking for the `ref`. If specifying a `ref`, this defaults to 50. Otherwise, this defaults to 1.
-- Remove requirement for git branch or tag in inputs. This allows you to do i.e. `buf check lint --input https://github.com/bufbuild/buf.git` and it will automatically choose the default branch as an input.
+- Remove requirement for git branch or tag in inputs. This allows you to do i.e. `buf check lint --input https://github.com/walteh/buf.git` and it will automatically choose the default branch as an input.
 
 ## [v0.16.0] - 2020-06-02
 
@@ -1360,169 +1366,169 @@ buf check breaking proto --against .git#branch=master,subdir=proto
 
 Initial beta release.
 
-[Unreleased]: https://github.com/bufbuild/buf/compare/v1.52.1...HEAD
-[v1.52.1]: https://github.com/bufbuild/buf/compare/v1.52.0...v1.52.1
-[v1.52.0]: https://github.com/bufbuild/buf/compare/v1.51.0...v1.52.0
-[v1.51.0]: https://github.com/bufbuild/buf/compare/v1.50.1...v1.51.0
-[v1.50.1]: https://github.com/bufbuild/buf/compare/v1.50.0...v1.50.1
-[v1.50.0]: https://github.com/bufbuild/buf/compare/v1.49.0...v1.50.0
-[v1.49.0]: https://github.com/bufbuild/buf/compare/v1.48.0...v1.49.0
-[v1.48.0]: https://github.com/bufbuild/buf/compare/v1.47.2...v1.48.0
-[v1.47.2]: https://github.com/bufbuild/buf/compare/v1.47.1...v1.47.2
-[v1.47.1]: https://github.com/bufbuild/buf/compare/v1.47.0...v1.47.1
-[v1.47.0]: https://github.com/bufbuild/buf/compare/v1.46.0...v1.47.0
-[v1.46.0]: https://github.com/bufbuild/buf/compare/v1.45.0...v1.46.0
-[v1.45.0]: https://github.com/bufbuild/buf/compare/v1.44.0...v1.45.0
-[v1.44.0]: https://github.com/bufbuild/buf/compare/v1.43.0...v1.44.0
-[v1.43.0]: https://github.com/bufbuild/buf/compare/v1.42.0...v1.43.0
-[v1.42.0]: https://github.com/bufbuild/buf/compare/v1.41.0...v1.42.0
-[v1.41.0]: https://github.com/bufbuild/buf/compare/v1.40.1...v1.41.0
-[v1.40.1]: https://github.com/bufbuild/buf/compare/v1.40.0...v1.40.1
-[v1.40.0]: https://github.com/bufbuild/buf/compare/v1.39.0...v1.40.0
-[v1.39.0]: https://github.com/bufbuild/buf/compare/v1.38.0...v1.39.0
-[v1.38.0]: https://github.com/bufbuild/buf/compare/v1.37.0...v1.38.0
-[v1.37.0]: https://github.com/bufbuild/buf/compare/v1.36.0...v1.37.0
-[v1.36.0]: https://github.com/bufbuild/buf/compare/v1.35.1...v1.36.0
-[v1.35.1]: https://github.com/bufbuild/buf/compare/v1.35.0...v1.35.1
-[v1.35.0]: https://github.com/bufbuild/buf/compare/v1.34.0...v1.35.0
-[v1.34.0]: https://github.com/bufbuild/buf/compare/v1.33.0...v1.34.0
-[v1.33.0]: https://github.com/bufbuild/buf/compare/v1.32.2...v1.33.0
-[v1.32.2]: https://github.com/bufbuild/buf/compare/v1.32.1...v1.32.2
-[v1.32.1]: https://github.com/bufbuild/buf/compare/v1.32.0...v1.32.1
-[v1.32.0]: https://github.com/bufbuild/buf/compare/v1.32.0-beta.1...v1.32.0
-[v1.32.0-beta.1]: https://github.com/bufbuild/buf/compare/v1.31.0...v1.32.0-beta.1
-[v1.31.0]: https://github.com/bufbuild/buf/compare/v1.30.1...v1.31.0
-[v1.30.1]: https://github.com/bufbuild/buf/compare/v1.30.0...v1.30.1
-[v1.30.0]: https://github.com/bufbuild/buf/compare/v1.29.0...v1.30.0
-[v1.29.0]: https://github.com/bufbuild/buf/compare/v1.28.1...v1.29.0
-[v1.28.1]: https://github.com/bufbuild/buf/compare/v1.28.0...v1.28.1
-[v1.28.0]: https://github.com/bufbuild/buf/compare/v1.27.2...v1.28.0
-[v1.27.2]: https://github.com/bufbuild/buf/compare/v1.27.1...v1.27.2
-[v1.27.1]: https://github.com/bufbuild/buf/compare/v1.27.0...v1.27.1
-[v1.27.0]: https://github.com/bufbuild/buf/compare/v1.26.1...v1.27.0
-[v1.26.1]: https://github.com/bufbuild/buf/compare/v1.26.0...v1.26.1
-[v1.26.0]: https://github.com/bufbuild/buf/compare/v1.25.1...v1.26.0
-[v1.25.1]: https://github.com/bufbuild/buf/compare/v1.25.0...v1.25.1
-[v1.25.0]: https://github.com/bufbuild/buf/compare/v1.24.0...v1.25.0
-[v1.24.0]: https://github.com/bufbuild/buf/compare/v1.23.1...v1.24.0
-[v1.23.1]: https://github.com/bufbuild/buf/compare/v1.23.0...v1.23.1
-[v1.23.0]: https://github.com/bufbuild/buf/compare/v1.22.0...v1.23.0
-[v1.22.0]: https://github.com/bufbuild/buf/compare/v1.21.0...v1.22.0
-[v1.21.0]: https://github.com/bufbuild/buf/compare/v1.20.0...v1.21.0
-[v1.20.0]: https://github.com/bufbuild/buf/compare/v1.19.0...v1.20.0
-[v1.19.0]: https://github.com/bufbuild/buf/compare/v1.18.0...v1.19.0
-[v1.18.0]: https://github.com/bufbuild/buf/compare/v1.17.0...v1.18.0
-[v1.17.0]: https://github.com/bufbuild/buf/compare/v1.16.0...v1.17.0
-[v1.16.0]: https://github.com/bufbuild/buf/compare/v1.15.1...v1.16.0
-[v1.15.1]: https://github.com/bufbuild/buf/compare/v1.15.0...v1.15.1
-[v1.15.0]: https://github.com/bufbuild/buf/compare/v1.14.0...v1.15.0
-[v1.14.0]: https://github.com/bufbuild/buf/compare/v1.13.1...v1.14.0
-[v1.13.1]: https://github.com/bufbuild/buf/compare/v1.13.0...v1.13.1
-[v1.13.0]: https://github.com/bufbuild/buf/compare/v1.12.0...v1.13.0
-[v1.12.0]: https://github.com/bufbuild/buf/compare/v1.11.0...v1.12.0
-[v1.11.0]: https://github.com/bufbuild/buf/compare/v1.10.0...v1.11.0
-[v1.10.0]: https://github.com/bufbuild/buf/compare/v1.9.0...v1.10.0
-[v1.9.0]: https://github.com/bufbuild/buf/compare/v1.8.0...v1.9.0
-[v1.8.0]: https://github.com/bufbuild/buf/compare/v1.7.0...v1.8.0
-[v1.7.0]: https://github.com/bufbuild/buf/compare/v1.6.0...v1.7.0
-[v1.6.0]: https://github.com/bufbuild/buf/compare/v1.5.0...v1.6.0
-[v1.5.0]: https://github.com/bufbuild/buf/compare/v1.4.0...v1.5.0
-[v1.4.0]: https://github.com/bufbuild/buf/compare/v1.3.1...v1.4.0
-[v1.3.1]: https://github.com/bufbuild/buf/compare/v1.3.0...v1.3.1
-[v1.3.0]: https://github.com/bufbuild/buf/compare/v1.2.1...1.3.0
-[v1.2.1]: https://github.com/bufbuild/buf/compare/v1.2.0...v1.2.1
-[v1.2.0]: https://github.com/bufbuild/buf/compare/v1.1.1...v1.2.0
-[v1.1.1]: https://github.com/bufbuild/buf/compare/v1.1.0...v1.1.1
-[v1.1.0]: https://github.com/bufbuild/buf/compare/v1.0.0...v1.1.0
-[v1.0.0]: https://github.com/bufbuild/buf/compare/v1.0.0-rc12...v1.0.0
-[v1.0.0-rc12]: https://github.com/bufbuild/buf/compare/v1.0.0-rc11...v1.0.0-rc12
-[v1.0.0-rc11]: https://github.com/bufbuild/buf/compare/v1.0.0-rc10...v1.0.0-rc11
-[v1.0.0-rc10]: https://github.com/bufbuild/buf/compare/v1.0.0-rc9...v1.0.0-rc10
-[v1.0.0-rc9]: https://github.com/bufbuild/buf/compare/v1.0.0-rc8...v1.0.0-rc9
-[v1.0.0-rc8]: https://github.com/bufbuild/buf/compare/v1.0.0-rc7...v1.0.0-rc8
-[v1.0.0-rc7]: https://github.com/bufbuild/buf/compare/v1.0.0-rc6...v1.0.0-rc7
-[v1.0.0-rc6]: https://github.com/bufbuild/buf/compare/v1.0.0-rc5...v1.0.0-rc6
-[v1.0.0-rc5]: https://github.com/bufbuild/buf/compare/v1.0.0-rc4...v1.0.0-rc5
-[v1.0.0-rc4]: https://github.com/bufbuild/buf/compare/v1.0.0-rc3...v1.0.0-rc4
-[v1.0.0-rc3]: https://github.com/bufbuild/buf/compare/v1.0.0-rc2...v1.0.0-rc3
-[v1.0.0-rc2]: https://github.com/bufbuild/buf/compare/v1.0.0-rc1...v1.0.0-rc2
-[v1.0.0-rc1]: https://github.com/bufbuild/buf/compare/v0.56.0...v1.0.0-rc1
-[v0.56.0]: https://github.com/bufbuild/buf/compare/v0.55.0...v0.56.0
-[v0.55.0]: https://github.com/bufbuild/buf/compare/v0.54.1...v0.55.0
-[v0.54.1]: https://github.com/bufbuild/buf/compare/v0.54.0...v0.54.1
-[v0.54.0]: https://github.com/bufbuild/buf/compare/v0.53.0...v0.54.0
-[v0.53.0]: https://github.com/bufbuild/buf/compare/v0.52.0...v0.53.0
-[v0.52.0]: https://github.com/bufbuild/buf/compare/v0.51.1...v0.52.0
-[v0.51.1]: https://github.com/bufbuild/buf/compare/v0.51.0...v0.51.1
-[v0.51.0]: https://github.com/bufbuild/buf/compare/v0.50.0...v0.51.0
-[v0.50.0]: https://github.com/bufbuild/buf/compare/v0.49.0...v0.50.0
-[v0.49.0]: https://github.com/bufbuild/buf/compare/v0.48.2...v0.49.0
-[v0.48.2]: https://github.com/bufbuild/buf/compare/v0.48.1...v0.48.2
-[v0.48.1]: https://github.com/bufbuild/buf/compare/v0.48.0...v0.48.1
-[v0.48.0]: https://github.com/bufbuild/buf/compare/v0.47.0...v0.48.0
-[v0.47.0]: https://github.com/bufbuild/buf/compare/v0.46.0...v0.47.0
-[v0.46.0]: https://github.com/bufbuild/buf/compare/v0.45.0...v0.46.0
-[v0.45.0]: https://github.com/bufbuild/buf/compare/v0.44.0...v0.45.0
-[v0.44.0]: https://github.com/bufbuild/buf/compare/v0.43.2...v0.44.0
-[v0.43.2]: https://github.com/bufbuild/buf/compare/v0.43.1...v0.43.2
-[v0.43.1]: https://github.com/bufbuild/buf/compare/v0.43.0...v0.43.1
-[v0.43.0]: https://github.com/bufbuild/buf/compare/v0.42.1...v0.43.0
-[v0.42.1]: https://github.com/bufbuild/buf/compare/v0.42.0...v0.42.1
-[v0.42.0]: https://github.com/bufbuild/buf/compare/v0.41.0...v0.42.0
-[v0.41.0]: https://github.com/bufbuild/buf/compare/v0.40.0...v0.41.0
-[v0.40.0]: https://github.com/bufbuild/buf/compare/v0.39.1...v0.40.0
-[v0.39.1]: https://github.com/bufbuild/buf/compare/v0.39.0...v0.39.1
-[v0.39.0]: https://github.com/bufbuild/buf/compare/v0.38.0...v0.39.0
-[v0.38.0]: https://github.com/bufbuild/buf/compare/v0.37.1...v0.38.0
-[v0.37.1]: https://github.com/bufbuild/buf/compare/v0.37.0...v0.37.1
-[v0.37.0]: https://github.com/bufbuild/buf/compare/v0.36.0...v0.37.0
-[v0.36.0]: https://github.com/bufbuild/buf/compare/v0.35.1...v0.36.0
-[v0.35.1]: https://github.com/bufbuild/buf/compare/v0.35.0...v0.35.1
-[v0.35.0]: https://github.com/bufbuild/buf/compare/v0.34.0...v0.35.0
-[v0.34.0]: https://github.com/bufbuild/buf/compare/v0.33.0...v0.34.0
-[v0.33.0]: https://github.com/bufbuild/buf/compare/v0.32.1...v0.33.0
-[v0.32.1]: https://github.com/bufbuild/buf/compare/v0.32.0...v0.32.1
-[v0.32.0]: https://github.com/bufbuild/buf/compare/v0.31.1...v0.32.0
-[v0.31.1]: https://github.com/bufbuild/buf/compare/v0.31.0...v0.31.1
-[v0.31.0]: https://github.com/bufbuild/buf/compare/v0.30.1...v0.31.0
-[v0.30.1]: https://github.com/bufbuild/buf/compare/v0.30.0...v0.30.1
-[v0.30.0]: https://github.com/bufbuild/buf/compare/v0.29.0...v0.30.0
-[v0.29.0]: https://github.com/bufbuild/buf/compare/v0.28.0...v0.29.0
-[v0.28.0]: https://github.com/bufbuild/buf/compare/v0.27.1...v0.28.0
-[v0.27.1]: https://github.com/bufbuild/buf/compare/v0.27.0...v0.27.1
-[v0.27.0]: https://github.com/bufbuild/buf/compare/v0.26.0...v0.27.0
-[v0.26.0]: https://github.com/bufbuild/buf/compare/v0.25.0...v0.26.0
-[v0.25.0]: https://github.com/bufbuild/buf/compare/v0.24.0...v0.25.0
-[v0.24.0]: https://github.com/bufbuild/buf/compare/v0.23.0...v0.24.0
-[v0.23.0]: https://github.com/bufbuild/buf/compare/v0.22.0...v0.23.0
-[v0.22.0]: https://github.com/bufbuild/buf/compare/v0.21.0...v0.22.0
-[v0.21.0]: https://github.com/bufbuild/buf/compare/v0.20.5...v0.21.0
-[v0.20.5]: https://github.com/bufbuild/buf/compare/v0.20.4...v0.20.5
-[v0.20.4]: https://github.com/bufbuild/buf/compare/v0.20.3...v0.20.4
-[v0.20.3]: https://github.com/bufbuild/buf/compare/v0.20.2...v0.20.3
-[v0.20.2]: https://github.com/bufbuild/buf/compare/v0.20.1...v0.20.2
-[v0.20.1]: https://github.com/bufbuild/buf/compare/v0.20.0...v0.20.1
-[v0.20.0]: https://github.com/bufbuild/buf/compare/v0.19.1...v0.20.0
-[v0.19.1]: https://github.com/bufbuild/buf/compare/v0.19.0...v0.19.1
-[v0.19.0]: https://github.com/bufbuild/buf/compare/v0.18.1...v0.19.0
-[v0.18.1]: https://github.com/bufbuild/buf/compare/v0.18.0...v0.18.1
-[v0.18.0]: https://github.com/bufbuild/buf/compare/v0.17.0...v0.18.0
-[v0.17.0]: https://github.com/bufbuild/buf/compare/v0.16.0...v0.17.0
-[v0.16.0]: https://github.com/bufbuild/buf/compare/v0.15.0...v0.16.0
-[v0.15.0]: https://github.com/bufbuild/buf/compare/v0.14.0...v0.15.0
-[v0.14.0]: https://github.com/bufbuild/buf/compare/v0.13.0...v0.14.0
-[v0.13.0]: https://github.com/bufbuild/buf/compare/v0.12.1...v0.13.0
-[v0.12.1]: https://github.com/bufbuild/buf/compare/v0.12.0...v0.12.1
-[v0.12.0]: https://github.com/bufbuild/buf/compare/v0.11.0...v0.12.0
-[v0.11.0]: https://github.com/bufbuild/buf/compare/v0.10.0...v0.11.0
-[v0.10.0]: https://github.com/bufbuild/buf/compare/v0.9.0...v0.10.0
-[v0.9.0]: https://github.com/bufbuild/buf/compare/v0.8.0...v0.9.0
-[v0.8.0]: https://github.com/bufbuild/buf/compare/v0.7.1...v0.8.0
-[v0.7.1]: https://github.com/bufbuild/buf/compare/v0.7.0...v0.7.1
-[v0.7.0]: https://github.com/bufbuild/buf/compare/v0.6.0...v0.7.0
-[v0.6.0]: https://github.com/bufbuild/buf/compare/v0.5.0...v0.6.0
-[v0.5.0]: https://github.com/bufbuild/buf/compare/v0.4.1...v0.5.0
-[v0.4.1]: https://github.com/bufbuild/buf/compare/v0.4.0...v0.4.1
-[v0.4.0]: https://github.com/bufbuild/buf/compare/v0.3.0...v0.4.0
-[v0.3.0]: https://github.com/bufbuild/buf/compare/v0.2.0...v0.3.0
-[v0.2.0]: https://github.com/bufbuild/buf/compare/v0.1.0...v0.2.0
+[Unreleased]: https://github.com/walteh/buf/compare/v1.52.1...HEAD
+[v1.52.1]: https://github.com/walteh/buf/compare/v1.52.0...v1.52.1
+[v1.52.0]: https://github.com/walteh/buf/compare/v1.51.0...v1.52.0
+[v1.51.0]: https://github.com/walteh/buf/compare/v1.50.1...v1.51.0
+[v1.50.1]: https://github.com/walteh/buf/compare/v1.50.0...v1.50.1
+[v1.50.0]: https://github.com/walteh/buf/compare/v1.49.0...v1.50.0
+[v1.49.0]: https://github.com/walteh/buf/compare/v1.48.0...v1.49.0
+[v1.48.0]: https://github.com/walteh/buf/compare/v1.47.2...v1.48.0
+[v1.47.2]: https://github.com/walteh/buf/compare/v1.47.1...v1.47.2
+[v1.47.1]: https://github.com/walteh/buf/compare/v1.47.0...v1.47.1
+[v1.47.0]: https://github.com/walteh/buf/compare/v1.46.0...v1.47.0
+[v1.46.0]: https://github.com/walteh/buf/compare/v1.45.0...v1.46.0
+[v1.45.0]: https://github.com/walteh/buf/compare/v1.44.0...v1.45.0
+[v1.44.0]: https://github.com/walteh/buf/compare/v1.43.0...v1.44.0
+[v1.43.0]: https://github.com/walteh/buf/compare/v1.42.0...v1.43.0
+[v1.42.0]: https://github.com/walteh/buf/compare/v1.41.0...v1.42.0
+[v1.41.0]: https://github.com/walteh/buf/compare/v1.40.1...v1.41.0
+[v1.40.1]: https://github.com/walteh/buf/compare/v1.40.0...v1.40.1
+[v1.40.0]: https://github.com/walteh/buf/compare/v1.39.0...v1.40.0
+[v1.39.0]: https://github.com/walteh/buf/compare/v1.38.0...v1.39.0
+[v1.38.0]: https://github.com/walteh/buf/compare/v1.37.0...v1.38.0
+[v1.37.0]: https://github.com/walteh/buf/compare/v1.36.0...v1.37.0
+[v1.36.0]: https://github.com/walteh/buf/compare/v1.35.1...v1.36.0
+[v1.35.1]: https://github.com/walteh/buf/compare/v1.35.0...v1.35.1
+[v1.35.0]: https://github.com/walteh/buf/compare/v1.34.0...v1.35.0
+[v1.34.0]: https://github.com/walteh/buf/compare/v1.33.0...v1.34.0
+[v1.33.0]: https://github.com/walteh/buf/compare/v1.32.2...v1.33.0
+[v1.32.2]: https://github.com/walteh/buf/compare/v1.32.1...v1.32.2
+[v1.32.1]: https://github.com/walteh/buf/compare/v1.32.0...v1.32.1
+[v1.32.0]: https://github.com/walteh/buf/compare/v1.32.0-beta.1...v1.32.0
+[v1.32.0-beta.1]: https://github.com/walteh/buf/compare/v1.31.0...v1.32.0-beta.1
+[v1.31.0]: https://github.com/walteh/buf/compare/v1.30.1...v1.31.0
+[v1.30.1]: https://github.com/walteh/buf/compare/v1.30.0...v1.30.1
+[v1.30.0]: https://github.com/walteh/buf/compare/v1.29.0...v1.30.0
+[v1.29.0]: https://github.com/walteh/buf/compare/v1.28.1...v1.29.0
+[v1.28.1]: https://github.com/walteh/buf/compare/v1.28.0...v1.28.1
+[v1.28.0]: https://github.com/walteh/buf/compare/v1.27.2...v1.28.0
+[v1.27.2]: https://github.com/walteh/buf/compare/v1.27.1...v1.27.2
+[v1.27.1]: https://github.com/walteh/buf/compare/v1.27.0...v1.27.1
+[v1.27.0]: https://github.com/walteh/buf/compare/v1.26.1...v1.27.0
+[v1.26.1]: https://github.com/walteh/buf/compare/v1.26.0...v1.26.1
+[v1.26.0]: https://github.com/walteh/buf/compare/v1.25.1...v1.26.0
+[v1.25.1]: https://github.com/walteh/buf/compare/v1.25.0...v1.25.1
+[v1.25.0]: https://github.com/walteh/buf/compare/v1.24.0...v1.25.0
+[v1.24.0]: https://github.com/walteh/buf/compare/v1.23.1...v1.24.0
+[v1.23.1]: https://github.com/walteh/buf/compare/v1.23.0...v1.23.1
+[v1.23.0]: https://github.com/walteh/buf/compare/v1.22.0...v1.23.0
+[v1.22.0]: https://github.com/walteh/buf/compare/v1.21.0...v1.22.0
+[v1.21.0]: https://github.com/walteh/buf/compare/v1.20.0...v1.21.0
+[v1.20.0]: https://github.com/walteh/buf/compare/v1.19.0...v1.20.0
+[v1.19.0]: https://github.com/walteh/buf/compare/v1.18.0...v1.19.0
+[v1.18.0]: https://github.com/walteh/buf/compare/v1.17.0...v1.18.0
+[v1.17.0]: https://github.com/walteh/buf/compare/v1.16.0...v1.17.0
+[v1.16.0]: https://github.com/walteh/buf/compare/v1.15.1...v1.16.0
+[v1.15.1]: https://github.com/walteh/buf/compare/v1.15.0...v1.15.1
+[v1.15.0]: https://github.com/walteh/buf/compare/v1.14.0...v1.15.0
+[v1.14.0]: https://github.com/walteh/buf/compare/v1.13.1...v1.14.0
+[v1.13.1]: https://github.com/walteh/buf/compare/v1.13.0...v1.13.1
+[v1.13.0]: https://github.com/walteh/buf/compare/v1.12.0...v1.13.0
+[v1.12.0]: https://github.com/walteh/buf/compare/v1.11.0...v1.12.0
+[v1.11.0]: https://github.com/walteh/buf/compare/v1.10.0...v1.11.0
+[v1.10.0]: https://github.com/walteh/buf/compare/v1.9.0...v1.10.0
+[v1.9.0]: https://github.com/walteh/buf/compare/v1.8.0...v1.9.0
+[v1.8.0]: https://github.com/walteh/buf/compare/v1.7.0...v1.8.0
+[v1.7.0]: https://github.com/walteh/buf/compare/v1.6.0...v1.7.0
+[v1.6.0]: https://github.com/walteh/buf/compare/v1.5.0...v1.6.0
+[v1.5.0]: https://github.com/walteh/buf/compare/v1.4.0...v1.5.0
+[v1.4.0]: https://github.com/walteh/buf/compare/v1.3.1...v1.4.0
+[v1.3.1]: https://github.com/walteh/buf/compare/v1.3.0...v1.3.1
+[v1.3.0]: https://github.com/walteh/buf/compare/v1.2.1...1.3.0
+[v1.2.1]: https://github.com/walteh/buf/compare/v1.2.0...v1.2.1
+[v1.2.0]: https://github.com/walteh/buf/compare/v1.1.1...v1.2.0
+[v1.1.1]: https://github.com/walteh/buf/compare/v1.1.0...v1.1.1
+[v1.1.0]: https://github.com/walteh/buf/compare/v1.0.0...v1.1.0
+[v1.0.0]: https://github.com/walteh/buf/compare/v1.0.0-rc12...v1.0.0
+[v1.0.0-rc12]: https://github.com/walteh/buf/compare/v1.0.0-rc11...v1.0.0-rc12
+[v1.0.0-rc11]: https://github.com/walteh/buf/compare/v1.0.0-rc10...v1.0.0-rc11
+[v1.0.0-rc10]: https://github.com/walteh/buf/compare/v1.0.0-rc9...v1.0.0-rc10
+[v1.0.0-rc9]: https://github.com/walteh/buf/compare/v1.0.0-rc8...v1.0.0-rc9
+[v1.0.0-rc8]: https://github.com/walteh/buf/compare/v1.0.0-rc7...v1.0.0-rc8
+[v1.0.0-rc7]: https://github.com/walteh/buf/compare/v1.0.0-rc6...v1.0.0-rc7
+[v1.0.0-rc6]: https://github.com/walteh/buf/compare/v1.0.0-rc5...v1.0.0-rc6
+[v1.0.0-rc5]: https://github.com/walteh/buf/compare/v1.0.0-rc4...v1.0.0-rc5
+[v1.0.0-rc4]: https://github.com/walteh/buf/compare/v1.0.0-rc3...v1.0.0-rc4
+[v1.0.0-rc3]: https://github.com/walteh/buf/compare/v1.0.0-rc2...v1.0.0-rc3
+[v1.0.0-rc2]: https://github.com/walteh/buf/compare/v1.0.0-rc1...v1.0.0-rc2
+[v1.0.0-rc1]: https://github.com/walteh/buf/compare/v0.56.0...v1.0.0-rc1
+[v0.56.0]: https://github.com/walteh/buf/compare/v0.55.0...v0.56.0
+[v0.55.0]: https://github.com/walteh/buf/compare/v0.54.1...v0.55.0
+[v0.54.1]: https://github.com/walteh/buf/compare/v0.54.0...v0.54.1
+[v0.54.0]: https://github.com/walteh/buf/compare/v0.53.0...v0.54.0
+[v0.53.0]: https://github.com/walteh/buf/compare/v0.52.0...v0.53.0
+[v0.52.0]: https://github.com/walteh/buf/compare/v0.51.1...v0.52.0
+[v0.51.1]: https://github.com/walteh/buf/compare/v0.51.0...v0.51.1
+[v0.51.0]: https://github.com/walteh/buf/compare/v0.50.0...v0.51.0
+[v0.50.0]: https://github.com/walteh/buf/compare/v0.49.0...v0.50.0
+[v0.49.0]: https://github.com/walteh/buf/compare/v0.48.2...v0.49.0
+[v0.48.2]: https://github.com/walteh/buf/compare/v0.48.1...v0.48.2
+[v0.48.1]: https://github.com/walteh/buf/compare/v0.48.0...v0.48.1
+[v0.48.0]: https://github.com/walteh/buf/compare/v0.47.0...v0.48.0
+[v0.47.0]: https://github.com/walteh/buf/compare/v0.46.0...v0.47.0
+[v0.46.0]: https://github.com/walteh/buf/compare/v0.45.0...v0.46.0
+[v0.45.0]: https://github.com/walteh/buf/compare/v0.44.0...v0.45.0
+[v0.44.0]: https://github.com/walteh/buf/compare/v0.43.2...v0.44.0
+[v0.43.2]: https://github.com/walteh/buf/compare/v0.43.1...v0.43.2
+[v0.43.1]: https://github.com/walteh/buf/compare/v0.43.0...v0.43.1
+[v0.43.0]: https://github.com/walteh/buf/compare/v0.42.1...v0.43.0
+[v0.42.1]: https://github.com/walteh/buf/compare/v0.42.0...v0.42.1
+[v0.42.0]: https://github.com/walteh/buf/compare/v0.41.0...v0.42.0
+[v0.41.0]: https://github.com/walteh/buf/compare/v0.40.0...v0.41.0
+[v0.40.0]: https://github.com/walteh/buf/compare/v0.39.1...v0.40.0
+[v0.39.1]: https://github.com/walteh/buf/compare/v0.39.0...v0.39.1
+[v0.39.0]: https://github.com/walteh/buf/compare/v0.38.0...v0.39.0
+[v0.38.0]: https://github.com/walteh/buf/compare/v0.37.1...v0.38.0
+[v0.37.1]: https://github.com/walteh/buf/compare/v0.37.0...v0.37.1
+[v0.37.0]: https://github.com/walteh/buf/compare/v0.36.0...v0.37.0
+[v0.36.0]: https://github.com/walteh/buf/compare/v0.35.1...v0.36.0
+[v0.35.1]: https://github.com/walteh/buf/compare/v0.35.0...v0.35.1
+[v0.35.0]: https://github.com/walteh/buf/compare/v0.34.0...v0.35.0
+[v0.34.0]: https://github.com/walteh/buf/compare/v0.33.0...v0.34.0
+[v0.33.0]: https://github.com/walteh/buf/compare/v0.32.1...v0.33.0
+[v0.32.1]: https://github.com/walteh/buf/compare/v0.32.0...v0.32.1
+[v0.32.0]: https://github.com/walteh/buf/compare/v0.31.1...v0.32.0
+[v0.31.1]: https://github.com/walteh/buf/compare/v0.31.0...v0.31.1
+[v0.31.0]: https://github.com/walteh/buf/compare/v0.30.1...v0.31.0
+[v0.30.1]: https://github.com/walteh/buf/compare/v0.30.0...v0.30.1
+[v0.30.0]: https://github.com/walteh/buf/compare/v0.29.0...v0.30.0
+[v0.29.0]: https://github.com/walteh/buf/compare/v0.28.0...v0.29.0
+[v0.28.0]: https://github.com/walteh/buf/compare/v0.27.1...v0.28.0
+[v0.27.1]: https://github.com/walteh/buf/compare/v0.27.0...v0.27.1
+[v0.27.0]: https://github.com/walteh/buf/compare/v0.26.0...v0.27.0
+[v0.26.0]: https://github.com/walteh/buf/compare/v0.25.0...v0.26.0
+[v0.25.0]: https://github.com/walteh/buf/compare/v0.24.0...v0.25.0
+[v0.24.0]: https://github.com/walteh/buf/compare/v0.23.0...v0.24.0
+[v0.23.0]: https://github.com/walteh/buf/compare/v0.22.0...v0.23.0
+[v0.22.0]: https://github.com/walteh/buf/compare/v0.21.0...v0.22.0
+[v0.21.0]: https://github.com/walteh/buf/compare/v0.20.5...v0.21.0
+[v0.20.5]: https://github.com/walteh/buf/compare/v0.20.4...v0.20.5
+[v0.20.4]: https://github.com/walteh/buf/compare/v0.20.3...v0.20.4
+[v0.20.3]: https://github.com/walteh/buf/compare/v0.20.2...v0.20.3
+[v0.20.2]: https://github.com/walteh/buf/compare/v0.20.1...v0.20.2
+[v0.20.1]: https://github.com/walteh/buf/compare/v0.20.0...v0.20.1
+[v0.20.0]: https://github.com/walteh/buf/compare/v0.19.1...v0.20.0
+[v0.19.1]: https://github.com/walteh/buf/compare/v0.19.0...v0.19.1
+[v0.19.0]: https://github.com/walteh/buf/compare/v0.18.1...v0.19.0
+[v0.18.1]: https://github.com/walteh/buf/compare/v0.18.0...v0.18.1
+[v0.18.0]: https://github.com/walteh/buf/compare/v0.17.0...v0.18.0
+[v0.17.0]: https://github.com/walteh/buf/compare/v0.16.0...v0.17.0
+[v0.16.0]: https://github.com/walteh/buf/compare/v0.15.0...v0.16.0
+[v0.15.0]: https://github.com/walteh/buf/compare/v0.14.0...v0.15.0
+[v0.14.0]: https://github.com/walteh/buf/compare/v0.13.0...v0.14.0
+[v0.13.0]: https://github.com/walteh/buf/compare/v0.12.1...v0.13.0
+[v0.12.1]: https://github.com/walteh/buf/compare/v0.12.0...v0.12.1
+[v0.12.0]: https://github.com/walteh/buf/compare/v0.11.0...v0.12.0
+[v0.11.0]: https://github.com/walteh/buf/compare/v0.10.0...v0.11.0
+[v0.10.0]: https://github.com/walteh/buf/compare/v0.9.0...v0.10.0
+[v0.9.0]: https://github.com/walteh/buf/compare/v0.8.0...v0.9.0
+[v0.8.0]: https://github.com/walteh/buf/compare/v0.7.1...v0.8.0
+[v0.7.1]: https://github.com/walteh/buf/compare/v0.7.0...v0.7.1
+[v0.7.0]: https://github.com/walteh/buf/compare/v0.6.0...v0.7.0
+[v0.6.0]: https://github.com/walteh/buf/compare/v0.5.0...v0.6.0
+[v0.5.0]: https://github.com/walteh/buf/compare/v0.4.1...v0.5.0
+[v0.4.1]: https://github.com/walteh/buf/compare/v0.4.0...v0.4.1
+[v0.4.0]: https://github.com/walteh/buf/compare/v0.3.0...v0.4.0
+[v0.3.0]: https://github.com/walteh/buf/compare/v0.2.0...v0.3.0
+[v0.2.0]: https://github.com/walteh/buf/compare/v0.1.0...v0.2.0

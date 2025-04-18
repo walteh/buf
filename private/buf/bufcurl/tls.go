@@ -22,7 +22,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/bufbuild/buf/private/pkg/verbose"
+	"github.com/walteh/buf/private/pkg/verbose"
 )
 
 // TLSSettings contains settings related to creating a TLS client.

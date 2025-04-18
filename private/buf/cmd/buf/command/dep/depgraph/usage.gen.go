@@ -16,4 +16,4 @@
 
 package depgraph
 
-import _ "github.com/bufbuild/buf/private/usage"
+import _ "github.com/walteh/buf/private/usage"

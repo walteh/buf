@@ -17,8 +17,8 @@ package bufanalysistesting
 import (
 	"testing"
 
-	"github.com/bufbuild/buf/private/bufpkg/bufanalysis"
 	"github.com/stretchr/testify/assert"
+	"github.com/walteh/buf/private/bufpkg/bufanalysis"
 )
 
 // NewFileAnnotationNoLocationOrPath returns a new FileAnnotation with no location or FileInfo.

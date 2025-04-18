@@ -23,12 +23,12 @@ import (
 	"testing"
 
 	"connectrpc.com/connect"
-	"github.com/bufbuild/buf/private/pkg/app"
-	"github.com/bufbuild/buf/private/pkg/app/appext"
-	"github.com/bufbuild/buf/private/pkg/netrc"
-	"github.com/bufbuild/buf/private/pkg/slogapp"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	"github.com/walteh/buf/private/pkg/app"
+	"github.com/walteh/buf/private/pkg/app/appext"
+	"github.com/walteh/buf/private/pkg/netrc"
+	"github.com/walteh/buf/private/pkg/slogapp"
 )
 
 type testMachine struct{}

@@ -19,7 +19,7 @@ import (
 	"io"
 	"sort"
 
-	"github.com/bufbuild/buf/private/bufpkg/bufanalysis"
+	"github.com/walteh/buf/private/bufpkg/bufanalysis"
 )
 
 // AllLintFormatStrings are all format strings for lint.

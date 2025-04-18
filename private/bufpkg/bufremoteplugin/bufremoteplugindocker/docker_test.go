@@ -32,9 +32,6 @@ import (
 	"testing"
 	"time"
 
-	"github.com/bufbuild/buf/private/pkg/app"
-	"github.com/bufbuild/buf/private/pkg/execext"
-	"github.com/bufbuild/buf/private/pkg/slogtestext"
 	"github.com/docker/docker/api/types"
 	dockerimage "github.com/docker/docker/api/types/image"
 	"github.com/docker/docker/client"
@@ -42,6 +39,9 @@ import (
 	"github.com/docker/docker/pkg/stringid"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	"github.com/walteh/buf/private/pkg/app"
+	"github.com/walteh/buf/private/pkg/execext"
+	"github.com/walteh/buf/private/pkg/slogtestext"
 	"golang.org/x/net/http2"
 	"golang.org/x/net/http2/h2c"
 )

@@ -22,11 +22,11 @@ import (
 	"path/filepath"
 	"sync/atomic"
 
-	"github.com/bufbuild/buf/private/pkg/filepathext"
-	"github.com/bufbuild/buf/private/pkg/normalpath"
-	"github.com/bufbuild/buf/private/pkg/storage"
-	"github.com/bufbuild/buf/private/pkg/storage/storageutil"
-	"github.com/bufbuild/buf/private/pkg/syserror"
+	"github.com/walteh/buf/private/pkg/filepathext"
+	"github.com/walteh/buf/private/pkg/normalpath"
+	"github.com/walteh/buf/private/pkg/storage"
+	"github.com/walteh/buf/private/pkg/storage/storageutil"
+	"github.com/walteh/buf/private/pkg/syserror"
 )
 
 // errNotDir is the error returned if a path is not a directory.

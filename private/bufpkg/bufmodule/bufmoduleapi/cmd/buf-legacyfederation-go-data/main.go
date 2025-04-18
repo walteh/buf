@@ -24,11 +24,11 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/bufbuild/buf/private/pkg/app/appcmd"
-	"github.com/bufbuild/buf/private/pkg/app/appext"
-	"github.com/bufbuild/buf/private/pkg/shake256"
-	"github.com/bufbuild/buf/private/pkg/slogapp"
 	"github.com/spf13/pflag"
+	"github.com/walteh/buf/private/pkg/app/appcmd"
+	"github.com/walteh/buf/private/pkg/app/appext"
+	"github.com/walteh/buf/private/pkg/shake256"
+	"github.com/walteh/buf/private/pkg/slogapp"
 )
 
 const (
@@ -139,7 +139,7 @@ func getGolangFileData(
 	"encoding/hex"
 	"strings"
 
-	"github.com/bufbuild/buf/private/pkg/shake256"
+	"github.com/walteh/buf/private/pkg/shake256"
 )`)
 	p("\n\n")
 	p(`var (`)

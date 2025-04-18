@@ -15,11 +15,11 @@
 package bufcli
 
 import (
-	"github.com/bufbuild/buf/private/bufpkg/bufmodule"
-	"github.com/bufbuild/buf/private/bufpkg/bufmodule/bufmoduleapi"
-	"github.com/bufbuild/buf/private/bufpkg/bufregistryapi/bufregistryapimodule"
-	"github.com/bufbuild/buf/private/bufpkg/bufregistryapi/bufregistryapiowner"
-	"github.com/bufbuild/buf/private/pkg/app/appext"
+	"github.com/walteh/buf/private/bufpkg/bufmodule"
+	"github.com/walteh/buf/private/bufpkg/bufmodule/bufmoduleapi"
+	"github.com/walteh/buf/private/bufpkg/bufregistryapi/bufregistryapimodule"
+	"github.com/walteh/buf/private/bufpkg/bufregistryapi/bufregistryapiowner"
+	"github.com/walteh/buf/private/pkg/app/appext"
 )
 
 // NewGraphProvider returns a new GraphProvider.

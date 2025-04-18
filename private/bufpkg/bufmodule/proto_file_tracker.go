@@ -18,8 +18,8 @@ import (
 	"errors"
 	"sort"
 
-	"github.com/bufbuild/buf/private/pkg/slicesext"
-	"github.com/bufbuild/buf/private/pkg/syserror"
+	"github.com/walteh/buf/private/pkg/slicesext"
+	"github.com/walteh/buf/private/pkg/syserror"
 )
 
 // protoFileTracker tracks if we found a .proto file for each Module tracked, and what the OpaqueIDs

@@ -20,9 +20,9 @@ import (
 	"os"
 	"testing"
 
-	"github.com/bufbuild/buf/private/pkg/app/appext"
-	"github.com/bufbuild/buf/private/pkg/slogapp"
 	"github.com/stretchr/testify/require"
+	"github.com/walteh/buf/private/pkg/app/appext"
+	"github.com/walteh/buf/private/pkg/slogapp"
 )
 
 // NewLogger returns a new Logger for testing.

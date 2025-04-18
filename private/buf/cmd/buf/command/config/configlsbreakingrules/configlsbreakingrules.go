@@ -16,9 +16,9 @@ package configlsbreakingrules
 
 import (
 	"buf.build/go/bufplugin/check"
-	"github.com/bufbuild/buf/private/buf/cmd/buf/command/config/internal"
-	"github.com/bufbuild/buf/private/pkg/app/appcmd"
-	"github.com/bufbuild/buf/private/pkg/app/appext"
+	"github.com/walteh/buf/private/buf/cmd/buf/command/config/internal"
+	"github.com/walteh/buf/private/pkg/app/appcmd"
+	"github.com/walteh/buf/private/pkg/app/appext"
 )
 
 // NewCommand returns a new Command.

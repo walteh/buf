@@ -36,7 +36,7 @@ func NormalizeAndValidate(path string) (string, error) {
 	if filepath.IsAbs(normalizedPath) {
 		return "", NewError(path, errNotRelative)
 	}
-	// https://github.com/bufbuild/buf/issues/51
+	// https://github.com/walteh/buf/issues/51
 	if strings.HasPrefix(normalizedPath, normalizedRelPathJumpContextPrefix) {
 		return "", NewError(path, errOutsideContextDir)
 	}

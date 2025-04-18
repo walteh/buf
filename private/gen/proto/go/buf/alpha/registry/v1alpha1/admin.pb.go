@@ -2108,9 +2108,9 @@ const file_buf_alpha_registry_v1alpha1_admin_proto_rawDesc = "" +
 	"\x16UpdateUniquenessPolicy\x12:.buf.alpha.registry.v1alpha1.UpdateUniquenessPolicyRequest\x1a;.buf.alpha.registry.v1alpha1.UpdateUniquenessPolicyResponse\x12\xae\x01\n" +
 	"\x1eListServerUniquenessCollisions\x12B.buf.alpha.registry.v1alpha1.ListServerUniquenessCollisionsRequest\x1aC.buf.alpha.registry.v1alpha1.ListServerUniquenessCollisionsResponse\"\x03\x90\x02\x01\x12\xb1\x01\n" +
 	"\x1fRunServerUniquenessBackfillTask\x12C.buf.alpha.registry.v1alpha1.RunServerUniquenessBackfillTaskRequest\x1aD.buf.alpha.registry.v1alpha1.RunServerUniquenessBackfillTaskResponse\"\x03\x90\x02\x02\x12|\n" +
-	"\x0fGetClusterUsage\x123.buf.alpha.registry.v1alpha1.GetClusterUsageRequest\x1a4.buf.alpha.registry.v1alpha1.GetClusterUsageResponseB\x97\x02\n" +
+	"\x0fGetClusterUsage\x123.buf.alpha.registry.v1alpha1.GetClusterUsageRequest\x1a4.buf.alpha.registry.v1alpha1.GetClusterUsageResponseB\x95\x02\n" +
 	"\x1fcom.buf.alpha.registry.v1alpha1B\n" +
-	"AdminProtoP\x01ZYgithub.com/bufbuild/buf/private/gen/proto/go/buf/alpha/registry/v1alpha1;registryv1alpha1\xa2\x02\x03BAR\xaa\x02\x1bBuf.Alpha.Registry.V1alpha1\xca\x02\x1bBuf\\Alpha\\Registry\\V1alpha1\xe2\x02'Buf\\Alpha\\Registry\\V1alpha1\\GPBMetadata\xea\x02\x1eBuf::Alpha::Registry::V1alpha1b\x06proto3"
+	"AdminProtoP\x01ZWgithub.com/walteh/buf/private/gen/proto/go/buf/alpha/registry/v1alpha1;registryv1alpha1\xa2\x02\x03BAR\xaa\x02\x1bBuf.Alpha.Registry.V1alpha1\xca\x02\x1bBuf\\Alpha\\Registry\\V1alpha1\xe2\x02'Buf\\Alpha\\Registry\\V1alpha1\\GPBMetadata\xea\x02\x1eBuf::Alpha::Registry::V1alpha1b\x06proto3"
 
 var file_buf_alpha_registry_v1alpha1_admin_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
 var file_buf_alpha_registry_v1alpha1_admin_proto_msgTypes = make([]protoimpl.MessageInfo, 27)

@@ -17,9 +17,9 @@ package bufmoduleapi
 import (
 	"context"
 
-	"github.com/bufbuild/buf/private/bufpkg/bufmodule"
-	"github.com/bufbuild/buf/private/bufpkg/bufregistryapi/bufregistryapimodule"
 	"github.com/google/uuid"
+	"github.com/walteh/buf/private/bufpkg/bufmodule"
+	"github.com/walteh/buf/private/bufpkg/bufregistryapi/bufregistryapimodule"
 )
 
 // DigestForCommitID resolves the commit ID by calling the CommitService to get

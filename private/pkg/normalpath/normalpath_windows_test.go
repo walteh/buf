@@ -23,8 +23,8 @@ import (
 	"sort"
 	"testing"
 
-	"github.com/bufbuild/buf/private/pkg/slicesext"
 	"github.com/stretchr/testify/assert"
+	"github.com/walteh/buf/private/pkg/slicesext"
 )
 
 func TestNormalizeAndValidate(t *testing.T) {

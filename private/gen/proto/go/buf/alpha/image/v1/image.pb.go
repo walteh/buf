@@ -948,9 +948,9 @@ const file_buf_alpha_image_v1_image_proto_rawDesc = "" +
 	"\x05owner\x18\x02 \x01(\tR\x05owner\x12\x1e\n" +
 	"\n" +
 	"repository\x18\x03 \x01(\tR\n" +
-	"repositoryB\xdd\x01\n" +
+	"repositoryB\xdb\x01\n" +
 	"\x16com.buf.alpha.image.v1B\n" +
-	"ImageProtoH\x01P\x01ZGgithub.com/bufbuild/buf/private/gen/proto/go/buf/alpha/image/v1;imagev1\xf8\x01\x01\xa2\x02\x03BAI\xaa\x02\x12Buf.Alpha.Image.V1\xca\x02\x12Buf\\Alpha\\Image\\V1\xe2\x02\x1eBuf\\Alpha\\Image\\V1\\GPBMetadata\xea\x02\x15Buf::Alpha::Image::V1"
+	"ImageProtoH\x01P\x01ZEgithub.com/walteh/buf/private/gen/proto/go/buf/alpha/image/v1;imagev1\xf8\x01\x01\xa2\x02\x03BAI\xaa\x02\x12Buf.Alpha.Image.V1\xca\x02\x12Buf\\Alpha\\Image\\V1\xe2\x02\x1eBuf\\Alpha\\Image\\V1\\GPBMetadata\xea\x02\x15Buf::Alpha::Image::V1"
 
 var file_buf_alpha_image_v1_image_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
 var file_buf_alpha_image_v1_image_proto_goTypes = []any{

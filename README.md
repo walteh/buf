@@ -2,9 +2,9 @@
 
 # Buf
 
-[![License](https://img.shields.io/github/license/bufbuild/buf?color=blue)](https://github.com/bufbuild/buf/blob/main/LICENSE)
-[![Release](https://img.shields.io/github/v/release/bufbuild/buf?include_prereleases)](https://github.com/bufbuild/buf/releases)
-[![CI](https://github.com/bufbuild/buf/workflows/ci/badge.svg)](https://github.com/bufbuild/buf/actions?workflow=ci)
+[![License](https://img.shields.io/github/license/bufbuild/buf?color=blue)](https://github.com/walteh/buf/blob/main/LICENSE)
+[![Release](https://img.shields.io/github/v/release/bufbuild/buf?include_prereleases)](https://github.com/walteh/buf/releases)
+[![CI](https://github.com/walteh/buf/workflows/ci/badge.svg)](https://github.com/walteh/buf/actions?workflow=ci)
 [![Docker](https://img.shields.io/docker/pulls/bufbuild/buf)](https://hub.docker.com/r/bufbuild/buf)
 [![Homebrew](https://img.shields.io/homebrew/v/buf)](https://github.com/bufbuild/homebrew-buf)
 [![Slack](https://img.shields.io/badge/slack-buf-%23e01563)][badges_slack]
@@ -43,7 +43,6 @@ For other installation methods, see our [official documentation][install], which
 - Installing as a [binary], from a [tarball], and from [source] through [GitHub Releases][releases]
 - [Verifying] releases using a [minisign] public key
 
-
 ## Usage
 
 Buf's help interface provides summaries for commands and flags:
@@ -54,12 +53,12 @@ buf --help
 
 For more comprehensive usage information, consult Buf's [documentation][docs], especially these guides:
 
-* [`buf breaking`][breaking_tutorial]
-* [`buf build`][build_usage]
-* [`buf generate`][generate_usage]
-* [`buf lint`][lint_usage]
-* [`buf format`][format_usage]
-* [`buf registry`][bsr_quickstart] (for using the [BSR])
+- [`buf breaking`][breaking_tutorial]
+- [`buf build`][build_usage]
+- [`buf generate`][generate_usage]
+- [`buf lint`][lint_usage]
+- [`buf format`][format_usage]
+- [`buf registry`][bsr_quickstart] (for using the [BSR])
 
 ## CLI breaking change policy
 
@@ -77,7 +76,7 @@ While we intend to incrementally improve on the `buf` CLI and the [BSR](#the-buf
 
 ## The Buf Schema Registry
 
-The [Buf Schema Registry][bsr] (BSR) is a SaaS platform for managing your Protobuf APIs. It provides a centralized registry and a single source of truth for all of your Protobuf assets, including not just your `.proto` files but also [remote plugins][bsr_plugins]. Although the BSR provides an intuitive browser UI, `buf` enables you to perform most BSR-related tasks from the command line, such as [pushing] Protobuf sources to the registry and managing [users] and [repositories]. 
+The [Buf Schema Registry][bsr] (BSR) is a SaaS platform for managing your Protobuf APIs. It provides a centralized registry and a single source of truth for all of your Protobuf assets, including not just your `.proto` files but also [remote plugins][bsr_plugins]. Although the BSR provides an intuitive browser UI, `buf` enables you to perform most BSR-related tasks from the command line, such as [pushing] Protobuf sources to the registry and managing [users] and [repositories].
 
 > The BSR is not required to use `buf`. We've made the core [features] of the `buf` CLI available to _all_ Protobuf users.
 
@@ -85,12 +84,12 @@ The [Buf Schema Registry][bsr] (BSR) is a SaaS platform for managing your Protob
 
 While `buf`'s [core features][features] should cover most use cases, we've included some more advanced features to cover edge cases:
 
-* **Automatic file discovery**. Buf walks your file tree and builds your `.proto` files in accordance with your supplied [build configuration][build_config], which means that you no longer need to manually specify `--proto_paths`. You can still, however, specify `.proto` files manually through CLI flags in cases where file discovery needs to be disabled.
-* **Fine-grained rule configuration** for [linting][lint_rules] and [breaking changes][breaking_rules]. While we do have recommended defaults, you can always select the exact set of rules that your use case requires, with [40 lint rules][lint_rules] and [53 breaking change rules][breaking_rules] available.
-* **Configurable error formats** for CLI output. `buf` outputs information in `file:line:column:message` form by default for each lint error and breaking change it encounters, but you can also select JSON, MSVS, JUnit, and Github Actions output.
-* **Editor integration** driven by `buf`'s granular error output. We currently provide linting integrations for both [Vim and Visual Studio Code][ide] and [JetBrains IDEs][jetbrains] like IntelliJ and GoLand, but we plan to support other editors such as Emacs in the future.
-* **Universal Input targeting**. Buf enables you to perform actions like linting and breaking change detection not just against local `.proto` files but also against a broad range of other [Inputs], such as tarballs and ZIP files, remote Git repositories, and pre-built [image][images] files.
-* **Speed**. Buf's internal Protobuf [compiler] compiles your Protobuf sources using all available cores without compromising deterministic output, which is considerably faster than `protoc`. This allows for near-instantaneous feedback, which is of special importance for features like [editor integration][ide].
+- **Automatic file discovery**. Buf walks your file tree and builds your `.proto` files in accordance with your supplied [build configuration][build_config], which means that you no longer need to manually specify `--proto_paths`. You can still, however, specify `.proto` files manually through CLI flags in cases where file discovery needs to be disabled.
+- **Fine-grained rule configuration** for [linting][lint_rules] and [breaking changes][breaking_rules]. While we do have recommended defaults, you can always select the exact set of rules that your use case requires, with [40 lint rules][lint_rules] and [53 breaking change rules][breaking_rules] available.
+- **Configurable error formats** for CLI output. `buf` outputs information in `file:line:column:message` form by default for each lint error and breaking change it encounters, but you can also select JSON, MSVS, JUnit, and Github Actions output.
+- **Editor integration** driven by `buf`'s granular error output. We currently provide linting integrations for both [Vim and Visual Studio Code][ide] and [JetBrains IDEs][jetbrains] like IntelliJ and GoLand, but we plan to support other editors such as Emacs in the future.
+- **Universal Input targeting**. Buf enables you to perform actions like linting and breaking change detection not just against local `.proto` files but also against a broad range of other [Inputs], such as tarballs and ZIP files, remote Git repositories, and pre-built [image][images] files.
+- **Speed**. Buf's internal Protobuf [compiler] compiles your Protobuf sources using all available cores without compromising deterministic output, which is considerably faster than `protoc`. This allows for near-instantaneous feedback, which is of special importance for features like [editor integration][ide].
 
 ## Next steps
 
@@ -144,7 +143,7 @@ For feature requests, bugs, or technical questions, email us at [dev@buf.build][
 [protobuf]: https://protobuf.dev
 [pushing]: https://buf.build/docs/bsr/module/publish/
 [releases]: https://buf.build/docs/cli/installation/#github
-[repo]: https://github.com/bufbuild/buf/
+[repo]: https://github.com/walteh/buf/
 [repositories]: https://buf.build/docs/concepts/repositories/
 [source]: https://buf.build/docs/cli/installation/#source
 [tarball]: https://buf.build/docs/cli/installation/#github

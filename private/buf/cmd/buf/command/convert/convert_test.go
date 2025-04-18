@@ -18,9 +18,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/bufbuild/buf/private/pkg/app/appcmd"
-	"github.com/bufbuild/buf/private/pkg/app/appcmd/appcmdtesting"
-	"github.com/bufbuild/buf/private/pkg/app/appext"
+	"github.com/walteh/buf/private/pkg/app/appcmd"
+	"github.com/walteh/buf/private/pkg/app/appcmd/appcmdtesting"
+	"github.com/walteh/buf/private/pkg/app/appext"
 )
 
 func TestConvertDefaultInputBin(t *testing.T) {

@@ -20,9 +20,9 @@ import (
 	"context"
 	"testing"
 
-	"github.com/bufbuild/buf/private/pkg/storage"
-	"github.com/bufbuild/buf/private/pkg/storage/storagemem"
 	"github.com/stretchr/testify/require"
+	"github.com/walteh/buf/private/pkg/storage"
+	"github.com/walteh/buf/private/pkg/storage/storagemem"
 )
 
 func TestWalkBasic(t *testing.T) {

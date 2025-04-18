@@ -15,13 +15,13 @@
 package bufcli
 
 import (
-	"github.com/bufbuild/buf/private/buf/bufctl"
-	"github.com/bufbuild/buf/private/bufpkg/bufmodule/bufmoduleapi"
-	"github.com/bufbuild/buf/private/bufpkg/bufplugin/bufpluginapi"
-	"github.com/bufbuild/buf/private/bufpkg/bufregistryapi/bufregistryapimodule"
-	"github.com/bufbuild/buf/private/bufpkg/bufregistryapi/bufregistryapiowner"
-	"github.com/bufbuild/buf/private/bufpkg/bufregistryapi/bufregistryapiplugin"
-	"github.com/bufbuild/buf/private/pkg/app/appext"
+	"github.com/walteh/buf/private/buf/bufctl"
+	"github.com/walteh/buf/private/bufpkg/bufmodule/bufmoduleapi"
+	"github.com/walteh/buf/private/bufpkg/bufplugin/bufpluginapi"
+	"github.com/walteh/buf/private/bufpkg/bufregistryapi/bufregistryapimodule"
+	"github.com/walteh/buf/private/bufpkg/bufregistryapi/bufregistryapiowner"
+	"github.com/walteh/buf/private/bufpkg/bufregistryapi/bufregistryapiplugin"
+	"github.com/walteh/buf/private/pkg/app/appext"
 )
 
 // NewController returns a new Controller.

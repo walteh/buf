@@ -18,12 +18,12 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/bufbuild/buf/private/bufpkg/bufconnect"
-	"github.com/bufbuild/buf/private/pkg/app/appcmd"
-	"github.com/bufbuild/buf/private/pkg/app/appext"
-	"github.com/bufbuild/buf/private/pkg/netext"
-	"github.com/bufbuild/buf/private/pkg/netrc"
 	"github.com/spf13/pflag"
+	"github.com/walteh/buf/private/bufpkg/bufconnect"
+	"github.com/walteh/buf/private/pkg/app/appcmd"
+	"github.com/walteh/buf/private/pkg/app/appext"
+	"github.com/walteh/buf/private/pkg/netext"
+	"github.com/walteh/buf/private/pkg/netrc"
 )
 
 // NewCommand returns a new Command.

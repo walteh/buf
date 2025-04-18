@@ -7,7 +7,7 @@ $(call _assert_var,CACHE_VERSIONS)
 $(call _assert_var,CACHE_BIN)
 
 # Settable
-# https://github.com/bufbuild/buf/releases 20250408 checked 20250408
+# https://github.com/walteh/buf/releases 20250408 checked 20250408
 BUF_VERSION ?= v1.52.1
 # Settable
 #
@@ -15,7 +15,7 @@ BUF_VERSION ?= v1.52.1
 # as opposed to installing from github with @$(BUF_VERSION).
 #
 # This can be used to always do "go install ./cmd/buf" or
-# "go install github.com/bufbuild/buf/cmd/buf".
+# "go install github.com/walteh/buf/cmd/buf".
 BUF_GO_INSTALL_PATH ?=
 ifneq ($(BUF_GO_INSTALL_PATH),)
 .PHONY: __goinstallbuf

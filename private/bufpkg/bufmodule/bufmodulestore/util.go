@@ -18,8 +18,8 @@ import (
 	"context"
 	"log/slog"
 
-	"github.com/bufbuild/buf/private/bufpkg/bufmodule"
-	"github.com/bufbuild/buf/private/pkg/uuidutil"
+	"github.com/walteh/buf/private/bufpkg/bufmodule"
+	"github.com/walteh/buf/private/pkg/uuidutil"
 )
 
 func logDebugModuleKey(ctx context.Context, logger *slog.Logger, moduleKey bufmodule.ModuleKey, message string, fields ...any) {

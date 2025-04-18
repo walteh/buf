@@ -18,9 +18,9 @@ import (
 	"context"
 	"testing"
 
-	"github.com/bufbuild/buf/private/pkg/slogtestext"
-	"github.com/bufbuild/buf/private/pkg/storage/storageos"
 	"github.com/stretchr/testify/require"
+	"github.com/walteh/buf/private/pkg/slogtestext"
+	"github.com/walteh/buf/private/pkg/storage/storageos"
 )
 
 func TestNewModuleSetForProtoc(t *testing.T) {

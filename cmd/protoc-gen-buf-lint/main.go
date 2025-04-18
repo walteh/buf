@@ -15,7 +15,7 @@
 package main
 
 import (
-	lint "github.com/bufbuild/buf/private/buf/cmd/protoc-gen-buf-lint"
+	lint "github.com/walteh/buf/private/buf/cmd/protoc-gen-buf-lint"
 )
 
 func main() {

@@ -15,10 +15,10 @@
 package bufcli
 
 import (
-	"github.com/bufbuild/buf/private/bufpkg/bufplugin"
-	"github.com/bufbuild/buf/private/bufpkg/bufplugin/bufpluginapi"
-	"github.com/bufbuild/buf/private/bufpkg/bufregistryapi/bufregistryapiplugin"
-	"github.com/bufbuild/buf/private/pkg/app/appext"
+	"github.com/walteh/buf/private/bufpkg/bufplugin"
+	"github.com/walteh/buf/private/bufpkg/bufplugin/bufpluginapi"
+	"github.com/walteh/buf/private/bufpkg/bufregistryapi/bufregistryapiplugin"
+	"github.com/walteh/buf/private/pkg/app/appext"
 )
 
 // NewPluginKeyProvider returns a new PluginKeyProvider.

@@ -15,10 +15,10 @@
 package bufimagemodify
 
 import (
-	"github.com/bufbuild/buf/private/bufpkg/bufconfig"
-	"github.com/bufbuild/buf/private/bufpkg/bufimage"
-	"github.com/bufbuild/buf/private/bufpkg/bufimage/bufimagemodify/internal"
-	"github.com/bufbuild/buf/private/gen/data/datawkt"
+	"github.com/walteh/buf/private/bufpkg/bufconfig"
+	"github.com/walteh/buf/private/bufpkg/bufimage"
+	"github.com/walteh/buf/private/bufpkg/bufimage/bufimagemodify/internal"
+	"github.com/walteh/buf/private/gen/data/datawkt"
 )
 
 // Modify modifies the image according to the managed config.

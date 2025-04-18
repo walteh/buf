@@ -15,7 +15,7 @@
 package buffetch
 
 import (
-	"github.com/bufbuild/buf/private/buf/buffetch/internal"
+	"github.com/walteh/buf/private/buf/buffetch/internal"
 )
 
 var _ ModuleRef = &moduleRef{}

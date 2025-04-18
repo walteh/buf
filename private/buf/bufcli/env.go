@@ -18,9 +18,9 @@ import (
 	"context"
 	"net/http"
 
-	"github.com/bufbuild/buf/private/pkg/app/appext"
-	"github.com/bufbuild/buf/private/pkg/git"
-	"github.com/bufbuild/buf/private/pkg/httpauth"
+	"github.com/walteh/buf/private/pkg/app/appext"
+	"github.com/walteh/buf/private/pkg/git"
+	"github.com/walteh/buf/private/pkg/httpauth"
 )
 
 const (

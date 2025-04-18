@@ -1138,8 +1138,8 @@ const file_buf_alpha_registry_v1alpha1_studio_request_proto_rawDesc = "" +
 	"\x13CreateStudioRequest\x127.buf.alpha.registry.v1alpha1.CreateStudioRequestRequest\x1a8.buf.alpha.registry.v1alpha1.CreateStudioRequestResponse\"\x00\x12\x8a\x01\n" +
 	"\x13RenameStudioRequest\x127.buf.alpha.registry.v1alpha1.RenameStudioRequestRequest\x1a8.buf.alpha.registry.v1alpha1.RenameStudioRequestResponse\"\x00\x12\x8d\x01\n" +
 	"\x13DeleteStudioRequest\x127.buf.alpha.registry.v1alpha1.DeleteStudioRequestRequest\x1a8.buf.alpha.registry.v1alpha1.DeleteStudioRequestResponse\"\x03\x90\x02\x02\x12\x8a\x01\n" +
-	"\x12ListStudioRequests\x126.buf.alpha.registry.v1alpha1.ListStudioRequestsRequest\x1a7.buf.alpha.registry.v1alpha1.ListStudioRequestsResponse\"\x03\x90\x02\x01B\x9f\x02\n" +
-	"\x1fcom.buf.alpha.registry.v1alpha1B\x12StudioRequestProtoP\x01ZYgithub.com/bufbuild/buf/private/gen/proto/go/buf/alpha/registry/v1alpha1;registryv1alpha1\xa2\x02\x03BAR\xaa\x02\x1bBuf.Alpha.Registry.V1alpha1\xca\x02\x1bBuf\\Alpha\\Registry\\V1alpha1\xe2\x02'Buf\\Alpha\\Registry\\V1alpha1\\GPBMetadata\xea\x02\x1eBuf::Alpha::Registry::V1alpha1b\x06proto3"
+	"\x12ListStudioRequests\x126.buf.alpha.registry.v1alpha1.ListStudioRequestsRequest\x1a7.buf.alpha.registry.v1alpha1.ListStudioRequestsResponse\"\x03\x90\x02\x01B\x9d\x02\n" +
+	"\x1fcom.buf.alpha.registry.v1alpha1B\x12StudioRequestProtoP\x01ZWgithub.com/walteh/buf/private/gen/proto/go/buf/alpha/registry/v1alpha1;registryv1alpha1\xa2\x02\x03BAR\xaa\x02\x1bBuf.Alpha.Registry.V1alpha1\xca\x02\x1bBuf\\Alpha\\Registry\\V1alpha1\xe2\x02'Buf\\Alpha\\Registry\\V1alpha1\\GPBMetadata\xea\x02\x1eBuf::Alpha::Registry::V1alpha1b\x06proto3"
 
 var file_buf_alpha_registry_v1alpha1_studio_request_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_buf_alpha_registry_v1alpha1_studio_request_proto_msgTypes = make([]protoimpl.MessageInfo, 11)

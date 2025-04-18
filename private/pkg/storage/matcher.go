@@ -15,7 +15,7 @@
 package storage
 
 import (
-	"github.com/bufbuild/buf/private/pkg/normalpath"
+	"github.com/walteh/buf/private/pkg/normalpath"
 )
 
 // Matcher is a path matcher.

@@ -19,11 +19,11 @@ package bufimage_test
 import (
 	"testing"
 
-	"github.com/bufbuild/buf/private/buf/buftesting"
-	"github.com/bufbuild/buf/private/bufpkg/bufimage"
-	"github.com/bufbuild/buf/private/pkg/prototesting"
-	"github.com/bufbuild/buf/private/pkg/testingext"
 	"github.com/stretchr/testify/assert"
+	"github.com/walteh/buf/private/buf/buftesting"
+	"github.com/walteh/buf/private/bufpkg/bufimage"
+	"github.com/walteh/buf/private/pkg/prototesting"
+	"github.com/walteh/buf/private/pkg/testingext"
 	"google.golang.org/protobuf/types/descriptorpb"
 )
 
