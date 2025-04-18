@@ -35,8 +35,6 @@ import (
 	"github.com/bufbuild/buf/private/bufpkg/bufmodule"
 	"github.com/bufbuild/buf/private/pkg/storage"
 	"github.com/bufbuild/buf/private/pkg/storage/storageos"
-	"github.com/bufbuild/buf/private/pkg/uuidutil"
-	"github.com/google/uuid"
 	"google.golang.org/protobuf/types/known/timestamppb"
 )
 
@@ -136,11 +134,11 @@ func (c *gitCommitServiceClient) GetCommits(
 		}
 
 		// Convert git commit hash to a UUID-like format by hashing it
-		commitID := uuid.NewSHA1(uuid.NameSpaceOID, []byte(gitCommit.hash))
+		// commitID := uuid.New(uuid.NameSpaceOID, []byte(gitCommit.hash))
 
 		// Create a modulev1.Commit
 		commit := &modulev1.Commit{
-			Id:         uuidutil.ToDashless(commitID),
+			Id:         gitCommit.hash[:32],
 			OwnerId:    owner,
 			ModuleId:   module,
 			CreateTime: timestamppb.New(gitCommit.time),
