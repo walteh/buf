@@ -15,6 +15,9 @@
 package bufregistryapimodule
 
 import (
+	"os"
+	"strings"
+
 	"buf.build/gen/go/bufbuild/registry/connectrpc/go/buf/registry/module/v1/modulev1connect"
 	"buf.build/gen/go/bufbuild/registry/connectrpc/go/buf/registry/module/v1beta1/modulev1beta1connect"
 	"github.com/bufbuild/buf/private/pkg/connectclient"
@@ -149,6 +152,23 @@ func newClientProvider(clientConfig *connectclient.Config) *clientProvider {
 }
 
 func (c *clientProvider) V1CommitServiceClient(registry string) modulev1connect.CommitServiceClient {
+	// Check if this is a git repository URL
+	if strings.HasPrefix(registry, GitURLPrefix) {
+		// Create a temporary directory for the git repository
+		tempDir, err := os.MkdirTemp("", "buf-git-repo-*")
+		if err != nil {
+			// If we can't create a temp directory, log an error and fall back to the standard client
+			// which will handle the error appropriately
+			return connectclient.Make(
+				c.clientConfig,
+				registry,
+				modulev1connect.NewCommitServiceClient,
+			)
+		}
+
+		return NewGitCommitServiceClient(registry, tempDir)
+	}
+
 	return connectclient.Make(
 		c.clientConfig,
 		registry,

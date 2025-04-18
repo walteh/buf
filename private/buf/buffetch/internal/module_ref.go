@@ -18,6 +18,7 @@ import (
 	"strings"
 
 	"github.com/bufbuild/buf/private/bufpkg/bufparse"
+	"github.com/bufbuild/buf/private/bufpkg/bufregistryapi/bufregistryapimodule"
 	"github.com/bufbuild/buf/private/pkg/app"
 )
 
@@ -43,6 +44,13 @@ func newModuleRef(
 	if path == "-" || app.IsDevNull(path) || app.IsDevStdin(path) || app.IsDevStdout(path) {
 		return nil, NewInvalidPathError(format, path)
 	}
+
+	// Special handling for git URLs
+	if strings.HasPrefix(path, bufregistryapimodule.GitURLPrefix) {
+		return newDirectModuleRef(format, bufparse.NewRefForGitURL(path)), nil
+	}
+
+	// Normal reference check
 	if strings.Contains(path, "://") {
 		return nil, NewInvalidPathError(format, path)
 	}

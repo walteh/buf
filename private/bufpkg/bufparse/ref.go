@@ -17,6 +17,7 @@ package bufparse
 import (
 	"errors"
 	"fmt"
+	"strings"
 )
 
 // Ref is an unresolved reference to an entity.
@@ -50,6 +51,46 @@ func NewRef(
 		return nil, err
 	}
 	return newRef(fullName, ref)
+}
+
+// NewRefForGitURL returns a new Ref for a git URL.
+// For git URLs, we use the URL as the registry, "git" as the owner,
+// and the repository name as the name. The reference (branch/tag) is parsed
+// from the URL if possible, otherwise defaults to main.
+func NewRefForGitURL(gitURL string) Ref {
+	// For git URLs, we use a special format with:
+	// - registry = the git URL
+	// - owner = "git"
+	// - name = extracted repository name or fallback to "repository"
+	// - ref = extracted branch/tag/ref or fallback to "main"
+
+	// Extract repository name from git URL (simple extraction)
+	repoName := "repository" // Default fallback
+	parts := strings.Split(gitURL, "/")
+	if len(parts) > 0 {
+		lastPart := parts[len(parts)-1]
+		// Remove .git suffix if present
+		lastPart = strings.TrimSuffix(lastPart, ".git")
+		// Check if we have a reference part
+		if idx := strings.IndexAny(lastPart, "#@:"); idx > 0 {
+			lastPart = lastPart[:idx]
+		}
+		if lastPart != "" {
+			repoName = lastPart
+		}
+	}
+
+	// Extract reference from git URL
+	reference := "main" // Default to main branch
+	if idx := strings.IndexAny(gitURL, "#@:"); idx >= 0 {
+		reference = gitURL[idx+1:]
+	}
+
+	fullName, _ := NewFullName(gitURL, "git", repoName)
+	return &ref{
+		fullName:  fullName,
+		reference: reference,
+	}
 }
 
 // ParseRef parses a Ref from a string in the form "registry/owner/name[:ref]".
