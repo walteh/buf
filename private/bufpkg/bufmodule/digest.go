@@ -297,7 +297,7 @@ func getB5DigestForBucketAndModuleDeps(
 	if err != nil {
 		return nil, err
 	}
-	return getB5DigestForBucketAndDepDigests(ctx, bucketWithStorageMatcherApplied, depDigests)
+	return GetB5DigestForBucketAndDepDigests(ctx, bucketWithStorageMatcherApplied, depDigests)
 }
 
 func getB5DigestForBucketAndDepModuleKeys(
@@ -314,7 +314,7 @@ func getB5DigestForBucketAndDepModuleKeys(
 	if err != nil {
 		return nil, err
 	}
-	return getB5DigestForBucketAndDepDigests(ctx, bucketWithStorageMatcherApplied, depDigests)
+	return GetB5DigestForBucketAndDepDigests(ctx, bucketWithStorageMatcherApplied, depDigests)
 }
 
 // getB5Digest computes a b5 Digest for the given set of module files and dependencies.
@@ -326,14 +326,14 @@ func getB5DigestForBucketAndDepModuleKeys(
 // and then digested themselves as content.
 //
 // Note that the name of the Module and any of its dependencies has no effect on the Digest.
-func getB5DigestForBucketAndDepDigests(
+func GetB5DigestForBucketAndDepDigests(
 	ctx context.Context,
 	bucketWithStorageMatcherApplied storage.ReadBucket,
 	depDigests []Digest,
 ) (Digest, error) {
 	// First, compute the shake256 bufcas.Digest of the files. This will include a
 	// sorted list of file names and their digests.
-	filesDigest, err := getFilesDigestForB5Digest(ctx, bucketWithStorageMatcherApplied)
+	filesDigest, err := GetFilesDigestForB5Digest(ctx, bucketWithStorageMatcherApplied)
 	if err != nil {
 		return nil, err
 	}
@@ -368,11 +368,13 @@ func getB5DigestForBucketAndDepDigests(
 }
 
 // The bucket should have already been filtered to just module files.
-func getFilesDigestForB5Digest(
+func GetFilesDigestForB5Digest(
 	ctx context.Context,
 	bucketWithStorageMatcherApplied storage.ReadBucket,
 ) (bufcas.Digest, error) {
 	var fileNodes []bufcas.FileNode
+	var wrk int = 0
+	// read all files and
 	if err := storage.WalkReadObjects(
 		ctx,
 		// This is extreme defensive programming. We've gone out of our way to make sure
@@ -380,6 +382,11 @@ func getFilesDigestForB5Digest(
 		storage.FilterReadBucket(bucketWithStorageMatcherApplied, getStorageMatcher(ctx, bucketWithStorageMatcherApplied)),
 		"",
 		func(readObject storage.ReadObject) error {
+
+			if !strings.Contains(readObject.Path(), "google") {
+				fmt.Println("readObject", readObject.Path())
+			}
+			wrk++
 			digest, err := bufcas.NewDigestForContent(readObject)
 			if err != nil {
 				return err

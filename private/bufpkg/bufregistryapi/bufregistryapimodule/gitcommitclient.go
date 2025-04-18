@@ -29,8 +29,10 @@ import (
 	"time"
 
 	"buf.build/gen/go/bufbuild/registry/connectrpc/go/buf/registry/module/v1/modulev1connect"
+	"buf.build/gen/go/bufbuild/registry/connectrpc/go/buf/registry/module/v1beta1/modulev1beta1connect"
 	modulev1 "buf.build/gen/go/bufbuild/registry/protocolbuffers/go/buf/registry/module/v1"
 	"connectrpc.com/connect"
+	"github.com/bufbuild/buf/private/bufpkg/bufmodule"
 	"github.com/bufbuild/buf/private/pkg/storage"
 	"github.com/bufbuild/buf/private/pkg/storage/storageos"
 	"github.com/bufbuild/buf/private/pkg/uuidutil"
@@ -56,31 +58,32 @@ const cleanupInterval = 24 * time.Hour
 // cacheMutex protects concurrent access to the cache directory
 var cacheMutex sync.Mutex
 
+var (
+	_ modulev1connect.CommitServiceClient   = &gitCommitServiceClient{}
+	_ modulev1connect.DownloadServiceClient = &gitCommitServiceClient{}
+	_ modulev1connect.GraphServiceClient    = &gitCommitServiceClient{}
+	_ modulev1connect.LabelServiceClient    = &gitCommitServiceClient{}
+	_ modulev1connect.ModuleServiceClient   = &gitCommitServiceClient{}
+	_ modulev1connect.ResourceServiceClient = &gitCommitServiceClient{}
+	_ modulev1connect.UploadServiceClient   = &gitCommitServiceClient{}
+)
+
 // gitCommitServiceClient implements the CommitServiceClient interface for git repositories
 type gitCommitServiceClient struct {
 	gitURL     string
 	workingDir string
 }
 
-// NewGitCommitServiceClient creates a new CommitServiceClient that works with git repositories
-func NewGitCommitServiceClient(gitURL string, workingDir string) modulev1connect.CommitServiceClient {
-	// Strip the git+ prefix if it's present
-	// normalizedGitURL := strings.TrimPrefix(gitURL, GitURLPrefix)
+var seenCommits = map[string]*modulev1.Commit{}
+var seenCommitsGitRef = map[string]string{}
 
-	// Check if we need to clean up the cache (don't block on this)
-	go func() {
-		// Use a background context with timeout
-		ctx, cancel := context.WithTimeout(context.Background(), 2*time.Minute)
-		defer cancel()
-
-		// Try to clean up the cache, but don't fail if we can't
-		_ = cleanupGitCache(ctx)
-	}()
-
-	return &gitCommitServiceClient{
-		gitURL:     gitURL,
-		workingDir: workingDir,
-	}
+// ListCommits implements modulev1connect.CommitServiceClient
+func (c *gitCommitServiceClient) ListCommits(
+	ctx context.Context,
+	req *connect.Request[modulev1.ListCommitsRequest],
+) (*connect.Response[modulev1.ListCommitsResponse], error) {
+	// Not implemented for git repositories
+	return nil, connect.NewError(connect.CodeUnimplemented, fmt.Errorf("ListCommits not implemented for git repositories"))
 }
 
 // GetCommits implements the CommitServiceClient.GetCommits method to fetch commits from a git repository
@@ -127,7 +130,7 @@ func (c *gitCommitServiceClient) GetCommits(
 		}
 
 		// Calculate the digest from the files at this commit
-		digest, err := c.calculateDigest(ctx, repoDir, gitCommit.hash)
+		digest, err := c.createDigestFromGitHash(ctx, repoDir, module)
 		if err != nil {
 			return nil, connect.NewError(connect.CodeInternal, fmt.Errorf("failed to calculate digest: %w", err))
 		}
@@ -138,13 +141,17 @@ func (c *gitCommitServiceClient) GetCommits(
 		// Create a modulev1.Commit
 		commit := &modulev1.Commit{
 			Id:         uuidutil.ToDashless(commitID),
-			OwnerId:    uuidutil.ToDashless(uuid.NewSHA1(uuid.NameSpaceOID, []byte(owner))),
-			ModuleId:   uuidutil.ToDashless(uuid.NewSHA1(uuid.NameSpaceOID, []byte(module))),
+			OwnerId:    owner,
+			ModuleId:   module,
 			CreateTime: timestamppb.New(gitCommit.time),
-			Digest:     (&modulev1.Digest_builder{Value: []byte(strings.TrimPrefix(digest, "b5:")), Type: modulev1.DigestType_DIGEST_TYPE_B5}).Build(),
+			Digest:     digest,
 		}
 
-		commits = append(commits, commit)
+		if _, ok := seenCommits[commit.Id]; !ok {
+			commits = append(commits, commit)
+			seenCommits[commit.Id] = commit
+			seenCommitsGitRef[commit.Id] = gitRef
+		}
 	}
 
 	return connect.NewResponse(&modulev1.GetCommitsResponse{
@@ -152,19 +159,12 @@ func (c *gitCommitServiceClient) GetCommits(
 	}), nil
 }
 
-// ListCommits implements the CommitServiceClient.ListCommits method
-func (c *gitCommitServiceClient) ListCommits(
-	ctx context.Context,
-	req *connect.Request[modulev1.ListCommitsRequest],
-) (*connect.Response[modulev1.ListCommitsResponse], error) {
-	// This implementation could list all commits in the repository
-	// For simplicity, we'll return an unimplemented error for now
-	return nil, connect.NewError(connect.CodeUnimplemented, fmt.Errorf("ListCommits not implemented for git repositories"))
-}
-
 type gitCommitInfo struct {
-	hash string
-	time time.Time
+	hash        string
+	time        time.Time
+	message     string
+	authorName  string
+	authorEmail string
 }
 
 // ensureRepo ensures the git repository is cloned and up to date for a specific reference
@@ -208,7 +208,7 @@ func (c *gitCommitServiceClient) ensureRepoInDir(ctx context.Context, baseDir st
 	freshClone := false
 	if _, err := os.Stat(repoDir); os.IsNotExist(err) {
 		// Clone the repository
-		cmd := exec.CommandContext(ctx, "git", "clone", "https://"+c.gitURL+"/"+owner+"/"+module, repoDir)
+		cmd := exec.CommandContext(ctx, "git", "clone", "https://"+c.gitURL+"/"+owner+"/"+filepath.SplitList(module)[0], repoDir)
 		cmd.Env = os.Environ()
 		if out, err := cmd.CombinedOutput(); err != nil {
 			return "", fmt.Errorf("failed to clone repository: %w\n%s", err, out)
@@ -303,21 +303,140 @@ func (c *gitCommitServiceClient) getGitCommit(ctx context.Context, repoDir, gitR
 		return nil, fmt.Errorf("failed to get commit time: %w", err)
 	}
 
+	// Get the commit message
+	messageCmd := exec.CommandContext(ctx, "git", "-C", repoDir, "show", "-s", "--format=%B", hash)
+	messageCmd.Env = os.Environ()
+	messageOutput, err := messageCmd.Output()
+	if err != nil {
+		return nil, fmt.Errorf("failed to get commit message: %w", err)
+	}
+
+	// Get the commit author name
+	authorNameCmd := exec.CommandContext(ctx, "git", "-C", repoDir, "show", "-s", "--format=%an", hash)
+	authorNameCmd.Env = os.Environ()
+	authorNameOutput, err := authorNameCmd.Output()
+	if err != nil {
+		return nil, fmt.Errorf("failed to get commit author name: %w", err)
+	}
+
+	// Get the commit author email
+	authorEmailCmd := exec.CommandContext(ctx, "git", "-C", repoDir, "show", "-s", "--format=%ae", hash)
+	authorEmailCmd.Env = os.Environ()
+	authorEmailOutput, err := authorEmailCmd.Output()
+	if err != nil {
+		return nil, fmt.Errorf("failed to get commit author email: %w", err)
+	}
+
 	// Parse the timestamp (Unix timestamp)
 	timestamp := strings.TrimSpace(string(timeOutput))
 	unixSeconds, err := strconv.ParseInt(timestamp, 10, 64)
 	if err != nil {
 		// If we can't parse the timestamp, use current time
 		return &gitCommitInfo{
-			hash: hash,
-			time: time.Now(),
+			hash:        hash,
+			time:        time.Now(),
+			message:     string(messageOutput),
+			authorName:  string(authorNameOutput),
+			authorEmail: string(authorEmailOutput),
 		}, nil
 	}
 
 	return &gitCommitInfo{
-		hash: hash,
-		time: time.Unix(unixSeconds, 0),
+		hash:        hash,
+		time:        time.Unix(unixSeconds, 0),
+		message:     string(messageOutput),
+		authorName:  string(authorNameOutput),
+		authorEmail: string(authorEmailOutput),
 	}, nil
+}
+
+// func createDigestFromGitHash(gitHash string) (*modulev1.Digest, error) {
+// 	// hash := sha256.Sum256([]byte(gitHash))
+// 	// return &modulev1.Digest{
+// 	// 	Value: []byte(fmt.Sprintf("b5:%x", hash)),
+// 	// 	Type:  modulev1.DigestType_DIGEST_TYPE_B5,
+// 	// }, nil
+// }
+
+func fileReader(ctx context.Context, repoDir string, internalRepoDir string) (storage.ReadBucket, error) {
+	storageProvider := storageos.NewProvider(storageos.ProviderWithSymlinks())
+
+	split := strings.Split(internalRepoDir, "/")
+	firstDir := ""
+	if len(split) > 1 {
+		firstDir = strings.Join(split[1:], "/")
+	}
+
+	bucket, err := storageProvider.NewReadWriteBucket(filepath.Join(repoDir, firstDir))
+	if err != nil {
+		return nil, fmt.Errorf("failed to create storage bucket: %w", err)
+	}
+
+	fmt.Printf("firstDir: '%s' split: %v\n", firstDir, split)
+
+	rbucket := storage.FilterReadBucket(bucket, storage.MatchAnd(storage.MatchOr(storage.MatchPathExt(".proto"), storage.MatchPathEqual(""))))
+
+	return rbucket, nil
+}
+
+func (c *gitCommitServiceClient) createDigestFromGitHash(ctx context.Context, repoDir string, internalRepoDir string) (*modulev1.Digest, error) {
+	// digest, err := c.calculateDigest(ctx, repoDir, gitHash)
+	// if err != nil {
+	// 	return nil, fmt.Errorf("failed to calculate digest: %w", err)
+	// }
+	// return &modulev1.Digest{
+	// 	Value: []byte(strings.TrimPrefix(digest, "b5:")),
+	// 	Type:  modulev1.DigestType_DIGEST_TYPE_B5,
+	// }, nil
+
+	rbucket, err := fileReader(ctx, repoDir, internalRepoDir)
+	if err != nil {
+		return nil, fmt.Errorf("failed to get files digest: %w", err)
+	}
+	filesDigest, err := bufmodule.GetB5DigestForBucketAndDepDigests(ctx, rbucket, []bufmodule.Digest{})
+	if err != nil {
+		return nil, fmt.Errorf("failed to get files digest: %w", err)
+	}
+
+	// digest, err := bufmodule.NewDigest(bufmodule.DigestTypeB5, filesDigest)
+	// if err != nil {
+	// 	return nil, fmt.Errorf("failed to create digest: %w", err)
+	// }
+
+	return &modulev1.Digest{
+		Value: filesDigest.Value(),
+		Type:  modulev1.DigestType_DIGEST_TYPE_B5,
+	}, nil
+}
+
+func (c *gitCommitServiceClient) getFiles(ctx context.Context, localRepoDir, internalRepoDir string) ([]*modulev1.File, error) {
+	files := []*modulev1.File{}
+
+	rbucket, err := fileReader(ctx, localRepoDir, internalRepoDir)
+	if err != nil {
+		return nil, fmt.Errorf("failed to get files digest: %w", err)
+	}
+
+	walkFunc := func(objectInfo storage.ObjectInfo) error {
+		if strings.HasSuffix(objectInfo.Path(), ".proto") {
+			content, err := os.ReadFile(objectInfo.LocalPath())
+			if err != nil {
+				return fmt.Errorf("failed to read file: %w", err)
+			}
+			files = append(files, &modulev1.File{
+				Path:    objectInfo.Path(),
+				Content: content,
+			})
+		}
+		return nil
+	}
+
+	err = rbucket.Walk(ctx, "", walkFunc)
+	if err != nil {
+		return nil, fmt.Errorf("failed to walk repository: %w", err)
+	}
+
+	return files, nil
 }
 
 // calculateDigest calculates a digest for the files at a specific commit
@@ -422,4 +541,94 @@ func cleanupGitCache(ctx context.Context) error {
 
 		return nil
 	})
+}
+
+// NewGitCommitServiceClient creates a new CommitServiceClient that works with git repositories
+func NewGitCommitServiceClient(gitURL string, workingDir string) modulev1connect.CommitServiceClient {
+	// Strip the git+ prefix if it's present
+	// normalizedGitURL := strings.TrimPrefix(gitURL, GitURLPrefix)
+
+	// Check if we need to clean up the cache (don't block on this)
+	go func() {
+		// Use a background context with timeout
+		ctx, cancel := context.WithTimeout(context.Background(), 2*time.Minute)
+		defer cancel()
+
+		// Try to clean up the cache, but don't fail if we can't
+		_ = cleanupGitCache(ctx)
+	}()
+
+	return &gitCommitServiceClient{
+		gitURL:     gitURL,
+		workingDir: workingDir,
+	}
+}
+
+// NewGitDownloadServiceClient creates a DownloadServiceClient that works with git repositories
+func NewGitDownloadServiceClient(gitURL string, workingDir string) modulev1connect.DownloadServiceClient {
+	return NewGitCommitServiceClient(gitURL, workingDir).(modulev1connect.DownloadServiceClient)
+}
+
+// NewGitGraphServiceClient creates a GraphServiceClient that works with git repositories
+func NewGitGraphServiceClient(gitURL string, workingDir string) modulev1connect.GraphServiceClient {
+	return NewGitCommitServiceClient(gitURL, workingDir).(modulev1connect.GraphServiceClient)
+}
+
+// NewGitLabelServiceClient creates a LabelServiceClient that works with git repositories
+func NewGitLabelServiceClient(gitURL string, workingDir string) modulev1connect.LabelServiceClient {
+	return NewGitCommitServiceClient(gitURL, workingDir).(modulev1connect.LabelServiceClient)
+}
+
+// NewGitModuleServiceClient creates a ModuleServiceClient that works with git repositories
+func NewGitModuleServiceClient(gitURL string, workingDir string) modulev1connect.ModuleServiceClient {
+	return NewGitCommitServiceClient(gitURL, workingDir).(modulev1connect.ModuleServiceClient)
+}
+
+// NewGitResourceServiceClient creates a ResourceServiceClient that works with git repositories
+func NewGitResourceServiceClient(gitURL string, workingDir string) modulev1connect.ResourceServiceClient {
+	return NewGitCommitServiceClient(gitURL, workingDir).(modulev1connect.ResourceServiceClient)
+}
+
+// NewGitUploadServiceClient creates an UploadServiceClient that works with git repositories
+func NewGitUploadServiceClient(gitURL string, workingDir string) modulev1connect.UploadServiceClient {
+	return NewGitCommitServiceClient(gitURL, workingDir).(modulev1connect.UploadServiceClient)
+}
+
+// NewGitV1Beta1CommitServiceClient creates a v1beta1 CommitServiceClient that works with git repositories
+func NewGitV1Beta1CommitServiceClient(gitURL string, workingDir string) modulev1beta1connect.CommitServiceClient {
+	// Note: This would fail at runtime since we're not implementing the beta1 interfaces yet
+	// In a real implementation, we would need to create a wrapper client or implement these interfaces
+
+	// Return an unimplemented handler instead to avoid runtime panics
+	return modulev1beta1connect.UnimplementedCommitServiceHandler{}
+}
+
+// NewGitV1Beta1DownloadServiceClient creates a v1beta1 DownloadServiceClient that works with git repositories
+func NewGitV1Beta1DownloadServiceClient(gitURL string, workingDir string) modulev1beta1connect.DownloadServiceClient {
+	// Return an unimplemented handler
+	return modulev1beta1connect.UnimplementedDownloadServiceHandler{}
+}
+
+// NewGitV1Beta1GraphServiceClient creates a v1beta1 GraphServiceClient that works with git repositories
+func NewGitV1Beta1GraphServiceClient(gitURL string, workingDir string) modulev1beta1connect.GraphServiceClient {
+	// Return an unimplemented handler
+	return modulev1beta1connect.UnimplementedGraphServiceHandler{}
+}
+
+// NewGitV1Beta1LabelServiceClient creates a v1beta1 LabelServiceClient that works with git repositories
+func NewGitV1Beta1LabelServiceClient(gitURL string, workingDir string) modulev1beta1connect.LabelServiceClient {
+	// Return an unimplemented handler
+	return modulev1beta1connect.UnimplementedLabelServiceHandler{}
+}
+
+// NewGitV1Beta1ModuleServiceClient creates a v1beta1 ModuleServiceClient that works with git repositories
+func NewGitV1Beta1ModuleServiceClient(gitURL string, workingDir string) modulev1beta1connect.ModuleServiceClient {
+	// Return an unimplemented handler
+	return modulev1beta1connect.UnimplementedModuleServiceHandler{}
+}
+
+// NewGitV1Beta1UploadServiceClient creates a v1beta1 UploadServiceClient that works with git repositories
+func NewGitV1Beta1UploadServiceClient(gitURL string, workingDir string) modulev1beta1connect.UploadServiceClient {
+	// Return an unimplemented handler
+	return modulev1beta1connect.UnimplementedUploadServiceHandler{}
 }
