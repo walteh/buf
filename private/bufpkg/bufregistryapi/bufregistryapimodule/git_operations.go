@@ -120,7 +120,7 @@ func (c *gitCommitServiceClient) ensureRepoInDir(ctx context.Context, baseDir st
 	freshClone := false
 	if _, err := os.Stat(repoDir); os.IsNotExist(err) {
 		// Clone the repository
-		cmd := exec.CommandContext(ctx, "git", "clone", "https://"+c.gitURL+"/"+owner+"/"+filepath.SplitList(module)[0], repoDir)
+		cmd := exec.CommandContext(ctx, "git", "clone", "https://"+c.gitURL+"/"+owner+"/"+strings.Split(module, "/")[0], "--depth", "1", repoDir)
 		cmd.Env = os.Environ()
 		if out, err := cmd.CombinedOutput(); err != nil {
 			return "", fmt.Errorf("failed to clone repository: %w\n%s", err, out)
@@ -145,6 +145,8 @@ func (c *gitCommitServiceClient) ensureRepoInDir(ctx context.Context, baseDir st
 			fetchCmd.Env = os.Environ()
 			if out, err := fetchCmd.CombinedOutput(); err == nil {
 				// Try checkout again after fetch
+				checkoutCmd := exec.CommandContext(ctx, "git", "-C", repoDir, "checkout", gitRef)
+				checkoutCmd.Env = os.Environ()
 				if out, err := checkoutCmd.CombinedOutput(); err != nil {
 					return "", fmt.Errorf("failed to checkout reference %s after fetch: %w\n%s", gitRef, err, out)
 				}
