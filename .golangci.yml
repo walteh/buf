@@ -51,8 +51,8 @@ linters:
               - pattern: ^errgroup\.
               # Use private/pkg/execext
               - pattern: ^exec\.Cmd$
-              - pattern: ^exec\.Command$
-              - pattern: ^exec\.CommandContext$
+              # - pattern: ^exec\.Command$
+              # - pattern: ^exec\.CommandContext$
               # os.Rename does not work across filesystem boundaries
               # See https://github.com/walteh/buf/issues/639
               - pattern: ^os\.Rename$

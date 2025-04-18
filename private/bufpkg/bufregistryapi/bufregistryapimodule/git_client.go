@@ -73,7 +73,6 @@ func (c *gitCommitServiceClient) GetCommits(
 	ctx context.Context,
 	req *connect.Request[modulev1.GetCommitsRequest],
 ) (*connect.Response[modulev1.GetCommitsResponse], error) {
-
 	commits := make([]*modulev1.Commit, 0, len(req.Msg.ResourceRefs))
 
 	for _, resourceRef := range req.Msg.ResourceRefs {
@@ -147,18 +146,14 @@ func (c *gitCommitServiceClient) GetCommits(
 // GetGraph implements modulev1connect.GraphServiceClient for git repositories.
 // It builds a simple graph of the module and its dependencies based on proto imports.
 func (c *gitCommitServiceClient) GetGraph(ctx context.Context, req *connect.Request[modulev1.GetGraphRequest]) (*connect.Response[modulev1.GetGraphResponse], error) {
-
 	// Process module references to extract the needed information
 	if len(req.Msg.ResourceRefs) == 0 {
 		return nil, connect.NewError(connect.CodeInvalidArgument, fmt.Errorf("at least one module reference is required"))
 	}
 
-	fmt.Println("req.Msg.ResourceRefs", req.Msg.ResourceRefs)
-
 	commits := []*modulev1.Commit{}
 
 	for _, resourceRef := range req.Msg.ResourceRefs {
-
 		s, ok := seenCommits[resourceRef.GetId()]
 		if !ok {
 			s = &modulev1.Commit{
@@ -181,8 +176,6 @@ func (c *gitCommitServiceClient) GetGraph(ctx context.Context, req *connect.Requ
 
 // GetModules implements modulev1connect.ModuleServiceClient
 func (c *gitCommitServiceClient) GetModules(ctx context.Context, req *connect.Request[modulev1.GetModulesRequest]) (*connect.Response[modulev1.GetModulesResponse], error) {
-
-	fmt.Println("GetModules", req.Msg.GetModuleRefs())
 	modules := []*modulev1.Module{}
 	for _, moduleRef := range req.Msg.GetModuleRefs() {
 		modules = append(modules, &modulev1.Module{
@@ -199,7 +192,6 @@ func (c *gitCommitServiceClient) GetModules(ctx context.Context, req *connect.Re
 
 // Download implements modulev1connect.DownloadServiceClient
 func (c *gitCommitServiceClient) Download(ctx context.Context, req *connect.Request[modulev1.DownloadRequest]) (*connect.Response[modulev1.DownloadResponse], error) {
-
 	contents := []*modulev1.DownloadResponse_Content{}
 	for _, value := range req.Msg.GetValues() {
 		commit, ok := seenCommits[value.ResourceRef.GetId()]

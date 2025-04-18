@@ -24,7 +24,6 @@ import (
 	"path/filepath"
 	"strconv"
 	"strings"
-	"sync"
 	"time"
 
 	"buf.build/gen/go/bufbuild/registry/connectrpc/go/buf/registry/module/v1/modulev1connect"
@@ -39,18 +38,6 @@ const GitURLPrefix = "github.com"
 
 // gitCacheDirName is the name of the directory where git repositories are cached
 const gitCacheDirName = "buf-git-cache"
-
-// maxCacheAge is the maximum age of a cache entry in days
-const maxCacheAge = 30
-
-// lastCleanupFile is the name of the file that stores the last cleanup time
-const lastCleanupFile = ".last_cleanup"
-
-// cleanupInterval is the minimum interval between cache cleanup operations
-const cleanupInterval = 24 * time.Hour
-
-// cacheMutex protects concurrent access to the cache directory
-var cacheMutex sync.Mutex
 
 var (
 	_ modulev1connect.CommitServiceClient   = &gitCommitServiceClient{}
@@ -116,11 +103,13 @@ func (c *gitCommitServiceClient) ensureRepoInDir(ctx context.Context, baseDir st
 		repoDir = filepath.Join(baseDir, "repo")
 	}
 
+	urld := "https://" + c.gitURL + "/" + owner + "/" + strings.Split(module, "/")[0]
+
 	// Check if the repo directory exists
 	freshClone := false
 	if _, err := os.Stat(repoDir); os.IsNotExist(err) {
 		// Clone the repository
-		cmd := exec.CommandContext(ctx, "git", "clone", "https://"+c.gitURL+"/"+owner+"/"+strings.Split(module, "/")[0], "--depth", "1", repoDir)
+		cmd := exec.CommandContext(ctx, "git", "clone", urld, "--depth", "1", repoDir)
 		cmd.Env = os.Environ()
 		if out, err := cmd.CombinedOutput(); err != nil {
 			return "", fmt.Errorf("failed to clone repository: %w\n%s", err, out)
@@ -245,14 +234,7 @@ func (c *gitCommitServiceClient) getGitCommit(ctx context.Context, repoDir, gitR
 	timestamp := strings.TrimSpace(string(timeOutput))
 	unixSeconds, err := strconv.ParseInt(timestamp, 10, 64)
 	if err != nil {
-		// If we can't parse the timestamp, use current time
-		return &gitCommitInfo{
-			hash:        hash,
-			time:        time.Now(),
-			message:     string(messageOutput),
-			authorName:  string(authorNameOutput),
-			authorEmail: string(authorEmailOutput),
-		}, nil
+		return nil, fmt.Errorf("failed to parse timestamp: %w", err)
 	}
 
 	return &gitCommitInfo{
@@ -284,7 +266,6 @@ func fileReader(ctx context.Context, repoDir string, internalRepoDir string) (st
 }
 
 func (c *gitCommitServiceClient) createDigestFromGitHash(ctx context.Context, repoDir string, internalRepoDir string) (*modulev1.Digest, error) {
-
 	rbucket, err := fileReader(ctx, repoDir, internalRepoDir)
 	if err != nil {
 		return nil, fmt.Errorf("failed to get files digest: %w", err)

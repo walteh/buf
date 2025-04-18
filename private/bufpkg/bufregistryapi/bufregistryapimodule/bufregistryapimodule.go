@@ -263,7 +263,6 @@ func (c *clientProvider) V1UploadServiceClient(registry string) modulev1connect.
 }
 
 func (c *clientProvider) V1Beta1CommitServiceClient(registry string) modulev1beta1connect.CommitServiceClient {
-
 	return connectclient.Make(
 		c.clientConfig,
 		registry,
@@ -272,7 +271,6 @@ func (c *clientProvider) V1Beta1CommitServiceClient(registry string) modulev1bet
 }
 
 func (c *clientProvider) V1Beta1DownloadServiceClient(registry string) modulev1beta1connect.DownloadServiceClient {
-
 	return connectclient.Make(
 		c.clientConfig,
 		registry,
@@ -281,7 +279,6 @@ func (c *clientProvider) V1Beta1DownloadServiceClient(registry string) modulev1b
 }
 
 func (c *clientProvider) V1Beta1GraphServiceClient(registry string) modulev1beta1connect.GraphServiceClient {
-
 	return connectclient.Make(
 		c.clientConfig,
 		registry,
@@ -290,7 +287,6 @@ func (c *clientProvider) V1Beta1GraphServiceClient(registry string) modulev1beta
 }
 
 func (c *clientProvider) V1Beta1LabelServiceClient(registry string) modulev1beta1connect.LabelServiceClient {
-
 	return connectclient.Make(
 		c.clientConfig,
 		registry,
@@ -299,7 +295,6 @@ func (c *clientProvider) V1Beta1LabelServiceClient(registry string) modulev1beta
 }
 
 func (c *clientProvider) V1Beta1ModuleServiceClient(registry string) modulev1beta1connect.ModuleServiceClient {
-
 	return connectclient.Make(
 		c.clientConfig,
 		registry,
@@ -308,7 +303,6 @@ func (c *clientProvider) V1Beta1ModuleServiceClient(registry string) modulev1bet
 }
 
 func (c *clientProvider) V1Beta1UploadServiceClient(registry string) modulev1beta1connect.UploadServiceClient {
-
 	return connectclient.Make(
 		c.clientConfig,
 		registry,
