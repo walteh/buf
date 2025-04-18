@@ -373,7 +373,6 @@ func GetFilesDigestForB5Digest(
 	bucketWithStorageMatcherApplied storage.ReadBucket,
 ) (bufcas.Digest, error) {
 	var fileNodes []bufcas.FileNode
-	var wrk int = 0
 	// read all files and
 	if err := storage.WalkReadObjects(
 		ctx,
@@ -382,11 +381,6 @@ func GetFilesDigestForB5Digest(
 		storage.FilterReadBucket(bucketWithStorageMatcherApplied, getStorageMatcher(ctx, bucketWithStorageMatcherApplied)),
 		"",
 		func(readObject storage.ReadObject) error {
-
-			if !strings.Contains(readObject.Path(), "google") {
-				fmt.Println("readObject", readObject.Path())
-			}
-			wrk++
 			digest, err := bufcas.NewDigestForContent(readObject)
 			if err != nil {
 				return err

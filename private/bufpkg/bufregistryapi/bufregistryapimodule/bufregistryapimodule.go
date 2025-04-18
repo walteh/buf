@@ -15,7 +15,6 @@
 package bufregistryapimodule
 
 import (
-	"os"
 	"strings"
 
 	"buf.build/gen/go/bufbuild/registry/connectrpc/go/buf/registry/module/v1/modulev1connect"
@@ -154,19 +153,10 @@ func newClientProvider(clientConfig *connectclient.Config) *clientProvider {
 func (c *clientProvider) V1CommitServiceClient(registry string) modulev1connect.CommitServiceClient {
 	// Check if this is a git repository URL
 	if strings.HasPrefix(registry, GitURLPrefix) {
-		// Create a temporary directory for the git repository
-		tempDir, err := os.MkdirTemp("", "buf-git-repo-*")
-		if err != nil {
-			// If we can't create a temp directory, log an error and fall back to the standard client
-			// which will handle the error appropriately
-			return connectclient.Make(
-				c.clientConfig,
-				registry,
-				modulev1connect.NewCommitServiceClient,
-			)
+		gitc, err := GetGitServiceClient(registry)
+		if err == nil {
+			return gitc
 		}
-
-		return NewGitCommitServiceClient(registry, tempDir)
 	}
 
 	return connectclient.Make(
@@ -179,20 +169,10 @@ func (c *clientProvider) V1CommitServiceClient(registry string) modulev1connect.
 func (c *clientProvider) V1DownloadServiceClient(registry string) modulev1connect.DownloadServiceClient {
 	// Check if this is a git repository URL
 	if strings.HasPrefix(registry, GitURLPrefix) {
-		// Create a temporary directory for the git repository
-		tempDir, err := os.MkdirTemp("", "buf-git-repo-*")
-		if err != nil {
-			// If we can't create a temp directory, log an error and fall back to the standard client
-			// which will handle the error appropriately
-			return connectclient.Make(
-				c.clientConfig,
-				registry,
-				modulev1connect.NewDownloadServiceClient,
-			)
+		gitc, err := GetGitServiceClient(registry)
+		if err == nil {
+			return gitc
 		}
-
-		// Return the specialized git client for this service
-		return NewGitDownloadServiceClient(registry, tempDir)
 	}
 
 	return connectclient.Make(
@@ -205,20 +185,10 @@ func (c *clientProvider) V1DownloadServiceClient(registry string) modulev1connec
 func (c *clientProvider) V1GraphServiceClient(registry string) modulev1connect.GraphServiceClient {
 	// Check if this is a git repository URL
 	if strings.HasPrefix(registry, GitURLPrefix) {
-		// Create a temporary directory for the git repository
-		tempDir, err := os.MkdirTemp("", "buf-git-repo-*")
-		if err != nil {
-			// If we can't create a temp directory, log an error and fall back to the standard client
-			// which will handle the error appropriately
-			return connectclient.Make(
-				c.clientConfig,
-				registry,
-				modulev1connect.NewGraphServiceClient,
-			)
+		gitc, err := GetGitServiceClient(registry)
+		if err == nil {
+			return gitc
 		}
-
-		// Return the specialized git client for this service
-		return NewGitGraphServiceClient(registry, tempDir)
 	}
 
 	return connectclient.Make(
@@ -231,20 +201,10 @@ func (c *clientProvider) V1GraphServiceClient(registry string) modulev1connect.G
 func (c *clientProvider) V1LabelServiceClient(registry string) modulev1connect.LabelServiceClient {
 	// Check if this is a git repository URL
 	if strings.HasPrefix(registry, GitURLPrefix) {
-		// Create a temporary directory for the git repository
-		tempDir, err := os.MkdirTemp("", "buf-git-repo-*")
-		if err != nil {
-			// If we can't create a temp directory, log an error and fall back to the standard client
-			// which will handle the error appropriately
-			return connectclient.Make(
-				c.clientConfig,
-				registry,
-				modulev1connect.NewLabelServiceClient,
-			)
+		gitc, err := GetGitServiceClient(registry)
+		if err == nil {
+			return gitc
 		}
-
-		// Return the specialized git client for this service
-		return NewGitLabelServiceClient(registry, tempDir)
 	}
 
 	return connectclient.Make(
@@ -257,20 +217,10 @@ func (c *clientProvider) V1LabelServiceClient(registry string) modulev1connect.L
 func (c *clientProvider) V1ModuleServiceClient(registry string) modulev1connect.ModuleServiceClient {
 	// Check if this is a git repository URL
 	if strings.HasPrefix(registry, GitURLPrefix) {
-		// Create a temporary directory for the git repository
-		tempDir, err := os.MkdirTemp("", "buf-git-repo-*")
-		if err != nil {
-			// If we can't create a temp directory, log an error and fall back to the standard client
-			// which will handle the error appropriately
-			return connectclient.Make(
-				c.clientConfig,
-				registry,
-				modulev1connect.NewModuleServiceClient,
-			)
+		gitc, err := GetGitServiceClient(registry)
+		if err == nil {
+			return gitc
 		}
-
-		// Return the specialized git client for this service
-		return NewGitModuleServiceClient(registry, tempDir)
 	}
 
 	return connectclient.Make(
@@ -283,20 +233,10 @@ func (c *clientProvider) V1ModuleServiceClient(registry string) modulev1connect.
 func (c *clientProvider) V1ResourceServiceClient(registry string) modulev1connect.ResourceServiceClient {
 	// Check if this is a git repository URL
 	if strings.HasPrefix(registry, GitURLPrefix) {
-		// Create a temporary directory for the git repository
-		tempDir, err := os.MkdirTemp("", "buf-git-repo-*")
-		if err != nil {
-			// If we can't create a temp directory, log an error and fall back to the standard client
-			// which will handle the error appropriately
-			return connectclient.Make(
-				c.clientConfig,
-				registry,
-				modulev1connect.NewResourceServiceClient,
-			)
+		gitc, err := GetGitServiceClient(registry)
+		if err == nil {
+			return gitc
 		}
-
-		// Return the specialized git client for this service
-		return NewGitResourceServiceClient(registry, tempDir)
 	}
 
 	return connectclient.Make(
@@ -309,20 +249,10 @@ func (c *clientProvider) V1ResourceServiceClient(registry string) modulev1connec
 func (c *clientProvider) V1UploadServiceClient(registry string) modulev1connect.UploadServiceClient {
 	// Check if this is a git repository URL
 	if strings.HasPrefix(registry, GitURLPrefix) {
-		// Create a temporary directory for the git repository
-		tempDir, err := os.MkdirTemp("", "buf-git-repo-*")
-		if err != nil {
-			// If we can't create a temp directory, log an error and fall back to the standard client
-			// which will handle the error appropriately
-			return connectclient.Make(
-				c.clientConfig,
-				registry,
-				modulev1connect.NewUploadServiceClient,
-			)
+		gitc, err := GetGitServiceClient(registry)
+		if err == nil {
+			return gitc
 		}
-
-		// Return the specialized git client for this service
-		return NewGitUploadServiceClient(registry, tempDir)
 	}
 
 	return connectclient.Make(
@@ -333,23 +263,6 @@ func (c *clientProvider) V1UploadServiceClient(registry string) modulev1connect.
 }
 
 func (c *clientProvider) V1Beta1CommitServiceClient(registry string) modulev1beta1connect.CommitServiceClient {
-	// Check if this is a git repository URL
-	if strings.HasPrefix(registry, GitURLPrefix) {
-		// Create a temporary directory for the git repository
-		tempDir, err := os.MkdirTemp("", "buf-git-repo-*")
-		if err != nil {
-			// If we can't create a temp directory, log an error and fall back to the standard client
-			// which will handle the error appropriately
-			return connectclient.Make(
-				c.clientConfig,
-				registry,
-				modulev1beta1connect.NewCommitServiceClient,
-			)
-		}
-
-		// Return the specialized git client for v1beta1
-		return NewGitV1Beta1CommitServiceClient(registry, tempDir)
-	}
 
 	return connectclient.Make(
 		c.clientConfig,
@@ -359,23 +272,6 @@ func (c *clientProvider) V1Beta1CommitServiceClient(registry string) modulev1bet
 }
 
 func (c *clientProvider) V1Beta1DownloadServiceClient(registry string) modulev1beta1connect.DownloadServiceClient {
-	// Check if this is a git repository URL
-	if strings.HasPrefix(registry, GitURLPrefix) {
-		// Create a temporary directory for the git repository
-		tempDir, err := os.MkdirTemp("", "buf-git-repo-*")
-		if err != nil {
-			// If we can't create a temp directory, log an error and fall back to the standard client
-			// which will handle the error appropriately
-			return connectclient.Make(
-				c.clientConfig,
-				registry,
-				modulev1beta1connect.NewDownloadServiceClient,
-			)
-		}
-
-		// Return the specialized git client for v1beta1
-		return NewGitV1Beta1DownloadServiceClient(registry, tempDir)
-	}
 
 	return connectclient.Make(
 		c.clientConfig,
@@ -385,23 +281,6 @@ func (c *clientProvider) V1Beta1DownloadServiceClient(registry string) modulev1b
 }
 
 func (c *clientProvider) V1Beta1GraphServiceClient(registry string) modulev1beta1connect.GraphServiceClient {
-	// Check if this is a git repository URL
-	if strings.HasPrefix(registry, GitURLPrefix) {
-		// Create a temporary directory for the git repository
-		tempDir, err := os.MkdirTemp("", "buf-git-repo-*")
-		if err != nil {
-			// If we can't create a temp directory, log an error and fall back to the standard client
-			// which will handle the error appropriately
-			return connectclient.Make(
-				c.clientConfig,
-				registry,
-				modulev1beta1connect.NewGraphServiceClient,
-			)
-		}
-
-		// Return the specialized git client for v1beta1
-		return NewGitV1Beta1GraphServiceClient(registry, tempDir)
-	}
 
 	return connectclient.Make(
 		c.clientConfig,
@@ -411,23 +290,6 @@ func (c *clientProvider) V1Beta1GraphServiceClient(registry string) modulev1beta
 }
 
 func (c *clientProvider) V1Beta1LabelServiceClient(registry string) modulev1beta1connect.LabelServiceClient {
-	// Check if this is a git repository URL
-	if strings.HasPrefix(registry, GitURLPrefix) {
-		// Create a temporary directory for the git repository
-		tempDir, err := os.MkdirTemp("", "buf-git-repo-*")
-		if err != nil {
-			// If we can't create a temp directory, log an error and fall back to the standard client
-			// which will handle the error appropriately
-			return connectclient.Make(
-				c.clientConfig,
-				registry,
-				modulev1beta1connect.NewLabelServiceClient,
-			)
-		}
-
-		// Return the specialized git client for v1beta1
-		return NewGitV1Beta1LabelServiceClient(registry, tempDir)
-	}
 
 	return connectclient.Make(
 		c.clientConfig,
@@ -437,23 +299,6 @@ func (c *clientProvider) V1Beta1LabelServiceClient(registry string) modulev1beta
 }
 
 func (c *clientProvider) V1Beta1ModuleServiceClient(registry string) modulev1beta1connect.ModuleServiceClient {
-	// Check if this is a git repository URL
-	if strings.HasPrefix(registry, GitURLPrefix) {
-		// Create a temporary directory for the git repository
-		tempDir, err := os.MkdirTemp("", "buf-git-repo-*")
-		if err != nil {
-			// If we can't create a temp directory, log an error and fall back to the standard client
-			// which will handle the error appropriately
-			return connectclient.Make(
-				c.clientConfig,
-				registry,
-				modulev1beta1connect.NewModuleServiceClient,
-			)
-		}
-
-		// Return the specialized git client for v1beta1
-		return NewGitV1Beta1ModuleServiceClient(registry, tempDir)
-	}
 
 	return connectclient.Make(
 		c.clientConfig,
@@ -463,23 +308,6 @@ func (c *clientProvider) V1Beta1ModuleServiceClient(registry string) modulev1bet
 }
 
 func (c *clientProvider) V1Beta1UploadServiceClient(registry string) modulev1beta1connect.UploadServiceClient {
-	// Check if this is a git repository URL
-	if strings.HasPrefix(registry, GitURLPrefix) {
-		// Create a temporary directory for the git repository
-		tempDir, err := os.MkdirTemp("", "buf-git-repo-*")
-		if err != nil {
-			// If we can't create a temp directory, log an error and fall back to the standard client
-			// which will handle the error appropriately
-			return connectclient.Make(
-				c.clientConfig,
-				registry,
-				modulev1beta1connect.NewUploadServiceClient,
-			)
-		}
-
-		// Return the specialized git client for v1beta1
-		return NewGitV1Beta1UploadServiceClient(registry, tempDir)
-	}
 
 	return connectclient.Make(
 		c.clientConfig,

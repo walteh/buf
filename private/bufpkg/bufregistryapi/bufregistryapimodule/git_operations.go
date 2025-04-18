@@ -19,7 +19,6 @@ import (
 	"crypto/sha256"
 	"encoding/hex"
 	"fmt"
-	"io/fs"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -29,13 +28,10 @@ import (
 	"time"
 
 	"buf.build/gen/go/bufbuild/registry/connectrpc/go/buf/registry/module/v1/modulev1connect"
-	"buf.build/gen/go/bufbuild/registry/connectrpc/go/buf/registry/module/v1beta1/modulev1beta1connect"
 	modulev1 "buf.build/gen/go/bufbuild/registry/protocolbuffers/go/buf/registry/module/v1"
-	"connectrpc.com/connect"
 	"github.com/bufbuild/buf/private/bufpkg/bufmodule"
 	"github.com/bufbuild/buf/private/pkg/storage"
 	"github.com/bufbuild/buf/private/pkg/storage/storageos"
-	"google.golang.org/protobuf/types/known/timestamppb"
 )
 
 // GitURLPrefix is the prefix used to identify a git repository URL
@@ -74,88 +70,6 @@ type gitCommitServiceClient struct {
 
 var seenCommits = map[string]*modulev1.Commit{}
 var seenCommitsGitRef = map[string]string{}
-
-// ListCommits implements modulev1connect.CommitServiceClient
-func (c *gitCommitServiceClient) ListCommits(
-	ctx context.Context,
-	req *connect.Request[modulev1.ListCommitsRequest],
-) (*connect.Response[modulev1.ListCommitsResponse], error) {
-	// Not implemented for git repositories
-	return nil, connect.NewError(connect.CodeUnimplemented, fmt.Errorf("ListCommits not implemented for git repositories"))
-}
-
-// GetCommits implements the CommitServiceClient.GetCommits method to fetch commits from a git repository
-func (c *gitCommitServiceClient) GetCommits(
-	ctx context.Context,
-	req *connect.Request[modulev1.GetCommitsRequest],
-) (*connect.Response[modulev1.GetCommitsResponse], error) {
-	commits := make([]*modulev1.Commit, 0, len(req.Msg.ResourceRefs))
-
-	for _, resourceRef := range req.Msg.ResourceRefs {
-		// Extract name from the proper Value field
-		nameValue, ok := resourceRef.Value.(*modulev1.ResourceRef_Name_)
-		if !ok || nameValue == nil || nameValue.Name == nil {
-			return nil, connect.NewError(connect.CodeInvalidArgument, fmt.Errorf("resource ref must have a name value"))
-		}
-		name := nameValue.Name
-
-		owner := name.Owner
-		module := name.Module
-
-		// Extract the git reference (commit hash, branch, or tag)
-		gitRef := ""
-		if name.Child != nil {
-			switch child := name.Child.(type) {
-			case *modulev1.ResourceRef_Name_Ref:
-				gitRef = child.Ref
-			}
-		}
-
-		if gitRef == "" {
-			gitRef = "main" // Default to main branch if no ref specified
-		}
-
-		// Create a temporary directory to clone the repository
-		repoDir, err := c.ensureRepo(ctx, gitRef, owner, module)
-		if err != nil {
-			return nil, connect.NewError(connect.CodeInternal, fmt.Errorf("failed to prepare git repository: %w", err))
-		}
-
-		// Get the commit information
-		gitCommit, err := c.getGitCommit(ctx, repoDir, gitRef)
-		if err != nil {
-			return nil, connect.NewError(connect.CodeNotFound, fmt.Errorf("failed to get git commit: %w", err))
-		}
-
-		// Calculate the digest from the files at this commit
-		digest, err := c.createDigestFromGitHash(ctx, repoDir, module)
-		if err != nil {
-			return nil, connect.NewError(connect.CodeInternal, fmt.Errorf("failed to calculate digest: %w", err))
-		}
-
-		// Convert git commit hash to a UUID-like format by hashing it
-		// commitID := uuid.New(uuid.NameSpaceOID, []byte(gitCommit.hash))
-
-		// Create a modulev1.Commit
-		commit := &modulev1.Commit{
-			Id:         gitCommit.hash[:32],
-			OwnerId:    owner,
-			ModuleId:   module,
-			CreateTime: timestamppb.New(gitCommit.time),
-			Digest:     digest,
-		}
-
-		if _, ok := seenCommits[commit.Id]; !ok {
-			commits = append(commits, commit)
-			seenCommits[commit.Id] = commit
-			seenCommitsGitRef[commit.Id] = gitRef
-		}
-	}
-
-	return connect.NewResponse(&modulev1.GetCommitsResponse{
-		Commits: commits,
-	}), nil
-}
 
 type gitCommitInfo struct {
 	hash        string
@@ -348,14 +262,6 @@ func (c *gitCommitServiceClient) getGitCommit(ctx context.Context, repoDir, gitR
 	}, nil
 }
 
-// func createDigestFromGitHash(gitHash string) (*modulev1.Digest, error) {
-// 	// hash := sha256.Sum256([]byte(gitHash))
-// 	// return &modulev1.Digest{
-// 	// 	Value: []byte(fmt.Sprintf("b5:%x", hash)),
-// 	// 	Type:  modulev1.DigestType_DIGEST_TYPE_B5,
-// 	// }, nil
-// }
-
 func fileReader(ctx context.Context, repoDir string, internalRepoDir string) (storage.ReadBucket, error) {
 	storageProvider := storageos.NewProvider(storageos.ProviderWithSymlinks())
 
@@ -370,36 +276,22 @@ func fileReader(ctx context.Context, repoDir string, internalRepoDir string) (st
 		return nil, fmt.Errorf("failed to create storage bucket: %w", err)
 	}
 
-	fmt.Printf("firstDir: '%s' split: %v\n", firstDir, split)
-
 	rbucket := storage.FilterReadBucket(bucket, storage.MatchAnd(storage.MatchOr(storage.MatchPathExt(".proto"), storage.MatchPathEqual(""))))
 
 	return rbucket, nil
 }
 
 func (c *gitCommitServiceClient) createDigestFromGitHash(ctx context.Context, repoDir string, internalRepoDir string) (*modulev1.Digest, error) {
-	// digest, err := c.calculateDigest(ctx, repoDir, gitHash)
-	// if err != nil {
-	// 	return nil, fmt.Errorf("failed to calculate digest: %w", err)
-	// }
-	// return &modulev1.Digest{
-	// 	Value: []byte(strings.TrimPrefix(digest, "b5:")),
-	// 	Type:  modulev1.DigestType_DIGEST_TYPE_B5,
-	// }, nil
 
 	rbucket, err := fileReader(ctx, repoDir, internalRepoDir)
 	if err != nil {
 		return nil, fmt.Errorf("failed to get files digest: %w", err)
 	}
+
 	filesDigest, err := bufmodule.GetB5DigestForBucketAndDepDigests(ctx, rbucket, []bufmodule.Digest{})
 	if err != nil {
 		return nil, fmt.Errorf("failed to get files digest: %w", err)
 	}
-
-	// digest, err := bufmodule.NewDigest(bufmodule.DigestTypeB5, filesDigest)
-	// if err != nil {
-	// 	return nil, fmt.Errorf("failed to create digest: %w", err)
-	// }
 
 	return &modulev1.Digest{
 		Value: filesDigest.Value(),
@@ -435,198 +327,4 @@ func (c *gitCommitServiceClient) getFiles(ctx context.Context, localRepoDir, int
 	}
 
 	return files, nil
-}
-
-// calculateDigest calculates a digest for the files at a specific commit
-func (c *gitCommitServiceClient) calculateDigest(ctx context.Context, repoDir, gitHash string) (string, error) {
-	// Create a storage provider for the repo directory
-	storageProvider := storageos.NewProvider(storageos.ProviderWithSymlinks())
-	readWriteBucket, err := storageProvider.NewReadWriteBucket(repoDir)
-	if err != nil {
-		return "", fmt.Errorf("failed to create storage bucket: %w", err)
-	}
-
-	// Get all proto files and calculate a digest
-	var paths []string
-	walkFunc := func(objectInfo storage.ObjectInfo) error {
-		if strings.HasSuffix(objectInfo.Path(), ".proto") {
-			paths = append(paths, objectInfo.Path())
-		}
-		return nil
-	}
-
-	err = readWriteBucket.Walk(ctx, "", walkFunc)
-	if err != nil {
-		return "", fmt.Errorf("failed to walk repository: %w", err)
-	}
-
-	// For now, use a simple hash of all proto file paths as the digest
-	// In a real implementation, this should use the same digest algorithm as the rest of the system
-	digestString := strings.Join(paths, ";") + ":" + gitHash
-
-	// Use SHA256 for the digest computation
-	hash := sha256.Sum256([]byte(digestString))
-	return fmt.Sprintf("b5:%x", hash), nil
-}
-
-// cleanupGitCache removes old cache entries that haven't been accessed in a while
-func cleanupGitCache(ctx context.Context) error {
-	cacheMutex.Lock()
-	defer cacheMutex.Unlock()
-
-	// Get the cache directory
-	cacheDir, err := getGitCacheDir()
-	if err != nil {
-		return err
-	}
-
-	// Check when we last ran a cleanup
-	lastCleanupPath := filepath.Join(cacheDir, lastCleanupFile)
-	lastCleanupTime := time.Time{}
-
-	if data, err := os.ReadFile(lastCleanupPath); err == nil {
-		if timestamp, err := strconv.ParseInt(string(data), 10, 64); err == nil {
-			lastCleanupTime = time.Unix(timestamp, 0)
-		}
-	}
-
-	// If we've cleaned up recently, skip it
-	if time.Since(lastCleanupTime) < cleanupInterval {
-		return nil
-	}
-
-	// Update the last cleanup time
-	now := time.Now()
-	if err := os.WriteFile(lastCleanupPath, []byte(strconv.FormatInt(now.Unix(), 10)), 0644); err != nil {
-		return err
-	}
-
-	// Get the cutoff time
-	cutoffTime := now.AddDate(0, 0, -maxCacheAge)
-
-	// Walk the cache directory and remove old entries
-	return filepath.WalkDir(cacheDir, func(path string, d fs.DirEntry, err error) error {
-		if err != nil {
-			return nil // Skip errors
-		}
-
-		// Skip the cache dir itself and the last cleanup file
-		if path == cacheDir || filepath.Base(path) == lastCleanupFile {
-			return nil
-		}
-
-		// Only process directories
-		if !d.IsDir() {
-			return nil
-		}
-
-		// Skip if we encounter an error getting file info
-		info, err := d.Info()
-		if err != nil {
-			return nil
-		}
-
-		// Skip subdirectories (only process top-level dirs)
-		if filepath.Dir(path) != cacheDir {
-			return filepath.SkipDir
-		}
-
-		// Check if the directory is old enough to be removed
-		if info.ModTime().Before(cutoffTime) {
-			// Remove the directory
-			return os.RemoveAll(path)
-		}
-
-		return nil
-	})
-}
-
-// NewGitCommitServiceClient creates a new CommitServiceClient that works with git repositories
-func NewGitCommitServiceClient(gitURL string, workingDir string) modulev1connect.CommitServiceClient {
-	// Strip the git+ prefix if it's present
-	// normalizedGitURL := strings.TrimPrefix(gitURL, GitURLPrefix)
-
-	// Check if we need to clean up the cache (don't block on this)
-	go func() {
-		// Use a background context with timeout
-		ctx, cancel := context.WithTimeout(context.Background(), 2*time.Minute)
-		defer cancel()
-
-		// Try to clean up the cache, but don't fail if we can't
-		_ = cleanupGitCache(ctx)
-	}()
-
-	return &gitCommitServiceClient{
-		gitURL:     gitURL,
-		workingDir: workingDir,
-	}
-}
-
-// NewGitDownloadServiceClient creates a DownloadServiceClient that works with git repositories
-func NewGitDownloadServiceClient(gitURL string, workingDir string) modulev1connect.DownloadServiceClient {
-	return NewGitCommitServiceClient(gitURL, workingDir).(modulev1connect.DownloadServiceClient)
-}
-
-// NewGitGraphServiceClient creates a GraphServiceClient that works with git repositories
-func NewGitGraphServiceClient(gitURL string, workingDir string) modulev1connect.GraphServiceClient {
-	return NewGitCommitServiceClient(gitURL, workingDir).(modulev1connect.GraphServiceClient)
-}
-
-// NewGitLabelServiceClient creates a LabelServiceClient that works with git repositories
-func NewGitLabelServiceClient(gitURL string, workingDir string) modulev1connect.LabelServiceClient {
-	return NewGitCommitServiceClient(gitURL, workingDir).(modulev1connect.LabelServiceClient)
-}
-
-// NewGitModuleServiceClient creates a ModuleServiceClient that works with git repositories
-func NewGitModuleServiceClient(gitURL string, workingDir string) modulev1connect.ModuleServiceClient {
-	return NewGitCommitServiceClient(gitURL, workingDir).(modulev1connect.ModuleServiceClient)
-}
-
-// NewGitResourceServiceClient creates a ResourceServiceClient that works with git repositories
-func NewGitResourceServiceClient(gitURL string, workingDir string) modulev1connect.ResourceServiceClient {
-	return NewGitCommitServiceClient(gitURL, workingDir).(modulev1connect.ResourceServiceClient)
-}
-
-// NewGitUploadServiceClient creates an UploadServiceClient that works with git repositories
-func NewGitUploadServiceClient(gitURL string, workingDir string) modulev1connect.UploadServiceClient {
-	return NewGitCommitServiceClient(gitURL, workingDir).(modulev1connect.UploadServiceClient)
-}
-
-// NewGitV1Beta1CommitServiceClient creates a v1beta1 CommitServiceClient that works with git repositories
-func NewGitV1Beta1CommitServiceClient(gitURL string, workingDir string) modulev1beta1connect.CommitServiceClient {
-	// Note: This would fail at runtime since we're not implementing the beta1 interfaces yet
-	// In a real implementation, we would need to create a wrapper client or implement these interfaces
-
-	// Return an unimplemented handler instead to avoid runtime panics
-	return modulev1beta1connect.UnimplementedCommitServiceHandler{}
-}
-
-// NewGitV1Beta1DownloadServiceClient creates a v1beta1 DownloadServiceClient that works with git repositories
-func NewGitV1Beta1DownloadServiceClient(gitURL string, workingDir string) modulev1beta1connect.DownloadServiceClient {
-	// Return an unimplemented handler
-	return modulev1beta1connect.UnimplementedDownloadServiceHandler{}
-}
-
-// NewGitV1Beta1GraphServiceClient creates a v1beta1 GraphServiceClient that works with git repositories
-func NewGitV1Beta1GraphServiceClient(gitURL string, workingDir string) modulev1beta1connect.GraphServiceClient {
-	// Return an unimplemented handler
-	return modulev1beta1connect.UnimplementedGraphServiceHandler{}
-}
-
-// NewGitV1Beta1LabelServiceClient creates a v1beta1 LabelServiceClient that works with git repositories
-func NewGitV1Beta1LabelServiceClient(gitURL string, workingDir string) modulev1beta1connect.LabelServiceClient {
-	// Return an unimplemented handler
-	return modulev1beta1connect.UnimplementedLabelServiceHandler{}
-}
-
-// NewGitV1Beta1ModuleServiceClient creates a v1beta1 ModuleServiceClient that works with git repositories
-func NewGitV1Beta1ModuleServiceClient(gitURL string, workingDir string) modulev1beta1connect.ModuleServiceClient {
-	// Return an unimplemented handler
-	return modulev1beta1connect.UnimplementedModuleServiceHandler{}
-}
-
-// NewGitV1Beta1UploadServiceClient creates a v1beta1 UploadServiceClient that works with git repositories
-func NewGitV1Beta1UploadServiceClient(gitURL string, workingDir string) modulev1beta1connect.UploadServiceClient {
-	// Return an unimplemented handler
-	return modulev1beta1connect.UnimplementedUploadServiceHandler{}
 }

@@ -62,64 +62,10 @@ func (c *gitCommitServiceClient) UnarchiveLabels(ctx context.Context, req *conne
 	return nil, connect.NewError(connect.CodeUnimplemented, fmt.Errorf("UnarchiveLabels not implemented for git repositories"))
 }
 
-// Download implements modulev1connect.DownloadServiceClient
-func (c *gitCommitServiceClient) Download(ctx context.Context, req *connect.Request[modulev1.DownloadRequest]) (*connect.Response[modulev1.DownloadResponse], error) {
-
-	fmt.Println("Download", req.Msg.GetValues())
-
-	contents := []*modulev1.DownloadResponse_Content{}
-	for _, value := range req.Msg.GetValues() {
-		commit, ok := seenCommits[value.ResourceRef.GetId()]
-		if !ok {
-			return nil, connect.NewError(connect.CodeNotFound, fmt.Errorf("commit not found: %s", value.ResourceRef.GetId()))
-		}
-		content := &modulev1.DownloadResponse_Content{
-			Commit: commit,
-			Files:  []*modulev1.File{},
-		}
-
-		repoDir, err := c.ensureRepo(ctx, seenCommitsGitRef[commit.Id], commit.OwnerId, commit.ModuleId)
-		if err != nil {
-			return nil, connect.NewError(connect.CodeInternal, fmt.Errorf("failed to ensure repo: %w", err))
-		}
-
-		files, err := c.getFiles(ctx, repoDir, commit.ModuleId)
-		if err != nil {
-			return nil, connect.NewError(connect.CodeInternal, fmt.Errorf("failed to get files: %w", err))
-		}
-
-		content.Files = append(content.Files, files...)
-		contents = append(contents, content)
-	}
-
-	resp := connect.NewResponse(&modulev1.DownloadResponse{
-		Contents: contents,
-	})
-	// Not implemented for git repositories
-	return resp, nil
-}
-
 // GetLabels implements modulev1connect.LabelServiceClient
 func (c *gitCommitServiceClient) GetLabels(ctx context.Context, req *connect.Request[modulev1.GetLabelsRequest]) (*connect.Response[modulev1.GetLabelsResponse], error) {
 	// Not implemented for git repositories
 	return nil, connect.NewError(connect.CodeUnimplemented, fmt.Errorf("GetLabels not implemented for git repositories"))
-}
-
-// GetModules implements modulev1connect.ModuleServiceClient
-func (c *gitCommitServiceClient) GetModules(ctx context.Context, req *connect.Request[modulev1.GetModulesRequest]) (*connect.Response[modulev1.GetModulesResponse], error) {
-	fmt.Println("GetModules", req.Msg.GetModuleRefs())
-	modules := []*modulev1.Module{}
-	for _, moduleRef := range req.Msg.GetModuleRefs() {
-		modules = append(modules, &modulev1.Module{
-			Id:    moduleRef.GetId(),
-			State: modulev1.ModuleState_MODULE_STATE_ACTIVE,
-		})
-	}
-	// Not implemented for git repositories
-	// just return a nondeprecated dummy module
-	return connect.NewResponse(&modulev1.GetModulesResponse{
-		Modules: modules,
-	}), nil
 }
 
 // GetResources implements modulev1connect.ResourceServiceClient
